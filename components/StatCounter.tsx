@@ -10,7 +10,7 @@ interface StatCounterProps {
   duration?: number;
 }
 
-function Counter({ end, suffix = "", prefix = "", duration = 2000 }: Omit<StatCounterProps, "label">) {
+export default function StatCounter({ end, suffix = "", prefix = "", label, duration = 2000 }: StatCounterProps) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const startedRef = useRef(false);
@@ -33,25 +33,13 @@ function Counter({ end, suffix = "", prefix = "", duration = 2000 }: Omit<StatCo
       },
       { threshold: 0.5 }
     );
-
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, [end, duration]);
 
   return (
-    <span ref={ref}>
+    <span ref={ref} aria-label={`${prefix}${end}${suffix} ${label}`}>
       {prefix}{count.toLocaleString()}{suffix}
     </span>
-  );
-}
-
-export default function StatCounter({ end, suffix, prefix, label }: StatCounterProps) {
-  return (
-    <div className="text-center">
-      <div className="text-4xl md:text-5xl font-bold font-heading text-gold mb-2">
-        <Counter end={end} suffix={suffix} prefix={prefix} />
-      </div>
-      <p className="text-white/80 text-sm font-medium uppercase tracking-widest">{label}</p>
-    </div>
   );
 }
