@@ -192,10 +192,19 @@ export default function AboutPage() {
       <section className="py-20 bg-navy">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
-            <StatCounter end={1000} suffix="+" label="Products Available" />
-            <StatCounter end={500} suffix="+" label="Business Customers" />
-            <StatCounter end={10} suffix="+" label="Product Categories" />
-            <StatCounter end={15} suffix=" Countries" label="European Reach" />
+            {[
+              { end: 1000, suffix: "+", label: "Products Available" },
+              { end: 500, suffix: "+", label: "Business Customers" },
+              { end: 10, suffix: "+", label: "Product Categories" },
+              { end: 15, suffix: " Countries", label: "European Reach" },
+            ].map((s) => (
+              <div key={s.label} className="text-center">
+                <div className="font-heading text-4xl md:text-5xl font-bold text-gold mb-2">
+                  <StatCounter end={s.end} suffix={s.suffix} label={s.label} />
+                </div>
+                <p className="text-white/70 text-xs uppercase tracking-widest font-medium">{s.label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
