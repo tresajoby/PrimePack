@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import StatCounter from "@/components/StatCounter";
 
 const tickerItems = [
   "Paper Bags", "Stand-Up Pouches", "Packaging Films", "Custom Solutions",
@@ -471,26 +470,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Statistics ── */}
-      <section className="py-20 bg-white border-y border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 lg:divide-x lg:divide-gray-100">
-            {[
-              { end: 1000, suffix: "+", label: "Products Available" },
-              { end: 500, suffix: "+", label: "Business Customers" },
-              { end: 10, suffix: "+", label: "Product Categories" },
-              { end: 15, suffix: "", label: "Countries Served" },
-            ].map((s) => (
-              <div key={s.label} className="text-center lg:px-8">
-                <div className="font-heading text-4xl md:text-5xl font-bold text-navy mb-2">
-                  <StatCounter end={s.end} suffix={s.suffix} label={s.label} />
-                </div>
-                <p className="text-[#6B7280] text-xs uppercase tracking-widest font-medium">{s.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ── Testimonials ── */}
       <section className="py-24 bg-gray-light">
