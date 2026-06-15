@@ -139,29 +139,6 @@ const industries = [
   { icon: "🏪", title: "Wholesale", desc: "Flexible bulk ordering with competitive wholesale pricing." },
 ];
 
-const testimonials = [
-  {
-    quote: "PrimePack has been an incredibly reliable supplier for our food production facility. The quality of their packaging materials is consistently excellent.",
-    author: "Māris Kalniņš",
-    company: "Baltic Food Group",
-    role: "Procurement Director",
-    initial: "M",
-  },
-  {
-    quote: "We switched to PrimePack for our custom pouch requirements and haven't looked back. Competitive pricing, flexible MOQs, and excellent quality.",
-    author: "Laura Bērziņa",
-    company: "Nordic Organics",
-    role: "Operations Manager",
-    initial: "L",
-  },
-  {
-    quote: "As a logistics company, consistent supply is non-negotiable. PrimePack delivers on time, every time. Their industrial packaging is top quality.",
-    author: "Jānis Ozoliņš",
-    company: "EuroLogistics LV",
-    role: "Supply Chain Lead",
-    initial: "J",
-  },
-];
 
 export default function HomePage() {
   return (
@@ -471,50 +448,6 @@ export default function HomePage() {
       </section>
 
 
-      {/* ── Testimonials ── */}
-      <section className="py-24 bg-gray-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="h-px w-8 bg-gold" />
-            <span className="text-gold text-xs font-semibold uppercase tracking-widest">Client Feedback</span>
-          </div>
-          <h2 className="section-title mb-12">What Our Customers Say</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((t) => (
-              <div key={t.author} className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm flex flex-col relative">
-                {/* Large quote mark */}
-                <span className="absolute top-5 right-6 font-heading text-6xl text-gold/15 font-bold leading-none select-none">
-                  &ldquo;
-                </span>
-
-                {/* Stars */}
-                <div className="flex gap-0.5 mb-5">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-3.5 h-3.5 text-gold" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-
-                <blockquote className="text-[#6B7280] text-sm leading-relaxed flex-1 italic">
-                  &ldquo;{t.quote}&rdquo;
-                </blockquote>
-
-                <div className="mt-6 pt-5 border-t border-gray-100 flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-navy flex items-center justify-center flex-shrink-0">
-                    <span className="text-gold font-bold text-sm font-heading">{t.initial}</span>
-                  </div>
-                  <div>
-                    <p className="font-heading font-bold text-navy text-sm">{t.author}</p>
-                    <p className="text-[#6B7280] text-xs">{t.role} · {t.company}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ── CTA Banner ── */}
       <section className="relative py-24 bg-navy overflow-hidden">
