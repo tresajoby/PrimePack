@@ -15,12 +15,6 @@ const productImgs = [
   "https://images.unsplash.com/photo-1605902711834-8b11c3e3ef2f?w=600&q=80",
 ];
 
-const tickerKeys = [
-  "Paper Bags", "Stand-Up Pouches", "Packaging Films", "Custom Solutions",
-  "Food Packaging", "Industrial Packaging", "Protective Packaging", "Plastic Bags",
-  "Paper Bags", "Stand-Up Pouches", "Packaging Films", "Custom Solutions",
-  "Food Packaging", "Industrial Packaging", "Protective Packaging", "Plastic Bags",
-];
 
 const trustIcons = [
   <svg key="q" className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
@@ -82,7 +76,7 @@ export default function HomePage() {
       {/* ── Ticker ── */}
       <div className="bg-navy-dark py-3 overflow-hidden border-b border-white/5">
         <div className="flex animate-ticker whitespace-nowrap">
-          {tickerKeys.map((item, i) => (
+          {[...t.ticker, ...t.ticker].map((item, i) => (
             <span key={i} className="inline-flex items-center gap-4 mx-6 text-xs font-semibold uppercase tracking-widest text-white/40">
               <span className="w-1 h-1 rounded-full bg-gold/60 flex-shrink-0" />{item}
             </span>

@@ -88,6 +88,7 @@ const translations = {
       copyright: "All rights reserved.",
       legalLabels: ["Terms & Conditions", "Privacy Policy", "Cookie Policy", "Returns Policy"],
     },
+    ticker: ["Paper Bags", "Stand-Up Pouches", "Packaging Films", "Custom Solutions", "Food Packaging", "Industrial Packaging", "Protective Packaging", "Plastic Bags"],
     about: {
       heroBadge: "About Us",
       heroH1: "About PrimePack",
@@ -312,6 +313,7 @@ const translations = {
       copyright: "Visas tiesības aizsargātas.",
       legalLabels: ["Noteikumi un nosacījumi", "Privātuma politika", "Sīkdatņu politika", "Atgriešanas politika"],
     },
+    ticker: ["Papīra maisi", "Stāvmaisi", "Iepakojuma plēves", "Individuāli risinājumi", "Pārtikas iepakojums", "Rūpnieciskais iepakojums", "Aizsargājošais iepakojums", "Plastmasas maisi"],
     about: {
       heroBadge: "Par mums",
       heroH1: "Par PrimePack",
@@ -536,6 +538,7 @@ const translations = {
       copyright: "Все права защищены.",
       legalLabels: ["Условия использования", "Политика конфиденциальности", "Политика cookies", "Политика возврата"],
     },
+    ticker: ["Бумажные пакеты", "Стоячие пакеты", "Упаковочные плёнки", "Индивидуальные решения", "Пищевая упаковка", "Промышленная упаковка", "Защитная упаковка", "Полиэтиленовые пакеты"],
     about: {
       heroBadge: "О нас",
       heroH1: "О PrimePack",
