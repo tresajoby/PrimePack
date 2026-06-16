@@ -19,7 +19,6 @@ const translations = {
       subtitle: "High-quality packaging materials, custom products, and flexible supply for businesses across Latvia and Europe.",
       cta1: "Request a Quote", cta2: "View Products",
       features: ["Wide Range", "Custom Packaging", "Fast Response", "Reliable Supply"],
-      statLabel: "Business Clients",
     },
     trust: [
       { title: "Premium Quality", desc: "EU-certified materials" },
@@ -104,7 +103,6 @@ const translations = {
       subtitle: "Augstas kvalitātes iepakojuma materiāli, individuāli produkti un elastīga piegāde uzņēmumiem Latvijā un visā Eiropā.",
       cta1: "Pieprasīt piedāvājumu", cta2: "Skatīt produktus",
       features: ["Plašs klāsts", "Individuāls iepakojums", "Ātra atbilde", "Uzticama piegāde"],
-      statLabel: "Biznesa klienti",
     },
     trust: [
       { title: "Augsta kvalitāte", desc: "ES sertificēti materiāli" },
@@ -189,7 +187,6 @@ const translations = {
       subtitle: "Высококачественные упаковочные материалы, индивидуальные продукты и гибкие поставки для бизнеса по всей Латвии и Европе.",
       cta1: "Запросить предложение", cta2: "Смотреть продукты",
       features: ["Широкий ассортимент", "Индивидуальная упаковка", "Быстрый ответ", "Надёжные поставки"],
-      statLabel: "Бизнес-клиентов",
     },
     trust: [
       { title: "Высокое качество", desc: "Сертифицированные материалы ЕС" },

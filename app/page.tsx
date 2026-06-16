@@ -70,10 +70,7 @@ export default function HomePage() {
               <Image src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&q=80" alt="Industrial packaging facility" fill className="object-cover object-center" priority sizes="(max-width: 1024px) 100vw, 42vw" />
               <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/30 to-transparent" />
               <div className="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent lg:hidden" />
-              <div className="absolute bottom-8 right-6 z-10 bg-navy/80 backdrop-blur-md border border-white/15 rounded-2xl p-4 hidden lg:block">
-                <div className="text-2xl font-bold text-white font-heading">500+</div>
-                <div className="text-xs text-white/60 mt-0.5">{t.hero.statLabel}</div>
-              </div>
+
               <div className="absolute top-10 right-10 w-20 h-20 border border-gold/20 rounded-full hidden lg:block" />
               <div className="absolute top-14 right-14 w-10 h-10 border border-gold/10 rounded-full hidden lg:block" />
             </div>

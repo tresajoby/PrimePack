@@ -191,10 +191,9 @@ export default function AboutPage() {
       {/* Stats */}
       <section className="py-20 bg-navy">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
             {[
               { end: 1000, suffix: "+", label: "Products Available" },
-              { end: 500, suffix: "+", label: "Business Customers" },
               { end: 10, suffix: "+", label: "Product Categories" },
               { end: 15, suffix: " Countries", label: "European Reach" },
             ].map((s) => (
