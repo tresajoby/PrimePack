@@ -1,40 +1,12 @@
-import type { Metadata } from "next";
+"use client";
+
+import { useT } from "@/lib/i18n";
 import ContactForm from "@/components/ContactForm";
 
-export const metadata: Metadata = {
-  title: "Contact Us — PrimePack Packaging Solutions",
-  description:
-    "Get in touch with PrimePack for packaging enquiries, custom solutions, and quotation requests. Based in Riga, Latvia.",
-};
-
-const faqs = [
-  {
-    q: "What is the minimum order quantity?",
-    a: "MOQs vary by product type. We work with businesses of all sizes, including smaller orders. Contact us with your requirements and we will advise accordingly.",
-  },
-  {
-    q: "Do you offer custom packaging with branding?",
-    a: "Yes. We offer custom packaging development including size, material, and print customisation. Samples are available for approval before full production.",
-  },
-  {
-    q: "Which countries do you deliver to?",
-    a: "We deliver across Latvia and the wider European region. Contact us for specific delivery locations and lead times.",
-  },
-  {
-    q: "How long does a quotation take?",
-    a: "We aim to respond to all quotation requests within one business day. Complex custom orders may require additional assessment time.",
-  },
-  {
-    q: "Do you stock products locally?",
-    a: "Yes, we hold stock of standard products in Latvia for faster lead times. Custom products are produced to order.",
-  },
-  {
-    q: "Can you supply food-grade packaging?",
-    a: "Yes. We supply food-contact certified packaging materials that comply with EU food safety regulations.",
-  },
-];
-
 export default function ContactPage() {
+  const { t } = useT();
+  const c = t.contactPage;
+
   return (
     <>
       {/* Hero */}
@@ -43,14 +15,9 @@ export default function ContactPage() {
           <div className="absolute inset-0" style={{ backgroundImage: "radial-gradient(circle, #C9A15A 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-gold text-sm font-semibold uppercase tracking-widest">Get In Touch</span>
-          <h1 className="font-heading text-5xl md:text-6xl font-bold text-white mt-4 mb-6">
-            Contact PrimePack
-          </h1>
-          <p className="text-white/70 text-xl max-w-2xl mx-auto leading-relaxed">
-            Ready to discuss your packaging requirements? Our team is here to help you find
-            the right solutions.
-          </p>
+          <span className="text-gold text-sm font-semibold uppercase tracking-widest">{c.heroBadge}</span>
+          <h1 className="font-heading text-5xl md:text-6xl font-bold text-white mt-4 mb-6">{c.heroH1}</h1>
+          <p className="text-white/70 text-xl max-w-2xl mx-auto leading-relaxed">{c.heroSubtitle}</p>
         </div>
       </section>
 
@@ -61,14 +28,10 @@ export default function ContactPage() {
             {/* Contact Info */}
             <div className="lg:col-span-2 space-y-6">
               <div>
-                <h2 className="font-heading text-2xl font-bold text-navy mb-2">Contact Information</h2>
-                <p className="text-[#6B7280] text-sm leading-relaxed">
-                  Reach out via phone, email, or the contact form. We respond to all enquiries
-                  within one business day.
-                </p>
+                <h2 className="font-heading text-2xl font-bold text-navy mb-2">{c.infoH2}</h2>
+                <p className="text-[#6B7280] text-sm leading-relaxed">{c.infoP}</p>
               </div>
 
-              {/* Cards */}
               <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-gold/10 flex items-center justify-center flex-shrink-0">
@@ -77,10 +40,8 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-heading font-bold text-navy text-sm mb-1">Phone</h3>
-                    <a href="tel:+37129429945" className="text-[#6B7280] hover:text-gold transition-colors text-sm">
-                      +371 29 429 945
-                    </a>
+                    <h3 className="font-heading font-bold text-navy text-sm mb-1">{c.phone}</h3>
+                    <a href="tel:+37129429945" className="text-[#6B7280] hover:text-gold transition-colors text-sm">+371 29 429 945</a>
                   </div>
                 </div>
               </div>
@@ -93,10 +54,8 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-heading font-bold text-navy text-sm mb-1">Email</h3>
-                    <a href="mailto:PrimePack.lv@gmail.com" className="text-[#6B7280] hover:text-gold transition-colors text-sm">
-                      PrimePack.lv@gmail.com
-                    </a>
+                    <h3 className="font-heading font-bold text-navy text-sm mb-1">{c.email}</h3>
+                    <a href="mailto:PrimePack.lv@gmail.com" className="text-[#6B7280] hover:text-gold transition-colors text-sm">PrimePack.lv@gmail.com</a>
                   </div>
                 </div>
               </div>
@@ -110,10 +69,9 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-heading font-bold text-navy text-sm mb-1">Address</h3>
+                    <h3 className="font-heading font-bold text-navy text-sm mb-1">{c.address}</h3>
                     <p className="text-[#6B7280] text-sm leading-relaxed">
-                      Salaspils iela 6 K 4 ap.61<br />
-                      Riga LV-1057, Latvia
+                      Salaspils iela 6 K 4 ap.61<br />Riga LV-1057, Latvia
                     </p>
                   </div>
                 </div>
@@ -127,10 +85,10 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-heading font-bold text-navy text-sm mb-1">Business Hours</h3>
+                    <h3 className="font-heading font-bold text-navy text-sm mb-1">{c.hours}</h3>
                     <p className="text-[#6B7280] text-sm">
-                      Monday – Friday: 09:00 – 18:00<br />
-                      <span className="text-[#6B7280]/60">Saturday – Sunday: Closed</span>
+                      {c.hoursDetail}<br />
+                      <span className="text-[#6B7280]/60">{c.hoursClosed}</span>
                     </p>
                   </div>
                 </div>
@@ -160,7 +118,7 @@ export default function ContactPage() {
               rel="noopener noreferrer"
               className="text-gold text-xs font-semibold mt-2 inline-block hover:underline"
             >
-              Open in Google Maps →
+              {c.mapLink}
             </a>
           </div>
         </div>
@@ -170,12 +128,11 @@ export default function ContactPage() {
       <section className="py-24 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <span className="text-gold text-sm font-semibold uppercase tracking-widest">FAQ</span>
-            <h2 className="section-title mt-3 mx-auto">Frequently Asked Questions</h2>
+            <span className="text-gold text-sm font-semibold uppercase tracking-widest">{c.faqLabel}</span>
+            <h2 className="section-title mt-3 mx-auto">{c.faqH2}</h2>
           </div>
-
           <div className="space-y-4">
-            {faqs.map((faq) => (
+            {c.faqs.map((faq) => (
               <div key={faq.q} className="bg-gray-light rounded-2xl p-7">
                 <h3 className="font-heading font-bold text-navy mb-3">{faq.q}</h3>
                 <p className="text-[#6B7280] text-sm leading-relaxed">{faq.a}</p>
