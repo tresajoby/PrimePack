@@ -86,6 +86,7 @@ const translations = {
       emailPlaceholder: "Your email address", subscribe: "Subscribe",
       quickLinks: "Quick Links", productsTitle: "Products",
       copyright: "All rights reserved.",
+      legalLabels: ["Terms & Conditions", "Privacy Policy", "Cookie Policy", "Returns Policy"],
     },
     about: {
       heroBadge: "About Us",
@@ -309,6 +310,7 @@ const translations = {
       emailPlaceholder: "Jūsu e-pasta adrese", subscribe: "Abonēt",
       quickLinks: "Ātrās saites", productsTitle: "Produkti",
       copyright: "Visas tiesības aizsargātas.",
+      legalLabels: ["Noteikumi un nosacījumi", "Privātuma politika", "Sīkdatņu politika", "Atgriešanas politika"],
     },
     about: {
       heroBadge: "Par mums",
@@ -532,6 +534,7 @@ const translations = {
       emailPlaceholder: "Ваш email", subscribe: "Подписаться",
       quickLinks: "Быстрые ссылки", productsTitle: "Продукты",
       copyright: "Все права защищены.",
+      legalLabels: ["Условия использования", "Политика конфиденциальности", "Политика cookies", "Политика возврата"],
     },
     about: {
       heroBadge: "О нас",

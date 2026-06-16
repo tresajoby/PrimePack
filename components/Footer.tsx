@@ -6,12 +6,7 @@ import { useT } from "@/lib/i18n";
 
 const quickLinkHrefs = ["/", "/products", "/services", "/about", "/contact"];
 
-const legalLinks = [
-  { label: "Terms & Conditions", href: "/terms" },
-  { label: "Privacy Policy", href: "/privacy" },
-  { label: "Cookie Policy", href: "/cookies" },
-  { label: "Returns Policy", href: "/returns" },
-];
+const legalHrefs = ["/terms", "/privacy", "/cookies", "/returns"];
 
 export default function Footer() {
   const { t } = useT();
@@ -99,8 +94,8 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-white/50 text-sm">© {new Date().getFullYear()} PrimePack. {t.footer.copyright}</p>
           <div className="flex flex-wrap gap-4">
-            {legalLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="text-white/50 hover:text-gold text-xs transition-colors">{link.label}</Link>
+            {t.footer.legalLabels.map((label, i) => (
+              <Link key={legalHrefs[i]} href={legalHrefs[i]} className="text-white/50 hover:text-gold text-xs transition-colors">{label}</Link>
             ))}
           </div>
         </div>
