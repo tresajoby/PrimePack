@@ -4,11 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { useT } from "@/lib/i18n";
 
-const productLinks = [
-  "Paper Bags", "Plastic Bags", "Stand-Up Pouches", "Packaging Films",
-  "Food Packaging", "Industrial Packaging", "Custom Packaging", "Protective Packaging",
-];
-
 const quickLinkHrefs = ["/", "/products", "/services", "/about", "/contact"];
 
 const legalLinks = [
@@ -68,9 +63,9 @@ export default function Footer() {
           <div>
             <h4 className="font-heading font-bold text-white mb-5 text-sm uppercase tracking-widest">{t.footer.productsTitle}</h4>
             <ul className="space-y-3">
-              {productLinks.map((product) => (
-                <li key={product}>
-                  <Link href="/products" className="text-white/70 hover:text-gold text-sm transition-colors">{product}</Link>
+              {t.productsPage.categories.map((cat) => (
+                <li key={cat.title}>
+                  <Link href="/products" className="text-white/70 hover:text-gold text-sm transition-colors">{cat.title}</Link>
                 </li>
               ))}
             </ul>
