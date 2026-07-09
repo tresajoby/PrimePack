@@ -41,7 +41,6 @@ export default function RecyclableBagsPage() {
         variants={recyclableBagsData.variants}
         productSlug="recyclable-bags"
         productImage="/recyclable-bags.png"
-        title="Choose Your Variant"
       />
 
       <section className="py-20 bg-white">

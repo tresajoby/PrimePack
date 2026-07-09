@@ -1,6 +1,7 @@
 "use client";
 
 import { useCart } from "@/lib/cart";
+import { useT } from "@/lib/i18n";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -16,6 +17,8 @@ const COLOR_MAP: Record<string, string> = {
 
 export default function CartPage() {
   const { items, mounted, removeItem, updateQty, totalPrice } = useCart();
+  const { t } = useT();
+  const c = t.cart;
 
   if (!mounted) {
     return (
@@ -34,9 +37,9 @@ export default function CartPage() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
           </div>
-          <h1 className="font-heading text-2xl font-bold text-navy mb-2">Your cart is empty</h1>
-          <p className="text-[#6B7280] mb-8">Browse our products and configure your order from the catalog.</p>
-          <Link href="/products" className="btn-gold text-base px-8 py-4">Browse Products</Link>
+          <h1 className="font-heading text-2xl font-bold text-navy mb-2">{c.empty}</h1>
+          <p className="text-[#6B7280] mb-8">{c.emptyDesc}</p>
+          <Link href="/products" className="btn-gold text-base px-8 py-4">{c.browseProducts}</Link>
         </div>
       </div>
     );
@@ -45,7 +48,7 @@ export default function CartPage() {
   return (
     <div className="pt-32 pb-24 min-h-screen bg-gray-50">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="font-heading text-3xl font-bold text-navy mb-8">Your Cart</h1>
+        <h1 className="font-heading text-3xl font-bold text-navy mb-8">{c.title}</h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Items */}
@@ -62,11 +65,13 @@ export default function CartPage() {
                   <p className="font-bold text-navy text-sm leading-snug">{item.variantName}</p>
                   <div className="text-xs text-[#6B7280] mt-1 space-y-0.5">
                     <p>{item.weight} · {item.dimensions}</p>
-                    {item.zipperMode && <p>Zipper: {item.zipperMode === "with" ? "With Zipper" : "No Zipper"}</p>}
-                    <p>Valve: {item.valve ? "With Valve" : "Without Valve"}</p>
+                    {item.zipperMode && (
+                      <p>{c.zipper}: {item.zipperMode === "with" ? c.withZipper : c.noZipper}</p>
+                    )}
+                    <p>{c.valve}: {item.valve ? c.withValve : c.withoutValve}</p>
                     {item.color && (
                       <p className="flex items-center gap-1.5">
-                        Colour:
+                        {c.colour}:
                         <span
                           className="inline-block w-3 h-3 rounded-full border border-gray-300"
                           style={
@@ -93,7 +98,7 @@ export default function CartPage() {
                         className="w-6 h-6 flex items-center justify-center text-navy hover:text-gold transition-colors font-bold"
                       >+</button>
                     </div>
-                    <span className="text-xs text-[#6B7280]">× €{item.pricePerPc.toFixed(3)}/pc</span>
+                    <span className="text-xs text-[#6B7280]">× €{item.pricePerPc.toFixed(3)}{c.perPc}</span>
                     <span className="font-bold text-navy text-sm ml-auto">€{(item.qty * item.pricePerPc).toFixed(2)}</span>
                   </div>
                 </div>
@@ -111,14 +116,14 @@ export default function CartPage() {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
-              Continue Shopping
+              {c.continueShopping}
             </Link>
           </div>
 
           {/* Summary */}
           <div className="lg:col-span-1">
             <div className="bg-white rounded-2xl border border-gray-200 p-6 sticky top-28">
-              <h2 className="font-heading font-bold text-navy text-lg mb-5">Order Summary</h2>
+              <h2 className="font-heading font-bold text-navy text-lg mb-5">{c.orderSummary}</h2>
 
               <div className="space-y-3 mb-5">
                 {items.map((item) => (
@@ -131,16 +136,16 @@ export default function CartPage() {
 
               <div className="border-t border-gray-100 pt-4 mb-6">
                 <div className="flex justify-between font-bold text-navy">
-                  <span>Estimated Total</span>
+                  <span>{c.estimatedTotal}</span>
                   <span className="text-gold text-xl">€{totalPrice.toFixed(2)}</span>
                 </div>
-                <p className="text-[10px] text-[#6B7280] mt-1">Excl. branding & shipping. Final price on invoice.</p>
+                <p className="text-[10px] text-[#6B7280] mt-1">{c.exclNote}</p>
               </div>
 
               <Link href="/checkout" className="block w-full text-center bg-navy text-white font-bold py-3.5 rounded-xl hover:bg-navy/90 transition-colors">
-                Proceed to Checkout →
+                {c.proceedCheckout}
               </Link>
-              <p className="text-[11px] text-[#6B7280] text-center mt-3">We will confirm your order by email</p>
+              <p className="text-[11px] text-[#6B7280] text-center mt-3">{c.confirmEmail}</p>
             </div>
           </div>
         </div>

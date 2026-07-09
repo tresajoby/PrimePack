@@ -41,7 +41,6 @@ export default function FlatBottomBagPage() {
         variants={flatBottomBagData.variants}
         productSlug="flat-bottom-bag"
         productImage="/flat-bottom-bag.png"
-        title="Choose Your Variant"
       />
 
       <section className="py-20 bg-white">

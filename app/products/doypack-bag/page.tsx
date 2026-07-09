@@ -41,7 +41,6 @@ export default function DoypbackBagPage() {
         variants={doypbackBagData.variants}
         productSlug="doypack-bag"
         productImage="/doypack-bag.png"
-        title="Choose Your Variant"
       />
 
       <section className="py-20 bg-white">

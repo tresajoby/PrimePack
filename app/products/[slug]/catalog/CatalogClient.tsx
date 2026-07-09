@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { PRODUCT_MAP, ProductVariant } from "@/lib/product-data";
 import { useCart } from "@/lib/cart";
+import { useT } from "@/lib/i18n";
 
 const TIERS = ["500–1,500 pcs", "1,500–3,000 pcs", "3,000–5,000 pcs", ">5,000 pcs"];
 
@@ -79,6 +80,8 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
   onToggle: () => void;
 }) {
   const { addItem } = useCart();
+  const { t } = useT();
+  const c = t.catalog;
   const router = useRouter();
   const displayGroups = buildWeightGroups(variant.weights);
   const [groupIdx, setGroupIdx] = useState(0);
@@ -122,15 +125,15 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
         {/* Color dot preview */}
         {variant.colors && variant.colors.length > 0 && (
           <div className="flex flex-wrap gap-1.5 mb-3">
-            {variant.colors.slice(0, 10).map(c => (
+            {variant.colors.slice(0, 10).map(col => (
               <div
-                key={c}
-                title={c}
+                key={col}
+                title={col}
                 className="w-3.5 h-3.5 rounded-full border border-gray-300 flex-shrink-0"
                 style={
-                  COLOR_MAP[c] === "transparent"
+                  COLOR_MAP[col] === "transparent"
                     ? { backgroundImage: "repeating-conic-gradient(#e5e7eb 0% 25%, white 0% 50%)", backgroundSize: "6px 6px" }
-                    : { backgroundColor: COLOR_MAP[c] ?? "#999" }
+                    : { backgroundColor: COLOR_MAP[col] ?? "#999" }
                 }
               />
             ))}
@@ -151,8 +154,8 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
             <span className="text-[#6B7280] text-xs ml-1">/pc</span>
           </p>
           <p className="text-[10px] text-[#6B7280] mt-0.5">
-            {variant.weights.length} size{variant.weights.length !== 1 ? "s" : ""}
-            {variant.colors ? ` · ${variant.colors.length} colour${variant.colors.length !== 1 ? "s" : ""}` : ""}
+            {variant.weights.length} {variant.weights.length !== 1 ? c.sizePlural : c.sizeSingular}
+            {variant.colors ? ` · ${variant.colors.length} ${variant.colors.length !== 1 ? c.colourPlural : c.colourSingular}` : ""}
           </p>
         </div>
 
@@ -165,7 +168,7 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
               : "bg-navy/5 text-navy hover:bg-gold hover:text-navy border border-navy/10 hover:border-gold"
           }`}
         >
-          {open ? "Hide Configurator ↑" : "Configure & Price →"}
+          {open ? c.hideConfigurator : c.configurePrice}
         </button>
 
         {/* Configurator */}
@@ -174,7 +177,7 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
 
             {/* Weight / Size */}
             <div>
-              <p className="text-[11px] font-bold text-navy uppercase tracking-widest mb-2">Weight / Size</p>
+              <p className="text-[11px] font-bold text-navy uppercase tracking-widest mb-2">{c.weightSize}</p>
               {displayGroups.length === 1 ? (
                 <div className="bg-gray-50 rounded-xl px-3 py-2 text-xs">
                   <span className="font-semibold text-navy">{displayGroups[0].base}</span>
@@ -203,7 +206,7 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
             {/* Zipper option — shown only when the selected size has a zipper variant */}
             {activeGroup.isZipperGroup && (
               <div>
-                <p className="text-[11px] font-bold text-navy uppercase tracking-widest mb-2">Zipper</p>
+                <p className="text-[11px] font-bold text-navy uppercase tracking-widest mb-2">{c.zipper}</p>
                 <div className="flex gap-2">
                   {(["with", "without"] as const).map((z) => (
                     <button
@@ -215,7 +218,7 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
                           : "border-gray-100 bg-gray-50 text-[#6B7280] hover:border-gold/50"
                       }`}
                     >
-                      {z === "with" ? "With Zipper" : "No Zipper"}
+                      {z === "with" ? c.withZipper : c.noZipper}
                     </button>
                   ))}
                 </div>
@@ -224,7 +227,7 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
 
             {/* Quantity Tier */}
             <div>
-              <p className="text-[11px] font-bold text-navy uppercase tracking-widest mb-2">Quantity Tier</p>
+              <p className="text-[11px] font-bold text-navy uppercase tracking-widest mb-2">{c.quantityTier}</p>
               <div className="grid grid-cols-2 gap-1.5">
                 {TIERS.map((label, i) => (
                   <button
@@ -248,7 +251,7 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
             {/* Valve Option */}
             {weight.hasValve && (
               <div>
-                <p className="text-[11px] font-bold text-navy uppercase tracking-widest mb-2">Valve Option</p>
+                <p className="text-[11px] font-bold text-navy uppercase tracking-widest mb-2">{c.valveOption}</p>
                 <div className="flex gap-2">
                   {([false, true] as const).map((v) => (
                     <button
@@ -260,7 +263,7 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
                           : "border-gray-100 bg-gray-50 text-[#6B7280] hover:border-gold/50"
                       }`}
                     >
-                      {v ? "With Valve" : "Without Valve"}
+                      {v ? c.withValve : c.withoutValve}
                     </button>
                   ))}
                 </div>
@@ -271,24 +274,24 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
             {variant.colors && variant.colors.length > 0 && (
               <div>
                 <p className="text-[11px] font-bold text-navy uppercase tracking-widest mb-2">
-                  Colour
+                  {c.colourLabel}
                   {selectedColor && <span className="text-gold font-normal normal-case tracking-normal ml-1">· {selectedColor}</span>}
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {variant.colors.map(c => (
+                  {variant.colors.map(col => (
                     <button
-                      key={c}
-                      title={c}
-                      onClick={() => setSelectedColor(c)}
+                      key={col}
+                      title={col}
+                      onClick={() => setSelectedColor(col)}
                       className={`w-7 h-7 rounded-full border-2 transition-all ${
-                        selectedColor === c
+                        selectedColor === col
                           ? "border-gold scale-110 shadow-md"
                           : "border-gray-200 hover:border-gold/60"
                       }`}
                       style={
-                        COLOR_MAP[c] === "transparent"
+                        COLOR_MAP[col] === "transparent"
                           ? { backgroundImage: "repeating-conic-gradient(#e5e7eb 0% 25%, white 0% 50%)", backgroundSize: "8px 8px" }
-                          : { backgroundColor: COLOR_MAP[c] ?? "#999" }
+                          : { backgroundColor: COLOR_MAP[col] ?? "#999" }
                       }
                     />
                   ))}
@@ -299,7 +302,7 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
             {/* Price summary */}
             <div className="bg-navy rounded-2xl p-4">
               <div className="flex justify-between items-center mb-3">
-                <span className="text-white/60 text-xs">Price per piece</span>
+                <span className="text-white/60 text-xs">{c.pricePerPc}</span>
                 <span className="text-gold font-bold text-xl">€{price.toFixed(3)}</span>
               </div>
               <input
@@ -311,12 +314,12 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
                   const num = parseInt(val) || 0;
                   if (num > 0) setTi(tierFromQty(num));
                 }}
-                placeholder="Enter quantity (required)"
+                placeholder={c.enterQty}
                 className="w-full bg-white/10 border border-white/20 rounded-xl px-3 py-2 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-gold mb-2"
               />
               {total && (
                 <div className="text-center py-2 mb-2">
-                  <span className="text-white/50 text-[10px] block">Estimated total</span>
+                  <span className="text-white/50 text-[10px] block">{c.estimatedTotal}</span>
                   <p className="text-gold font-bold text-lg">€{total}</p>
                 </div>
               )}
@@ -341,18 +344,18 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
                 }}
                 className="block w-full text-center font-bold text-sm py-2.5 rounded-xl transition-colors disabled:opacity-40 disabled:cursor-not-allowed bg-gold text-navy hover:bg-gold/90"
               >
-                {added ? "✓ Added to Cart!" : "Add to Cart"}
+                {added ? c.addedToCart : c.addToCart}
               </button>
               {added && (
                 <button
                   onClick={() => router.push("/cart")}
                   className="block w-full text-center text-white/70 text-xs mt-2 hover:text-gold transition-colors"
                 >
-                  View Cart →
+                  {c.viewCart}
                 </button>
               )}
             </div>
-            <p className="text-[10px] text-[#6B7280]">* Prices in EUR. Branding quoted separately.</p>
+            <p className="text-[10px] text-[#6B7280]">{c.pricesNote}</p>
           </div>
         )}
       </div>
@@ -362,6 +365,8 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
 
 export default function CatalogClient({ slug }: { slug: string }) {
   const product = PRODUCT_MAP[slug];
+  const { t } = useT();
+  const c = t.catalog;
   const [activeId, setActiveId] = useState<string>("all");
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
@@ -379,8 +384,8 @@ export default function CatalogClient({ slug }: { slug: string }) {
   if (!product) {
     return (
       <div className="pt-40 text-center text-navy">
-        <p>Product not found.</p>
-        <Link href="/products" className="text-gold underline mt-4 inline-block">Back to Products</Link>
+        <p>{c.notFound}</p>
+        <Link href="/products" className="text-gold underline mt-4 inline-block">{c.backToProducts}</Link>
       </div>
     );
   }
@@ -401,11 +406,11 @@ export default function CatalogClient({ slug }: { slug: string }) {
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            Back to {product.name}
+            {c.backTo} {product.name}
           </Link>
-          <span className="text-gold text-sm font-semibold uppercase tracking-widest block mb-3">Full Catalog</span>
+          <span className="text-gold text-sm font-semibold uppercase tracking-widest block mb-3">{c.fullCatalog}</span>
           <h1 className="font-heading text-4xl md:text-5xl font-bold text-white mb-3">{product.name}</h1>
-          <p className="text-white/60 text-base">All variants · select weight, colour and quantity to configure your order</p>
+          <p className="text-white/60 text-base">{c.subtitle}</p>
         </div>
       </section>
 
@@ -419,7 +424,7 @@ export default function CatalogClient({ slug }: { slug: string }) {
                 activeId === "all" ? "bg-navy text-white" : "text-[#6B7280] hover:text-navy hover:bg-gray-100"
               }`}
             >
-              All ({product.variants.length})
+              {c.allTab} ({product.variants.length})
             </button>
             {product.variants.map((v) => (
               <button
@@ -429,7 +434,7 @@ export default function CatalogClient({ slug }: { slug: string }) {
                   activeId === v.id ? "bg-gold text-navy" : "text-[#6B7280] hover:text-navy hover:bg-gray-100"
                 }`}
               >
-                {v.name} ({v.weights.length} size{v.weights.length !== 1 ? "s" : ""})
+                {v.name} ({v.weights.length} {v.weights.length !== 1 ? c.sizePlural : c.sizeSingular})
               </button>
             ))}
           </div>
@@ -449,8 +454,8 @@ export default function CatalogClient({ slug }: { slug: string }) {
               </div>
               {v.colors && (
                 <div className="flex flex-wrap gap-1.5">
-                  {v.colors.map(c => (
-                    <span key={c} className="text-[11px] px-2 py-0.5 bg-white border border-gray-200 rounded-full text-[#6B7280]">{c}</span>
+                  {v.colors.map(col => (
+                    <span key={col} className="text-[11px] px-2 py-0.5 bg-white border border-gray-200 rounded-full text-[#6B7280]">{col}</span>
                   ))}
                 </div>
               )}
@@ -463,8 +468,10 @@ export default function CatalogClient({ slug }: { slug: string }) {
       <section className="py-12 bg-gray-50 min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-sm text-[#6B7280] mb-8">
-            {activeVariants.length} variant{activeVariants.length !== 1 ? "s" : ""}
-            {activeId !== "all" ? ` · ${product.variants.find(v => v.id === activeId)?.name}` : ` across ${product.variants.length} options`}
+            {activeVariants.length} {activeVariants.length !== 1 ? c.variantPlural : c.variantSingular}
+            {activeId !== "all"
+              ? ` · ${product.variants.find(v => v.id === activeId)?.name}`
+              : ` ${c.across} ${product.variants.length} ${c.options}`}
           </p>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 items-start">
@@ -485,9 +492,9 @@ export default function CatalogClient({ slug }: { slug: string }) {
       {/* CTA */}
       <section className="py-14 bg-navy">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-heading text-3xl font-bold text-white mb-3">Need a Custom Solution?</h2>
-          <p className="text-white/60 mb-6 text-sm">Custom sizes, materials, and print. We&apos;ll quote any spec.</p>
-          <Link href="/contact" className="btn-gold text-base px-8 py-4">Request a Custom Quote</Link>
+          <h2 className="font-heading text-3xl font-bold text-white mb-3">{c.customSolution}</h2>
+          <p className="text-white/60 mb-6 text-sm">{c.customDesc}</p>
+          <Link href="/contact" className="btn-gold text-base px-8 py-4">{c.requestCustomQuote}</Link>
         </div>
       </section>
     </>

@@ -41,7 +41,6 @@ export default function SideGussetBagPage() {
         variants={sideGussetBagData.variants}
         productSlug="side-gusset-bag"
         productImage="/side-gusset-bag.png"
-        title="Choose Your Variant"
       />
 
       <section className="py-20 bg-white">

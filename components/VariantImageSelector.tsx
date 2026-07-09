@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ProductVariant } from "@/lib/product-data";
+import { useT } from "@/lib/i18n";
 
 const ACCENT_CLASSES = [
   "ring-blue-400",
@@ -28,17 +29,19 @@ interface Props {
   variants: ProductVariant[];
   productSlug: string;
   productImage: string;
-  title?: string;
 }
 
-export default function VariantImageSelector({ variants, productSlug, productImage, title = "Choose Your Variant" }: Props) {
+export default function VariantImageSelector({ variants, productSlug, productImage }: Props) {
+  const { t } = useT();
+  const vs = t.variantSelector;
+
   return (
     <section className="py-16 bg-white border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
-          <span className="text-gold text-sm font-semibold uppercase tracking-widest">Variants</span>
-          <h2 className="font-heading text-3xl font-bold text-navy mt-3">{title}</h2>
-          <p className="text-[#6B7280] mt-2 text-sm">Select a variant to browse all available sizes and configure pricing</p>
+          <span className="text-gold text-sm font-semibold uppercase tracking-widest">{vs.eyebrow}</span>
+          <h2 className="font-heading text-3xl font-bold text-navy mt-3">{vs.title}</h2>
+          <p className="text-[#6B7280] mt-2 text-sm">{vs.subtitle}</p>
         </div>
 
         {/* Variant image cards */}
@@ -97,7 +100,7 @@ export default function VariantImageSelector({ variants, productSlug, productIma
             href={`/products/${productSlug}/catalog`}
             className="inline-flex items-center gap-2 bg-navy text-white text-sm font-semibold px-6 py-3 rounded-xl hover:bg-navy/90 transition-colors"
           >
-            View All Sizes & Pricing
+            {vs.viewAll}
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
