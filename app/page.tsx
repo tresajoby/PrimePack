@@ -5,16 +5,12 @@ import Link from "next/link";
 import { useT } from "@/lib/i18n";
 
 const productImgs = [
-  "https://images.unsplash.com/photo-1607435097405-db78e1b3ba6c?w=600&q=80",
-  "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
-  "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80",
-  "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&q=80",
-  "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80",
-  "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80",
-  "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=600&q=80",
-  "https://images.unsplash.com/photo-1605902711834-8b11c3e3ef2f?w=600&q=80",
+  "/flat-bottom-bag.png",
+  "/doypack-bag.png",
+  "/recyclable-bags.png",
+  "/side-gusset-bag.png",
+  "/tea-filter-bags.png",
 ];
-
 
 const trustIcons = [
   <svg key="q" className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
@@ -61,10 +57,9 @@ export default function HomePage() {
             </div>
 
             <div className="lg:col-span-5 relative h-64 lg:h-auto">
-              <Image src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&q=80" alt="Industrial packaging facility" fill className="object-cover object-center" priority sizes="(max-width: 1024px) 100vw, 42vw" />
+              <Image src="/front-img.png" alt="PrimePack packaging facility" fill className="object-cover object-center" priority sizes="(max-width: 1024px) 100vw, 42vw" />
               <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/30 to-transparent" />
               <div className="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent lg:hidden" />
-
               <div className="absolute top-10 right-10 w-20 h-20 border border-gold/20 rounded-full hidden lg:block" />
               <div className="absolute top-14 right-14 w-10 h-10 border border-gold/10 rounded-full hidden lg:block" />
             </div>
@@ -106,7 +101,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative rounded-3xl overflow-hidden aspect-[4/3] shadow-2xl">
-              <Image src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=900&q=80" alt="PrimePack warehouse" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+              <Image src="/homepage-img.png" alt="PrimePack warehouse" fill className="object-cover" unoptimized sizes="(max-width: 1024px) 100vw, 50vw" />
               <div className="absolute bottom-6 left-6 bg-navy/90 backdrop-blur-sm rounded-2xl px-5 py-3 border border-white/10">
                 <p className="text-gold text-xs font-semibold uppercase tracking-widest">{t.aboutPreview.badge}</p>
                 <p className="text-white font-heading font-bold text-sm mt-0.5">{t.aboutPreview.badgeSub}</p>
@@ -149,11 +144,11 @@ export default function HomePage() {
             </div>
             <Link href="/products" className="btn-outline flex-shrink-0">{t.products.viewCatalog}</Link>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-5">
             {t.products.items.map((cat, i) => (
-              <Link key={cat.title} href="/products" className="group relative overflow-hidden rounded-2xl bg-gray-100">
-                <div className="relative aspect-[3/4] overflow-hidden">
-                  <Image src={productImgs[i]} alt={cat.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" />
+              <Link key={cat.title} href="/products" className={`group relative overflow-hidden rounded-2xl bg-gray-100 ${i < 3 ? "lg:col-span-2" : i === 3 ? "lg:col-span-2 lg:col-start-2" : "lg:col-span-2 lg:col-start-4"}`}>
+                <div className={`relative aspect-[3/4] overflow-hidden ${productImgs[i].startsWith("/") ? "bg-white p-6" : ""}`}>
+                  <Image src={productImgs[i]} alt={cat.title} fill className={`${productImgs[i].startsWith("/") ? "object-contain" : "object-cover group-hover:scale-105 transition-transform duration-700"}`} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent" />
                   <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
                     <span className="text-white/70 text-[10px] font-bold">0{i + 1}</span>

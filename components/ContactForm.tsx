@@ -17,15 +17,24 @@ export default function ContactForm() {
     e.preventDefault();
     setStatus("sending");
     try {
-      const res = await fetch("https://formspree.io/f/xdkongqn", {
+      const body = new FormData();
+      body.append("name", form.name);
+      body.append("company", form.company);
+      body.append("email", form.email);
+      body.append("phone", form.phone);
+      body.append("message", form.message);
+
+      const res = await fetch("https://formspree.io/f/xzdqwgkv", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(form),
+        headers: { Accept: "application/json" },
+        body,
       });
       if (res.ok) {
         setStatus("sent");
         setForm({ name: "", company: "", email: "", phone: "", message: "" });
       } else {
+        const data = await res.json().catch(() => ({}));
+        console.error("Formspree error:", res.status, data);
         setStatus("error");
       }
     } catch {
@@ -35,81 +44,86 @@ export default function ContactForm() {
 
   if (status === "sent") {
     return (
-      <div className="bg-white rounded-3xl p-10 shadow-sm border border-gray-100 text-center flex flex-col items-center justify-center min-h-[400px]">
-        <div className="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mb-6">
+      <div className="relative rounded-3xl p-10 border border-gold/30 text-center flex flex-col items-center justify-center min-h-[400px]"
+        style={{ background: "linear-gradient(135deg, #1e3d82 0%, #2e55a8 40%, #9e7c2a 72%, #c9a15a 100%)", boxShadow: "0 8px 16px -4px rgba(14,42,102,0.2), 0 24px 48px -8px rgba(14,42,102,0.28)" }}>
+        <div className="w-16 h-16 rounded-full bg-white/15 flex items-center justify-center mb-6">
           <svg className="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 className="font-heading font-bold text-navy text-2xl mb-3">{f.successTitle}</h3>
-        <p className="text-[#6B7280] text-sm leading-relaxed max-w-sm">{f.successMsg}</p>
+        <h3 className="font-heading font-bold text-white text-2xl mb-3">{f.successTitle}</h3>
+        <p className="text-white/75 text-sm leading-relaxed max-w-sm">{f.successMsg}</p>
         <button onClick={() => setStatus("idle")} className="btn-primary mt-8">{f.sendAnother}</button>
       </div>
     );
   }
 
   return (
-    <div className="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-gray-100">
-      <h2 className="font-heading text-2xl font-bold text-navy mb-2">{f.title}</h2>
-      <p className="text-[#6B7280] text-sm mb-8">{f.subtitle}</p>
+    <div className="relative rounded-3xl p-8 md:p-10 border border-white/10 overflow-hidden"
+      style={{ background: "linear-gradient(135deg, #1e3d82 0%, #2e55a8 40%, #9e7c2a 72%, #c9a15a 100%)", boxShadow: "0 8px 16px -4px rgba(14,42,102,0.2), 0 24px 48px -8px rgba(14,42,102,0.28)" }}>
+      {/* top accent bar */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-white/30 rounded-t-3xl" />
+
+      <h2 className="font-heading text-2xl font-bold text-white mb-2">{f.title}</h2>
+      <p className="text-white/75 text-sm mb-8">{f.subtitle}</p>
 
       <form onSubmit={handleSubmit} className="space-y-5">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div>
-            <label className="block text-xs font-semibold text-navy mb-2 uppercase tracking-wide">
-              {f.fullName} <span className="text-red-400">*</span>
+            <label className="block text-xs font-semibold text-white/90 mb-2 uppercase tracking-wide">
+              {f.fullName} <span className="text-yellow-300">*</span>
             </label>
             <input type="text" name="name" required value={form.name} onChange={handleChange}
               placeholder={f.namePlaceholder}
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-[#1A1A1A] placeholder-[#9CA3AF] focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all" />
+              className="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/10 text-white text-sm placeholder-white/40 focus:outline-none focus:border-gold focus:bg-white/15 focus:ring-2 focus:ring-gold/30 transition-all" />
           </div>
           <div>
-            <label className="block text-xs font-semibold text-navy mb-2 uppercase tracking-wide">
+            <label className="block text-xs font-semibold text-white/90 mb-2 uppercase tracking-wide">
               {f.company}
             </label>
             <input type="text" name="company" value={form.company} onChange={handleChange}
               placeholder={f.companyPlaceholder}
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-[#1A1A1A] placeholder-[#9CA3AF] focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all" />
+              className="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/10 text-white text-sm placeholder-white/40 focus:outline-none focus:border-gold focus:bg-white/15 focus:ring-2 focus:ring-gold/30 transition-all" />
           </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div>
-            <label className="block text-xs font-semibold text-navy mb-2 uppercase tracking-wide">
-              {f.emailLabel} <span className="text-red-400">*</span>
+            <label className="block text-xs font-semibold text-white/90 mb-2 uppercase tracking-wide">
+              {f.emailLabel} <span className="text-yellow-300">*</span>
             </label>
             <input type="email" name="email" required value={form.email} onChange={handleChange}
               placeholder={f.emailPlaceholder}
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-[#1A1A1A] placeholder-[#9CA3AF] focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all" />
+              className="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/10 text-white text-sm placeholder-white/40 focus:outline-none focus:border-gold focus:bg-white/15 focus:ring-2 focus:ring-gold/30 transition-all" />
           </div>
           <div>
-            <label className="block text-xs font-semibold text-navy mb-2 uppercase tracking-wide">
+            <label className="block text-xs font-semibold text-white/90 mb-2 uppercase tracking-wide">
               {f.phone}
             </label>
             <input type="tel" name="phone" value={form.phone} onChange={handleChange}
               placeholder={f.phonePlaceholder}
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-[#1A1A1A] placeholder-[#9CA3AF] focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all" />
+              className="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/10 text-white text-sm placeholder-white/40 focus:outline-none focus:border-gold focus:bg-white/15 focus:ring-2 focus:ring-gold/30 transition-all" />
           </div>
         </div>
 
         <div>
-          <label className="block text-xs font-semibold text-navy mb-2 uppercase tracking-wide">
-            {f.message} <span className="text-red-400">*</span>
+          <label className="block text-xs font-semibold text-white/90 mb-2 uppercase tracking-wide">
+            {f.message} <span className="text-yellow-300">*</span>
           </label>
           <textarea name="message" required value={form.message} onChange={handleChange} rows={6}
             placeholder={f.messagePlaceholder}
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-[#1A1A1A] placeholder-[#9CA3AF] focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/20 transition-all resize-none" />
+            className="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/10 text-white text-sm placeholder-white/40 focus:outline-none focus:border-gold focus:bg-white/15 focus:ring-2 focus:ring-gold/30 transition-all resize-none" />
         </div>
 
         {status === "error" && (
-          <p className="text-red-500 text-sm">
+          <p className="text-red-300 text-sm">
             {f.errorMsg}{" "}
-            <a href="mailto:PrimePack.lv@gmail.com" className="underline">PrimePack.lv@gmail.com</a>
+            <a href="mailto:PrimePack.lv@gmail.com" className="underline text-gold">{" "}PrimePack.lv@gmail.com</a>
           </p>
         )}
 
-        <button type="submit" disabled={status === "sending"}
-          className="btn-primary w-full justify-center py-4 text-base disabled:opacity-60 disabled:cursor-not-allowed">
+        <button type="submit" disabled={status === "sending" || !form.name.trim() || !form.email.trim() || !form.message.trim()}
+          className="w-full justify-center py-4 text-base font-semibold rounded-2xl flex items-center gap-2 transition-all bg-white text-navy hover:bg-white/90 disabled:opacity-40 disabled:cursor-not-allowed">
           {status === "sending" ? (
             <>
               <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
@@ -128,9 +142,9 @@ export default function ContactForm() {
           )}
         </button>
 
-        <p className="text-[#6B7280] text-xs text-center">
+        <p className="text-white/60 text-xs text-center">
           {f.privacyNote}{" "}
-          <a href="/privacy" className="text-gold hover:underline">{f.privacyLink}</a>.
+          <a href="/privacy" className="text-yellow-200 hover:underline">{f.privacyLink}</a>.
         </p>
       </form>
     </div>

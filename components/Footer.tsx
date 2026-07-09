@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useT } from "@/lib/i18n";
 
 const quickLinkHrefs = ["/", "/products", "/services", "/about", "/contact"];
-
 const legalHrefs = ["/terms", "/privacy", "/cookies", "/returns"];
 
 export default function Footer() {
@@ -66,7 +65,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Hours + Newsletter */}
+          {/* Hours */}
           <div>
             <h4 className="font-heading font-bold text-white mb-5 text-sm uppercase tracking-widest">{t.footer.hoursTitle}</h4>
             <div className="text-white/70 text-sm space-y-1">
@@ -74,17 +73,6 @@ export default function Footer() {
               <p className="text-white font-medium">{t.footer.weekdayHours}</p>
               <p className="mt-3">{t.footer.weekend}</p>
               <p className="text-white/50">{t.footer.weekendStatus}</p>
-            </div>
-            <div className="mt-8">
-              <h4 className="font-heading font-bold text-white mb-4 text-sm uppercase tracking-widest">{t.footer.stayUpdated}</h4>
-              <form className="flex flex-col gap-3">
-                <input
-                  type="email"
-                  placeholder={t.footer.emailPlaceholder}
-                  className="px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:border-gold transition-colors"
-                />
-                <button type="submit" className="btn-gold justify-center text-sm">{t.footer.subscribe}</button>
-              </form>
             </div>
           </div>
         </div>

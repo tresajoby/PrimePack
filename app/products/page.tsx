@@ -5,19 +5,23 @@ import Link from "next/link";
 import { useT } from "@/lib/i18n";
 
 const productImages = [
-  "https://images.unsplash.com/photo-1607435097405-db78e1b3ba6c?w=800&q=80",
-  "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
-  "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&q=80",
-  "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80",
-  "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80",
-  "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80",
-  "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=800&q=80",
-  "https://images.unsplash.com/photo-1605902711834-8b11c3e3ef2f?w=800&q=80",
+  "/flat-bottom-bag.png",
+  "/doypack-bag.png",
+  "/recyclable-bags.png",
+  "/side-gusset-bag.png",
+  "/tea-filter-bags.png",
 ];
 
 const productIds = [
-  "paper-bags", "plastic-bags", "stand-up-pouches", "packaging-films",
-  "food-packaging", "industrial-packaging", "custom-packaging", "protective-packaging",
+  "flat-bottom-bag", "doypack-bag", "recyclable-bags", "side-gusset-bag", "tea-filter-bags",
+];
+
+const productDetailHrefs = [
+  "/products/flat-bottom-bag",
+  "/products/doypack-bag",
+  "/products/recyclable-bags",
+  "/products/side-gusset-bag",
+  "/products/tea-filter-bags",
 ];
 
 export default function ProductsPage() {
@@ -35,9 +39,7 @@ export default function ProductsPage() {
           <span className="text-gold text-sm font-semibold uppercase tracking-widest">{p.heroBadge}</span>
           <h1 className="font-heading text-5xl md:text-6xl font-bold text-white mt-4 mb-6">{p.heroH1}</h1>
           <p className="text-white/70 text-xl max-w-2xl mx-auto leading-relaxed">{p.heroSubtitle}</p>
-          <div className="mt-8">
-            <Link href="/contact" className="btn-gold text-base px-8 py-4">{p.heroCta}</Link>
-          </div>
+
         </div>
       </section>
 
@@ -56,20 +58,20 @@ export default function ProductsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {p.categories.map((cat, i) => (
-              <div key={productIds[i]} className="card overflow-hidden group">
+              <Link key={productIds[i]} href={productDetailHrefs[i]} className="card overflow-hidden group block">
                 <div className="grid grid-cols-1 sm:grid-cols-2">
-                  <div className="relative aspect-[4/3] sm:aspect-auto overflow-hidden">
+                  <div className={`relative aspect-[4/3] sm:aspect-auto overflow-hidden ${productImages[i].startsWith("/") ? "bg-white p-6" : ""}`}>
                     <Image
                       src={productImages[i]}
                       alt={cat.title}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      className={`${productImages[i].startsWith("/") ? "object-contain" : "object-cover group-hover:scale-105 transition-transform duration-500"}`}
                       sizes="(max-width: 640px) 100vw, 50vw"
                     />
                   </div>
                   <div className="p-7 flex flex-col justify-between">
                     <div>
-                      <h2 className="font-heading font-bold text-navy text-xl mb-3">{cat.title}</h2>
+                      <h2 className="font-heading font-bold text-navy text-xl mb-3 group-hover:text-gold transition-colors">{cat.title}</h2>
                       <p className="text-[#6B7280] text-sm leading-relaxed mb-5">{cat.desc}</p>
                       <ul className="space-y-1.5">
                         {cat.specs.map((s) => (
@@ -82,10 +84,12 @@ export default function ProductsPage() {
                         ))}
                       </ul>
                     </div>
-                    <Link href="/contact" className="btn-primary text-xs mt-6 self-start">{p.requestQuote}</Link>
+                    <div className="mt-6 flex items-center gap-1 text-gold text-sm font-semibold">
+                      View Details <span className="group-hover:translate-x-1 transition-transform inline-block">→</span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
