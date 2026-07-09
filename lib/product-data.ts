@@ -33,26 +33,16 @@ export const flatBottomBagData: ProductData = {
     {
       id: "recyclable-flat-bottom",
       name: "Recyclable Flat Bottom",
-      subtitle: "9 colours · Regular zipper · Mono-material LDPE",
+      subtitle: "Mono-material LDPE · 9 colours · 5 sizes",
       colors: ["Black", "White", "Latte", "Lavender", "Peach", "Pink", "Transparent", "Blue", "Pistachio"],
-      features: ["Regular zipper", "Mono-material LDPE", "9 colours", "3 sizes"],
-      moq: "500 pcs",
-      weights: [
-        { label: "250 g", dimensions: "155×195×60 mm", hasValve: true, without: [0.275, 0.261, 0.248, 0.234], withValve: [0.365, 0.351, 0.338, 0.324] },
-        { label: "500 g", dimensions: "175×230×80 mm", hasValve: true, without: [0.374, 0.355, 0.337, 0.318], withValve: [0.464, 0.445, 0.427, 0.408] },
-        { label: "1000 g", dimensions: "200×250×100 mm", hasValve: true, without: [0.443, 0.421, 0.399, 0.377], withValve: [0.533, 0.511, 0.489, 0.467] },
-      ],
-    },
-    {
-      id: "recyclable-flat-bottom-bw",
-      name: "Recyclable Flat Bottom – B&W",
-      subtitle: "Black & White · Pocket zipper · Mono-material LDPE",
-      colors: ["Black", "White"],
-      features: ["Pocket zipper", "Mono-material LDPE", "Black & White", "2 sizes"],
+      features: ["Pocket zipper", "Mono-material LDPE", "9 colours", "5 sizes"],
       moq: "250 pcs (with valve) / 500 pcs (without valve)",
       weights: [
         { label: "250 g", dimensions: "120×200×80 mm", hasValve: true, without: [0.280, 0.266, 0.252, 0.238], withValve: [0.370, 0.356, 0.342, 0.328] },
+        { label: "250 g (slim)", dimensions: "155×195×60 mm", hasValve: true, without: [0.275, 0.261, 0.248, 0.234], withValve: [0.365, 0.351, 0.338, 0.324] },
+        { label: "500 g", dimensions: "175×230×80 mm", hasValve: true, without: [0.374, 0.355, 0.337, 0.318], withValve: [0.464, 0.445, 0.427, 0.408] },
         { label: "1000 g", dimensions: "145×340×90 mm", hasValve: true, without: [0.448, 0.426, 0.403, 0.381], withValve: [0.538, 0.516, 0.493, 0.471] },
+        { label: "1000 g (wide)", dimensions: "200×250×100 mm", hasValve: true, without: [0.443, 0.421, 0.399, 0.377], withValve: [0.533, 0.511, 0.489, 0.467] },
       ],
     },
     {
@@ -211,26 +201,16 @@ export const recyclableBagsData: ProductData = {
     {
       id: "recyclable-flat-bottom",
       name: "Recyclable Flat Bottom",
-      subtitle: "9 colours · Regular zipper · Mono-material LDPE",
+      subtitle: "Mono-material LDPE · 9 colours · 5 sizes",
       colors: ["Black", "White", "Latte", "Lavender", "Peach", "Pink", "Transparent", "Blue", "Pistachio"],
-      features: ["Regular zipper", "Mono-material LDPE", "9 colours", "3 sizes"],
-      moq: "500 pcs",
-      weights: [
-        { label: "250 g", dimensions: "155×195×60 mm", hasValve: true, without: [0.275, 0.261, 0.248, 0.234], withValve: [0.365, 0.351, 0.338, 0.324] },
-        { label: "500 g", dimensions: "175×230×80 mm", hasValve: true, without: [0.374, 0.355, 0.337, 0.318], withValve: [0.464, 0.445, 0.427, 0.408] },
-        { label: "1000 g", dimensions: "200×250×100 mm", hasValve: true, without: [0.443, 0.421, 0.399, 0.377], withValve: [0.533, 0.511, 0.489, 0.467] },
-      ],
-    },
-    {
-      id: "recyclable-flat-bottom-bw",
-      name: "Recyclable Flat Bottom – B&W",
-      subtitle: "Black & White · Pocket zipper · Mono-material LDPE",
-      colors: ["Black", "White"],
-      features: ["Pocket zipper", "Mono-material LDPE", "Black & White", "2 sizes"],
+      features: ["Pocket zipper", "Mono-material LDPE", "9 colours", "5 sizes"],
       moq: "250 pcs (with valve) / 500 pcs (without valve)",
       weights: [
         { label: "250 g", dimensions: "120×200×80 mm", hasValve: true, without: [0.280, 0.266, 0.252, 0.238], withValve: [0.370, 0.356, 0.342, 0.328] },
+        { label: "250 g (slim)", dimensions: "155×195×60 mm", hasValve: true, without: [0.275, 0.261, 0.248, 0.234], withValve: [0.365, 0.351, 0.338, 0.324] },
+        { label: "500 g", dimensions: "175×230×80 mm", hasValve: true, without: [0.374, 0.355, 0.337, 0.318], withValve: [0.464, 0.445, 0.427, 0.408] },
         { label: "1000 g", dimensions: "145×340×90 mm", hasValve: true, without: [0.448, 0.426, 0.403, 0.381], withValve: [0.538, 0.516, 0.493, 0.471] },
+        { label: "1000 g (wide)", dimensions: "200×250×100 mm", hasValve: true, without: [0.443, 0.421, 0.399, 0.377], withValve: [0.533, 0.511, 0.489, 0.467] },
       ],
     },
     {
