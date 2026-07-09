@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useCart } from "@/lib/cart";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 const COUNTRIES = [
   "Latvia", "Lithuania", "Estonia", "Finland", "Sweden", "Germany", "France", "Netherlands",
@@ -29,7 +28,6 @@ const inputCls = "w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm t
 
 export default function CheckoutPage() {
   const { items, totalPrice, clearCart, mounted } = useCart();
-  const router = useRouter();
   const [shipDiff, setShipDiff] = useState(false);
   const [agreed, setAgreed] = useState(false);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
@@ -181,17 +179,17 @@ ${orderNotes ? "--- ORDER NOTES ---\n" + orderNotes : ""}`;
                 <div className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
                     <Field label="First Name" required>
-                      <input className={inputCls} placeholder="John" value={bill.firstName} onChange={billChange("firstName")} required />
+                      <input className={inputCls} placeholder="Enter your first name" value={bill.firstName} onChange={billChange("firstName")} required />
                     </Field>
                     <Field label="Last Name" required>
-                      <input className={inputCls} placeholder="Doe" value={bill.lastName} onChange={billChange("lastName")} required />
+                      <input className={inputCls} placeholder="Enter your last name" value={bill.lastName} onChange={billChange("lastName")} required />
                     </Field>
                   </div>
                   <Field label="Company Name (optional)">
-                    <input className={inputCls} placeholder="Acme Ltd" value={bill.companyName} onChange={billChange("companyName")} />
+                    <input className={inputCls} placeholder="Enter your company name" value={bill.companyName} onChange={billChange("companyName")} />
                   </Field>
                   <Field label="Company Street / Number (optional)">
-                    <input className={inputCls} placeholder="123 Business Park" value={bill.companyStreet} onChange={billChange("companyStreet")} />
+                    <input className={inputCls} placeholder="Enter company street and number" value={bill.companyStreet} onChange={billChange("companyStreet")} />
                   </Field>
                   <div className="grid grid-cols-2 gap-4">
                     <Field label="Country / Region" required>
@@ -200,29 +198,29 @@ ${orderNotes ? "--- ORDER NOTES ---\n" + orderNotes : ""}`;
                       </select>
                     </Field>
                     <Field label="Town / City" required>
-                      <input className={inputCls} placeholder="Riga" value={bill.city} onChange={billChange("city")} required />
+                      <input className={inputCls} placeholder="Enter your city" value={bill.city} onChange={billChange("city")} required />
                     </Field>
                   </div>
                   <Field label="Street Address" required>
-                    <input className={inputCls} placeholder="House number and street name" value={bill.addressLine1} onChange={billChange("addressLine1")} required />
+                    <input className={inputCls} placeholder="Enter your street address" value={bill.addressLine1} onChange={billChange("addressLine1")} required />
                     <input className={`${inputCls} mt-2`} placeholder="Apartment, suite, unit, etc. (optional)" value={bill.addressLine2} onChange={billChange("addressLine2")} />
                   </Field>
                   <Field label="Postcode / ZIP" required>
-                    <input className={inputCls} placeholder="LV-1001" value={bill.postcode} onChange={billChange("postcode")} required />
+                    <input className={inputCls} placeholder="Enter your postcode" value={bill.postcode} onChange={billChange("postcode")} required />
                   </Field>
                   <Field label="Email Address" required>
-                    <input type="email" className={inputCls} placeholder="john@company.com" value={bill.email} onChange={billChange("email")} required />
+                    <input type="email" className={inputCls} placeholder="Enter your email address" value={bill.email} onChange={billChange("email")} required />
                   </Field>
                   <div className="grid grid-cols-2 gap-4">
                     <Field label="Mobile Phone" required>
-                      <input type="tel" className={inputCls} placeholder="+371 20 000 000" value={bill.mobile} onChange={billChange("mobile")} required />
+                      <input type="tel" className={inputCls} placeholder="Enter your mobile number" value={bill.mobile} onChange={billChange("mobile")} required />
                     </Field>
                     <Field label="Home Phone (optional)">
-                      <input type="tel" className={inputCls} placeholder="+371 67 000 000" value={bill.homePhone} onChange={billChange("homePhone")} />
+                      <input type="tel" className={inputCls} placeholder="Enter your home number" value={bill.homePhone} onChange={billChange("homePhone")} />
                     </Field>
                   </div>
                   <Field label="EU VAT Number (optional)">
-                    <input className={inputCls} placeholder="LV12345678901" value={bill.vatNumber} onChange={billChange("vatNumber")} />
+                    <input className={inputCls} placeholder="Enter your EU VAT number" value={bill.vatNumber} onChange={billChange("vatNumber")} />
                   </Field>
                 </div>
               </div>
