@@ -82,6 +82,7 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
   const { addItem } = useCart();
   const { t } = useT();
   const c = t.catalog;
+  const vn = t.variantNames as Record<string, { name: string; subtitle?: string }>;
   const router = useRouter();
   const displayGroups = buildWeightGroups(variant.weights);
   const [groupIdx, setGroupIdx] = useState(0);
@@ -119,8 +120,8 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
 
       {/* Card info */}
       <div className="p-5 flex flex-col">
-        <p className="text-navy font-bold text-[15px] leading-snug mb-1">{variant.name}</p>
-        {variant.subtitle && <p className="text-[#6B7280] text-xs mb-2">{variant.subtitle}</p>}
+        <p className="text-navy font-bold text-[15px] leading-snug mb-1">{vn[variant.id]?.name ?? variant.name}</p>
+        {variant.subtitle && <p className="text-[#6B7280] text-xs mb-2">{vn[variant.id]?.subtitle ?? variant.subtitle}</p>}
 
         {/* Color dot preview */}
         {variant.colors && variant.colors.length > 0 && (
@@ -367,6 +368,8 @@ export default function CatalogClient({ slug }: { slug: string }) {
   const product = PRODUCT_MAP[slug];
   const { t } = useT();
   const c = t.catalog;
+  const pn = t.productNames as Record<string, string>;
+  const vn = t.variantNames as Record<string, { name: string; subtitle?: string }>;
   const [activeId, setActiveId] = useState<string>("all");
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
@@ -406,10 +409,10 @@ export default function CatalogClient({ slug }: { slug: string }) {
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            {c.backTo} {product.name}
+            {c.backTo} {pn[slug] ?? product.name}
           </Link>
           <span className="text-gold text-sm font-semibold uppercase tracking-widest block mb-3">{c.fullCatalog}</span>
-          <h1 className="font-heading text-4xl md:text-5xl font-bold text-white mb-3">{product.name}</h1>
+          <h1 className="font-heading text-4xl md:text-5xl font-bold text-white mb-3">{pn[slug] ?? product.name}</h1>
           <p className="text-white/60 text-base">{c.subtitle}</p>
         </div>
       </section>
@@ -434,7 +437,7 @@ export default function CatalogClient({ slug }: { slug: string }) {
                   activeId === v.id ? "bg-gold text-navy" : "text-[#6B7280] hover:text-navy hover:bg-gray-100"
                 }`}
               >
-                {v.name} ({v.weights.length} {v.weights.length !== 1 ? c.sizePlural : c.sizeSingular})
+                {vn[v.id]?.name ?? v.name} ({v.weights.length} {v.weights.length !== 1 ? c.sizePlural : c.sizeSingular})
               </button>
             ))}
           </div>
@@ -449,8 +452,8 @@ export default function CatalogClient({ slug }: { slug: string }) {
           <div className="bg-gold/5 border-b border-gold/20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-wrap items-center gap-4">
               <div>
-                <h2 className="font-heading font-bold text-navy">{v.name}</h2>
-                {v.subtitle && <p className="text-xs text-[#6B7280]">{v.subtitle}</p>}
+                <h2 className="font-heading font-bold text-navy">{vn[v.id]?.name ?? v.name}</h2>
+                {v.subtitle && <p className="text-xs text-[#6B7280]">{vn[v.id]?.subtitle ?? v.subtitle}</p>}
               </div>
               {v.colors && (
                 <div className="flex flex-wrap gap-1.5">
@@ -470,7 +473,7 @@ export default function CatalogClient({ slug }: { slug: string }) {
           <p className="text-sm text-[#6B7280] mb-8">
             {activeVariants.length} {activeVariants.length !== 1 ? c.variantPlural : c.variantSingular}
             {activeId !== "all"
-              ? ` · ${product.variants.find(v => v.id === activeId)?.name}`
+              ? ` · ${vn[activeId]?.name ?? product.variants.find(v => v.id === activeId)?.name}`
               : ` ${c.across} ${product.variants.length} ${c.options}`}
           </p>
 

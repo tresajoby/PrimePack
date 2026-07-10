@@ -34,6 +34,7 @@ interface Props {
 export default function VariantImageSelector({ variants, productSlug, productImage }: Props) {
   const { t } = useT();
   const vs = t.variantSelector;
+  const vn = t.variantNames as Record<string, { name: string; subtitle?: string }>;
 
   return (
     <section className="py-16 bg-white border-b border-gray-100">
@@ -68,7 +69,7 @@ export default function VariantImageSelector({ variants, productSlug, productIma
               {/* Label */}
               <div className="mt-3 text-center">
                 <p className="text-sm font-bold text-navy group-hover:text-gold transition-colors leading-tight">
-                  {v.name}
+                  {vn[v.id]?.name ?? v.name}
                 </p>
                 {v.colors && v.colors.length > 0 && (
                   <div className="flex flex-wrap justify-center gap-1 mt-1.5">
