@@ -82,6 +82,7 @@ export const flatBottomBagData: ProductData = {
       colors: ["White", "Black"],
       colorImages: {
         "Black": ["/metallized-flat-bottom-black.webp"],
+        "White": ["/metallized-flat-bottom-white.webp"],
       },
       features: ["Pocket zipper", "Metallized", "3 sizes + no-zipper option"],
       moq: "500 pcs",
