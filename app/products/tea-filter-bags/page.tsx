@@ -17,22 +17,89 @@ const featureIcons = [
 const sizes = [
   {
     id: "size-m",
-    label: "Size M — For a Cup",
+    label: "Size M",
+    subtitle: "For a Cup",
     dimensions: "65×80×50 mm",
+    image: "/tea-filter-bags.png",
     price1_10: 95,
     priceOver10: 85.5,
   },
   {
     id: "size-l",
-    label: "Size L — For a Teapot",
+    label: "Size L",
+    subtitle: "For a Teapot",
     dimensions: "85×135×50 mm",
+    image: "/tea-filter-bags.png",
     price1_10: 150,
     priceOver10: 135,
   },
 ];
 
-function TeaPriceCalc() {
-  const [selectedSize, setSelectedSize] = useState(0);
+const ACCENT_CLASSES = ["ring-amber-400", "ring-emerald-400"];
+
+function SizeSelector({ selectedSize, onSelect }: { selectedSize: number; onSelect: (i: number) => void }) {
+  return (
+    <section className="py-16 bg-white border-b border-gray-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-10">
+          <span className="text-gold text-sm font-semibold uppercase tracking-widest">Sizes</span>
+          <h2 className="font-heading text-3xl font-bold text-navy mt-3">Choose Your Size</h2>
+          <p className="text-[#6B7280] mt-2 text-sm">Select a size to see pricing and configure your order</p>
+        </div>
+
+        <div className="flex flex-wrap justify-center gap-8">
+          {sizes.map((s, i) => (
+            <button
+              key={s.id}
+              onClick={() => {
+                onSelect(i);
+                document.getElementById("tea-pricing")?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="group flex flex-col items-center w-[140px] sm:w-[160px]"
+            >
+              <div
+                className={`relative w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] rounded-full overflow-hidden border-4 transition-all duration-300 shadow-sm group-hover:shadow-xl ring-2 ring-transparent ${
+                  selectedSize === i
+                    ? `border-gold ${ACCENT_CLASSES[i]} shadow-lg`
+                    : "border-gray-100 group-hover:border-gold"
+                }`}
+              >
+                <Image
+                  src={s.image}
+                  alt={s.label}
+                  fill
+                  className="object-contain p-4 transition-all duration-300 group-hover:scale-110"
+                  sizes="160px"
+                />
+              </div>
+              <div className="mt-3 text-center">
+                <p className={`text-sm font-bold transition-colors leading-tight ${selectedSize === i ? "text-gold" : "text-navy group-hover:text-gold"}`}>
+                  {s.label}
+                </p>
+                <p className="text-[11px] text-[#6B7280] mt-0.5">{s.subtitle}</p>
+                <p className="text-[10px] text-[#9CA3AF] mt-0.5">{s.dimensions}</p>
+              </div>
+            </button>
+          ))}
+        </div>
+
+        <div className="text-center mt-10">
+          <button
+            onClick={() => document.getElementById("tea-pricing")?.scrollIntoView({ behavior: "smooth" })}
+            className="inline-flex items-center gap-2 bg-navy text-white text-sm font-semibold px-6 py-3 rounded-xl hover:bg-navy/90 transition-colors"
+          >
+            View Sizes &amp; Pricing
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function TeaPriceCalc({ selectedSize, onSelect }: { selectedSize: number; onSelect: (i: number) => void }) {
   const [boxes, setBoxes] = useState("");
 
   const size = sizes[selectedSize];
@@ -42,11 +109,11 @@ function TeaPriceCalc() {
   const totalPcs = boxCount > 0 ? (boxCount * 10000).toLocaleString() : null;
 
   return (
-    <section className="py-20 bg-gray-50 border-t border-gray-100">
+    <section id="tea-pricing" className="py-20 bg-gray-50 border-t border-gray-100">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <span className="text-gold text-sm font-semibold uppercase tracking-widest">Pricing</span>
-          <h2 className="font-heading text-3xl font-bold text-navy mt-3">Tea Filter Bag Sizes & Pricing</h2>
+          <h2 className="font-heading text-3xl font-bold text-navy mt-3">Tea Filter Bag Sizes &amp; Pricing</h2>
           <p className="text-[#6B7280] mt-3 text-sm">Material: Filter paper 18 · 1 box = 10,000 pcs</p>
         </div>
 
@@ -54,14 +121,14 @@ function TeaPriceCalc() {
           {sizes.map((s, i) => (
             <button
               key={s.id}
-              onClick={() => { setSelectedSize(i); setBoxes(""); }}
+              onClick={() => { onSelect(i); setBoxes(""); }}
               className={`text-left p-6 rounded-2xl border-2 transition-all ${
                 selectedSize === i
                   ? "border-gold bg-gold/5 shadow-md"
                   : "border-gray-200 bg-white hover:border-gold/50"
               }`}
             >
-              <h3 className="font-heading font-bold text-navy mb-1">{s.label}</h3>
+              <h3 className="font-heading font-bold text-navy mb-1">{s.label} — {s.subtitle}</h3>
               <p className="text-xs text-[#6B7280] mb-4">{s.dimensions}</p>
               <div className="space-y-1.5">
                 <div className="flex justify-between text-sm">
@@ -80,7 +147,7 @@ function TeaPriceCalc() {
         <div className="bg-navy rounded-3xl p-8 grid grid-cols-1 sm:grid-cols-2 gap-8 items-center">
           <div>
             <h4 className="text-gold text-sm font-bold uppercase tracking-widest mb-4">Estimate Your Order</h4>
-            <p className="text-white/70 text-sm mb-4">Selected: <span className="text-white font-medium">{sizes[selectedSize].label}</span></p>
+            <p className="text-white/70 text-sm mb-4">Selected: <span className="text-white font-medium">{size.label} — {size.subtitle}</span></p>
             <label className="text-white/50 text-xs block mb-1.5">Number of boxes</label>
             <input
               type="number"
@@ -125,9 +192,11 @@ export default function TeaFilterBagsPage() {
   const { t } = useT();
   const pp = t.productPages;
   const p = pp.teaFilterBags;
+  const [selectedSize, setSelectedSize] = useState(0);
 
   return (
     <>
+      {/* Hero */}
       <section className="relative pt-32 pb-20 bg-navy overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{ backgroundImage: "radial-gradient(circle, #C9A15A 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
@@ -137,21 +206,19 @@ export default function TeaFilterBagsPage() {
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
             {pp.backLink}
           </Link>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <span className="text-gold text-sm font-semibold uppercase tracking-widest block mb-4">{p.badge}</span>
-              <h1 className="font-heading text-5xl md:text-6xl font-bold text-white mb-6">{p.h1}</h1>
-              <p className="text-white/70 text-xl leading-relaxed">{p.heroDesc}</p>
-            </div>
-            <div className="relative aspect-square w-full max-w-sm mx-auto lg:mx-0 lg:max-w-none">
-              <Image src="/tea-filter-bags.png" alt={p.h1} fill className="object-contain drop-shadow-2xl" />
-            </div>
-          </div>
+          <span className="text-gold text-sm font-semibold uppercase tracking-widest block mb-4">{p.badge}</span>
+          <h1 className="font-heading text-5xl md:text-6xl font-bold text-white mb-6">{p.h1}</h1>
+          <p className="text-white/70 text-xl max-w-2xl leading-relaxed">{p.heroDesc}</p>
         </div>
       </section>
 
-      <TeaPriceCalc />
+      {/* Size selector */}
+      <SizeSelector selectedSize={selectedSize} onSelect={setSelectedSize} />
 
+      {/* Pricing */}
+      <TeaPriceCalc selectedSize={selectedSize} onSelect={setSelectedSize} />
+
+      {/* Overview */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -172,6 +239,7 @@ export default function TeaFilterBagsPage() {
         </div>
       </section>
 
+      {/* Features */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
@@ -194,6 +262,7 @@ export default function TeaFilterBagsPage() {
         </div>
       </section>
 
+      {/* Specs */}
       <section className="py-20 bg-navy">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -211,6 +280,7 @@ export default function TeaFilterBagsPage() {
         </div>
       </section>
 
+      {/* CTA */}
       <section className="py-20 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-heading text-3xl font-bold text-navy mb-4">{p.ctaH2}</h2>
