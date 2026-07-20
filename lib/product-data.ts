@@ -11,7 +11,8 @@ export interface ProductVariant {
   name: string;
   subtitle?: string;
   colors?: string[];
-  colorImages?: Record<string, string>;
+  colorImages?: Record<string, string[]>;
+  gallery?: string[];
   features: string[];
   moq?: string;
   weights: WeightOption[];
@@ -62,7 +63,7 @@ export const flatBottomBagData: ProductData = {
       subtitle: "White & Black — PET12+VMPET12+LDPE",
       colors: ["White", "Black"],
       colorImages: {
-        "Black": "/metallized-flat-bottom-black.webp",
+        "Black": ["/metallized-flat-bottom-black.webp"],
       },
       features: ["Pocket zipper", "Metallized", "3 sizes + no-zipper option"],
       moq: "500 pcs",

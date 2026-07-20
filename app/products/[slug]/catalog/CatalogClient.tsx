@@ -90,8 +90,17 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
   const [ti, setTi] = useState(0);
   const [valve, setValve] = useState(false);
   const [selectedColor, setSelectedColor] = useState<string | null>(variant.colors?.[0] ?? null);
+  const [selectedImageIdx, setSelectedImageIdx] = useState(0);
   const [qty, setQty] = useState("");
   const [added, setAdded] = useState(false);
+
+  const currentGallery = (selectedColor ? variant.colorImages?.[selectedColor] : undefined) ?? variant.gallery ?? [];
+  const mainImage = currentGallery[selectedImageIdx] ?? image;
+
+  function selectColor(col: string) {
+    setSelectedColor(col);
+    setSelectedImageIdx(0);
+  }
 
   const activeGroup = displayGroups[groupIdx];
   const wi = resolveWi(variant.weights, activeGroup.firstIdx, activeGroup.isZipperGroup, zipperMode);
@@ -107,17 +116,36 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
 
   return (
     <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden flex flex-col group hover:shadow-lg transition-shadow duration-200">
-      {/* Image */}
+      {/* Main image */}
       <div className="relative aspect-square bg-gray-50 overflow-hidden">
         <Image
-          key={selectedColor ?? "default"}
-          src={(selectedColor && variant.colorImages?.[selectedColor]) ?? image}
+          key={mainImage}
+          src={mainImage}
           alt={selectedColor ? `${variant.name} – ${selectedColor}` : variant.name}
           fill
           className="object-contain p-8 transition-all duration-300 group-hover:scale-105"
           sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 25vw"
         />
       </div>
+
+      {/* Thumbnail strip */}
+      {currentGallery.length > 1 && (
+        <div className="flex gap-1.5 px-3 py-2 bg-gray-50 border-t border-gray-100 overflow-x-auto">
+          {currentGallery.map((img, idx) => (
+            <button
+              key={idx}
+              onClick={() => setSelectedImageIdx(idx)}
+              className={`relative flex-shrink-0 w-11 h-11 rounded-lg overflow-hidden border-2 transition-all ${
+                selectedImageIdx === idx
+                  ? "border-gold shadow-sm"
+                  : "border-gray-200 hover:border-gold/50"
+              }`}
+            >
+              <Image src={img} alt="" fill className="object-contain p-0.5" sizes="44px" />
+            </button>
+          ))}
+        </div>
+      )}
 
       {/* Card info */}
       <div className="p-5 flex flex-col">
@@ -284,7 +312,7 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
                     <button
                       key={col}
                       title={col}
-                      onClick={() => setSelectedColor(col)}
+                      onClick={() => selectColor(col)}
                       className={`w-7 h-7 rounded-full border-2 transition-all ${
                         selectedColor === col
                           ? "border-gold scale-110 shadow-md"
