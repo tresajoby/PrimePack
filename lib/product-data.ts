@@ -41,6 +41,7 @@ export const flatBottomBagData: ProductData = {
       filterGroup: "Recyclable Flat Bottom",
       colorImages: {
         "Black": ["/Recyclable Flat Bottom black.webp"],
+        "White": ["/Recyclable Flat Bottom white.webp"],
         "Blue": ["/Recyclable Flat Bottom blue.webp"],
         "Latte": ["/Recyclable Flat Bottom latte.webp"],
         "Lavender": ["/Recyclable Flat Bottom lavender.webp"],
@@ -238,6 +239,7 @@ export const recyclableBagsData: ProductData = {
       filterGroup: "Recyclable Flat Bottom",
       colorImages: {
         "Black": ["/Recyclable Flat Bottom black.webp"],
+        "White": ["/Recyclable Flat Bottom white.webp"],
         "Blue": ["/Recyclable Flat Bottom blue.webp"],
         "Latte": ["/Recyclable Flat Bottom latte.webp"],
         "Lavender": ["/Recyclable Flat Bottom lavender.webp"],
