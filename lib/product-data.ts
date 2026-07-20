@@ -12,6 +12,7 @@ export interface ProductVariant {
   subtitle?: string;
   colors?: string[];
   colorImages?: Record<string, string[]>;
+  colorWeightImages?: Record<string, Record<string, string>>;
   gallery?: string[];
   filterGroup?: string;
   features: string[];
@@ -120,6 +121,11 @@ export const flatBottomBagData: ProductData = {
         "Olive Green": ["/Flat Bottom Olive green.jpeg"],
         "Illuminating Yellow": ["/Flat Bottom yellow.webp"],
         "Ultimate Gray": ["/Flat Bottom gray.webp"],
+      },
+      colorWeightImages: {
+        "White Paper": {
+          "250 g (with window)": "/Flat Bottom white paper with window.webp",
+        },
       },
       features: ["Pocket zipper", "No metallization", "Window option available"],
       moq: "500 pcs",

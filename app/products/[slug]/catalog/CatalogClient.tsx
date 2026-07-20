@@ -95,7 +95,6 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
   const [added, setAdded] = useState(false);
 
   const currentGallery = (selectedColor ? variant.colorImages?.[selectedColor] : undefined) ?? variant.gallery ?? [];
-  const mainImage = currentGallery[selectedImageIdx] ?? image;
 
   function selectColor(col: string) {
     setSelectedColor(col);
@@ -103,6 +102,8 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
   }
 
   const activeGroup = displayGroups[groupIdx];
+  const colorWeightImg = selectedColor ? variant.colorWeightImages?.[selectedColor]?.[activeGroup.base] : undefined;
+  const mainImage = colorWeightImg ?? currentGallery[selectedImageIdx] ?? image;
   const wi = resolveWi(variant.weights, activeGroup.firstIdx, activeGroup.isZipperGroup, zipperMode);
   const weight = variant.weights[wi];
   const price = valve && weight.withValve ? weight.withValve[ti] : weight.without[ti];
