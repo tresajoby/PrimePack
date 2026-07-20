@@ -118,6 +118,8 @@ export const flatBottomBagData: ProductData = {
       colorImages: {
         "White Paper": ["/Flat Bottom white paper.webp"],
         "Olive Green": ["/Flat Bottom Olive green.jpeg"],
+        "Illuminating Yellow": ["/Flat Bottom yellow.webp"],
+        "Ultimate Gray": ["/Flat Bottom gray.webp"],
       },
       features: ["Pocket zipper", "No metallization", "Window option available"],
       moq: "500 pcs",
