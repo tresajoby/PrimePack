@@ -56,6 +56,9 @@ export const flatBottomBagData: ProductData = {
       subtitle: "Black & White · Pocket zipper · Mono-material LDPE · 2 sizes",
       colors: ["Black", "White"],
       filterGroup: "Recyclable Flat Bottom",
+      colorImages: {
+        "Black": ["/Recyclable Flat Bottom black with pocket zip.webp"],
+      },
       features: ["Pocket zipper", "Mono-material LDPE", "Black & White", "2 sizes"],
       moq: "250 pcs (with valve) / 500 pcs (without valve)",
       weights: [
@@ -242,6 +245,9 @@ export const recyclableBagsData: ProductData = {
       subtitle: "Black & White · Pocket zipper · Mono-material LDPE · 2 sizes",
       colors: ["Black", "White"],
       filterGroup: "Recyclable Flat Bottom",
+      colorImages: {
+        "Black": ["/Recyclable Flat Bottom black with pocket zip.webp"],
+      },
       features: ["Pocket zipper", "Mono-material LDPE", "Black & White", "2 sizes"],
       moq: "250 pcs (with valve) / 500 pcs (without valve)",
       weights: [
