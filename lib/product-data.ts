@@ -42,6 +42,7 @@ export const flatBottomBagData: ProductData = {
       colorImages: {
         "Black": ["/Recyclable Flat Bottom black.webp"],
         "Blue": ["/Recyclable Flat Bottom blue.webp"],
+        "Latte": ["/Recyclable Flat Bottom latte.webp"],
       },
       features: ["Regular zipper", "Mono-material LDPE", "9 colours", "3 sizes"],
       moq: "500 pcs",
@@ -233,6 +234,7 @@ export const recyclableBagsData: ProductData = {
       colorImages: {
         "Black": ["/Recyclable Flat Bottom black.webp"],
         "Blue": ["/Recyclable Flat Bottom blue.webp"],
+        "Latte": ["/Recyclable Flat Bottom latte.webp"],
       },
       features: ["Regular zipper", "Mono-material LDPE", "9 colours", "3 sizes"],
       moq: "500 pcs",
