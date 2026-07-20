@@ -98,6 +98,9 @@ export const flatBottomBagData: ProductData = {
       name: "Kraft Paper Flat Bottom",
       subtitle: "KraftPaper50+VMPET12+LDPE60",
       colors: ["Kraft Paper"],
+      colorImages: {
+        "Kraft Paper": ["/Flat Bottom Kraft.webp"],
+      },
       features: ["Pocket zipper", "Kraft paper", "Metallized"],
       moq: "500 pcs",
       weights: [
