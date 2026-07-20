@@ -39,6 +39,9 @@ export const flatBottomBagData: ProductData = {
       subtitle: "9 colours · Regular zipper · Mono-material LDPE · 3 sizes",
       colors: ["Black", "White", "Latte", "Lavender", "Peach", "Pink", "Transparent", "Blue", "Pistachio"],
       filterGroup: "Recyclable Flat Bottom",
+      colorImages: {
+        "Black": ["/Recyclable Flat Bottom black.webp"],
+      },
       features: ["Regular zipper", "Mono-material LDPE", "9 colours", "3 sizes"],
       moq: "500 pcs",
       weights: [
@@ -222,6 +225,9 @@ export const recyclableBagsData: ProductData = {
       subtitle: "9 colours · Regular zipper · Mono-material LDPE · 3 sizes",
       colors: ["Black", "White", "Latte", "Lavender", "Peach", "Pink", "Transparent", "Blue", "Pistachio"],
       filterGroup: "Recyclable Flat Bottom",
+      colorImages: {
+        "Black": ["/Recyclable Flat Bottom black.webp"],
+      },
       features: ["Regular zipper", "Mono-material LDPE", "9 colours", "3 sizes"],
       moq: "500 pcs",
       weights: [
