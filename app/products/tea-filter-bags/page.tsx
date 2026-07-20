@@ -137,9 +137,16 @@ export default function TeaFilterBagsPage() {
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
             {pp.backLink}
           </Link>
-          <span className="text-gold text-sm font-semibold uppercase tracking-widest block mb-4">{p.badge}</span>
-          <h1 className="font-heading text-5xl md:text-6xl font-bold text-white mb-6">{p.h1}</h1>
-          <p className="text-white/70 text-xl max-w-2xl leading-relaxed">{p.heroDesc}</p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="text-gold text-sm font-semibold uppercase tracking-widest block mb-4">{p.badge}</span>
+              <h1 className="font-heading text-5xl md:text-6xl font-bold text-white mb-6">{p.h1}</h1>
+              <p className="text-white/70 text-xl leading-relaxed">{p.heroDesc}</p>
+            </div>
+            <div className="relative aspect-square w-full max-w-sm mx-auto lg:mx-0 lg:max-w-none">
+              <Image src="/tea-filter-bags.png" alt={p.h1} fill className="object-contain drop-shadow-2xl" />
+            </div>
+          </div>
         </div>
       </section>
 
