@@ -115,6 +115,9 @@ export const flatBottomBagData: ProductData = {
       name: "Paper-Look Flat Bottom",
       subtitle: "No metallization — WhitePaper45/PET12",
       colors: ["White Paper", "Illuminating Yellow", "Olive Green", "Ultimate Gray"],
+      colorImages: {
+        "White Paper": ["/Flat Bottom white paper.webp"],
+      },
       features: ["Pocket zipper", "No metallization", "Window option available"],
       moq: "500 pcs",
       weights: [
