@@ -51,7 +51,9 @@ export default function VariantImageSelector({ variants, productSlug, productIma
         <div className="flex flex-wrap justify-center gap-5 sm:gap-8">
           {variants.map((v, i) => {
             const activeColor = hoveredColor[v.id];
-            const gallery = activeColor ? v.colorImages?.[activeColor] : undefined;
+            const defaultColor = v.colors?.[0];
+            const displayColor = activeColor ?? defaultColor;
+            const gallery = displayColor ? v.colorImages?.[displayColor] : undefined;
             const src = gallery?.[0] ?? productImage;
 
             return (
