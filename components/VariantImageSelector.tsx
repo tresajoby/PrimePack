@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import type { ProductVariant } from "@/lib/product-data";
@@ -35,6 +36,7 @@ export default function VariantImageSelector({ variants, productSlug, productIma
   const { t } = useT();
   const vs = t.variantSelector;
   const vn = t.variantNames as Record<string, { name: string; subtitle?: string }>;
+  const [hoveredColor, setHoveredColor] = useState<Record<string, string>>({});
 
   return (
     <section className="py-16 bg-white border-b border-gray-100">
@@ -47,52 +49,65 @@ export default function VariantImageSelector({ variants, productSlug, productIma
 
         {/* Variant image cards */}
         <div className="flex flex-wrap justify-center gap-5 sm:gap-8">
-          {variants.map((v, i) => (
-            <Link
-              key={v.id}
-              href={`/products/${productSlug}/catalog#${v.id}`}
-              className="group flex flex-col items-center w-[140px] sm:w-[160px]"
-            >
-              {/* Image circle */}
-              <div
-                className={`relative w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] rounded-full overflow-hidden border-4 border-gray-100 group-hover:border-gold transition-all duration-300 shadow-sm group-hover:shadow-xl bg-white ring-2 ring-transparent group-hover:${ACCENT_CLASSES[i % ACCENT_CLASSES.length]}`}
-              >
-                <Image
-                  src={productImage}
-                  alt={v.name}
-                  fill
-                  className="object-contain p-4 transition-transform duration-400 group-hover:scale-110"
-                  sizes="160px"
-                />
-              </div>
+          {variants.map((v, i) => {
+            const activeColor = hoveredColor[v.id];
+            const src = (activeColor && v.colorImages?.[activeColor]) ?? productImage;
 
-              {/* Label */}
-              <div className="mt-3 text-center">
-                <p className="text-sm font-bold text-navy group-hover:text-gold transition-colors leading-tight">
-                  {vn[v.id]?.name ?? v.name}
-                </p>
-                {v.colors && v.colors.length > 0 && (
-                  <div className="flex flex-wrap justify-center gap-1 mt-1.5">
-                    {v.colors.slice(0, 9).map(c => (
-                      <div
-                        key={c}
-                        title={c}
-                        className="w-3 h-3 rounded-full border border-gray-300 flex-shrink-0"
-                        style={
-                          COLOR_MAP[c] === "transparent"
-                            ? { backgroundImage: "repeating-conic-gradient(#e5e7eb 0% 25%, white 0% 50%)", backgroundSize: "6px 6px" }
-                            : { backgroundColor: COLOR_MAP[c] ?? "#999" }
-                        }
-                      />
-                    ))}
-                    {v.colors.length > 9 && (
-                      <span className="text-[9px] text-[#6B7280] self-center">+{v.colors.length - 9}</span>
-                    )}
-                  </div>
-                )}
-              </div>
-            </Link>
-          ))}
+            return (
+              <Link
+                key={v.id}
+                href={`/products/${productSlug}/catalog#${v.id}`}
+                className="group flex flex-col items-center w-[140px] sm:w-[160px]"
+              >
+                {/* Image circle */}
+                <div
+                  className={`relative w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] rounded-full overflow-hidden border-4 border-gray-100 group-hover:border-gold transition-all duration-300 shadow-sm group-hover:shadow-xl bg-white ring-2 ring-transparent group-hover:${ACCENT_CLASSES[i % ACCENT_CLASSES.length]}`}
+                >
+                  <Image
+                    key={src}
+                    src={src}
+                    alt={activeColor ? `${v.name} – ${activeColor}` : v.name}
+                    fill
+                    className="object-contain p-4 transition-all duration-300 group-hover:scale-110"
+                    sizes="160px"
+                  />
+                </div>
+
+                {/* Label */}
+                <div className="mt-3 text-center">
+                  <p className="text-sm font-bold text-navy group-hover:text-gold transition-colors leading-tight">
+                    {vn[v.id]?.name ?? v.name}
+                  </p>
+                  {activeColor && (
+                    <p className="text-[10px] text-gold mt-0.5">{activeColor}</p>
+                  )}
+                  {v.colors && v.colors.length > 0 && (
+                    <div className="flex flex-wrap justify-center gap-1 mt-1.5">
+                      {v.colors.slice(0, 9).map(c => (
+                        <div
+                          key={c}
+                          title={c}
+                          onMouseEnter={() => setHoveredColor(h => ({ ...h, [v.id]: c }))}
+                          onMouseLeave={() => setHoveredColor(h => { const n = { ...h }; delete n[v.id]; return n; })}
+                          className={`w-3 h-3 rounded-full border flex-shrink-0 cursor-pointer transition-transform hover:scale-125 ${
+                            activeColor === c ? "border-gold ring-1 ring-gold" : "border-gray-300"
+                          }`}
+                          style={
+                            COLOR_MAP[c] === "transparent"
+                              ? { backgroundImage: "repeating-conic-gradient(#e5e7eb 0% 25%, white 0% 50%)", backgroundSize: "6px 6px" }
+                              : { backgroundColor: COLOR_MAP[c] ?? "#999" }
+                          }
+                        />
+                      ))}
+                      {v.colors.length > 9 && (
+                        <span className="text-[9px] text-[#6B7280] self-center">+{v.colors.length - 9}</span>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </Link>
+            );
+          })}
         </div>
 
         {/* View all link */}

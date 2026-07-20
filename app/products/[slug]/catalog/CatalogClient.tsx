@@ -110,10 +110,11 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
       {/* Image */}
       <div className="relative aspect-square bg-gray-50 overflow-hidden">
         <Image
-          src={image}
-          alt={variant.name}
+          key={selectedColor ?? "default"}
+          src={(selectedColor && variant.colorImages?.[selectedColor]) ?? image}
+          alt={selectedColor ? `${variant.name} – ${selectedColor}` : variant.name}
           fill
-          className="object-contain p-8 transition-transform duration-300 group-hover:scale-105"
+          className="object-contain p-8 transition-all duration-300 group-hover:scale-105"
           sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 25vw"
         />
       </div>
