@@ -404,7 +404,7 @@ export default function CatalogClient({ slug }: { slug: string }) {
 
   useEffect(() => {
     const readHash = () => {
-      const hash = window.location.hash.slice(1);
+      const hash = decodeURIComponent(window.location.hash.slice(1));
       setActiveId(hash || "all");
       setOpenIdx(null);
     };
@@ -422,9 +422,24 @@ export default function CatalogClient({ slug }: { slug: string }) {
     );
   }
 
+  // Build unique tabs: variants sharing a filterGroup collapse into one tab
+  const tabEntries = (() => {
+    const seen = new Set<string>();
+    const entries: { id: string; isGroup: boolean; variants: ProductVariant[] }[] = [];
+    for (const v of product.variants) {
+      const tabId = v.filterGroup ?? v.id;
+      if (!seen.has(tabId)) {
+        seen.add(tabId);
+        entries.push({ id: tabId, isGroup: !!v.filterGroup, variants: [] });
+      }
+      entries.find(e => e.id === tabId)!.variants.push(v);
+    }
+    return entries;
+  })();
+
   const activeVariants: ProductVariant[] = activeId === "all"
     ? product.variants
-    : product.variants.filter((v) => v.id === activeId);
+    : product.variants.filter(v => v.id === activeId || v.filterGroup === activeId);
 
   return (
     <>
@@ -458,17 +473,28 @@ export default function CatalogClient({ slug }: { slug: string }) {
             >
               {c.allTab} ({product.variants.length})
             </button>
-            {product.variants.map((v) => (
-              <button
-                key={v.id}
-                onClick={() => { setActiveId(v.id); setOpenIdx(null); history.replaceState(null, "", `#${v.id}`); }}
-                className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-semibold transition-all whitespace-nowrap ${
-                  activeId === v.id ? "bg-gold text-navy" : "text-[#6B7280] hover:text-navy hover:bg-gray-100"
-                }`}
-              >
-                {vn[v.id]?.name ?? v.name} ({v.weights.length} {v.weights.length !== 1 ? c.sizePlural : c.sizeSingular})
-              </button>
-            ))}
+            {tabEntries.map(entry => {
+              const label = entry.isGroup
+                ? entry.id
+                : (vn[entry.id]?.name ?? entry.variants[0].name);
+              const countNum = entry.isGroup
+                ? entry.variants.length
+                : entry.variants[0].weights.length;
+              const countUnit = entry.isGroup
+                ? (countNum !== 1 ? c.variantPlural : c.variantSingular)
+                : (countNum !== 1 ? c.sizePlural : c.sizeSingular);
+              return (
+                <button
+                  key={entry.id}
+                  onClick={() => { setActiveId(entry.id); setOpenIdx(null); history.replaceState(null, "", `#${encodeURIComponent(entry.id)}`); }}
+                  className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-semibold transition-all whitespace-nowrap ${
+                    activeId === entry.id ? "bg-gold text-navy" : "text-[#6B7280] hover:text-navy hover:bg-gray-100"
+                  }`}
+                >
+                  {label} ({countNum} {countUnit})
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -502,7 +528,7 @@ export default function CatalogClient({ slug }: { slug: string }) {
           <p className="text-sm text-[#6B7280] mb-8">
             {activeVariants.length} {activeVariants.length !== 1 ? c.variantPlural : c.variantSingular}
             {activeId !== "all"
-              ? ` · ${vn[activeId]?.name ?? product.variants.find(v => v.id === activeId)?.name}`
+              ? ` · ${vn[activeId]?.name ?? product.variants.find(v => v.id === activeId)?.name ?? activeId}`
               : ` ${c.across} ${product.variants.length} ${c.options}`}
           </p>
 

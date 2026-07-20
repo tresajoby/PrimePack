@@ -13,6 +13,7 @@ export interface ProductVariant {
   colors?: string[];
   colorImages?: Record<string, string[]>;
   gallery?: string[];
+  filterGroup?: string;
   features: string[];
   moq?: string;
   weights: WeightOption[];
@@ -37,6 +38,7 @@ export const flatBottomBagData: ProductData = {
       name: "Recyclable Flat Bottom",
       subtitle: "9 colours · Regular zipper · Mono-material LDPE · 3 sizes",
       colors: ["Black", "White", "Latte", "Lavender", "Peach", "Pink", "Transparent", "Blue", "Pistachio"],
+      filterGroup: "Recyclable Flat Bottom",
       features: ["Regular zipper", "Mono-material LDPE", "9 colours", "3 sizes"],
       moq: "500 pcs",
       weights: [
@@ -50,6 +52,7 @@ export const flatBottomBagData: ProductData = {
       name: "Recyclable Flat Bottom – B&W",
       subtitle: "Black & White · Pocket zipper · Mono-material LDPE · 2 sizes",
       colors: ["Black", "White"],
+      filterGroup: "Recyclable Flat Bottom",
       features: ["Pocket zipper", "Mono-material LDPE", "Black & White", "2 sizes"],
       moq: "250 pcs (with valve) / 500 pcs (without valve)",
       weights: [
@@ -218,6 +221,7 @@ export const recyclableBagsData: ProductData = {
       name: "Recyclable Flat Bottom",
       subtitle: "9 colours · Regular zipper · Mono-material LDPE · 3 sizes",
       colors: ["Black", "White", "Latte", "Lavender", "Peach", "Pink", "Transparent", "Blue", "Pistachio"],
+      filterGroup: "Recyclable Flat Bottom",
       features: ["Regular zipper", "Mono-material LDPE", "9 colours", "3 sizes"],
       moq: "500 pcs",
       weights: [
@@ -231,6 +235,7 @@ export const recyclableBagsData: ProductData = {
       name: "Recyclable Flat Bottom – B&W",
       subtitle: "Black & White · Pocket zipper · Mono-material LDPE · 2 sizes",
       colors: ["Black", "White"],
+      filterGroup: "Recyclable Flat Bottom",
       features: ["Pocket zipper", "Mono-material LDPE", "Black & White", "2 sizes"],
       moq: "250 pcs (with valve) / 500 pcs (without valve)",
       weights: [
