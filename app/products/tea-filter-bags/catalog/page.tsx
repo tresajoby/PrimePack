@@ -20,7 +20,7 @@ const sizes = [
     id: "size-l",
     name: "Size L — For a Teapot",
     subtitle: "85×135×50 mm · Filter paper 18",
-    image: "/tea-filter-bags.png",
+    image: "/Tea bag size L.webp",
     dimensions: "85×135×50 mm",
     price1_10: 150,
     priceOver10: 135,

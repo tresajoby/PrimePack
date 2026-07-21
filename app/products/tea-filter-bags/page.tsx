@@ -15,7 +15,7 @@ const featureIcons = [
 
 const teaSizes = [
   { id: "size-m", label: "Size M", subtitle: "For a Cup", dimensions: "65×80×50 mm", image: "/tea-filter-bags.png" },
-  { id: "size-l", label: "Size L", subtitle: "For a Teapot", dimensions: "85×135×50 mm", image: "/tea-filter-bags.png" },
+  { id: "size-l", label: "Size L", subtitle: "For a Teapot", dimensions: "85×135×50 mm", image: "/Tea bag size L.webp" },
 ];
 
 const ACCENT_CLASSES = ["ring-amber-400", "ring-emerald-400"];
