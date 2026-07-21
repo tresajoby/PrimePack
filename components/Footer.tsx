@@ -57,11 +57,20 @@ export default function Footer() {
           <div>
             <h4 className="font-heading font-bold text-white mb-5 text-sm uppercase tracking-widest">{t.footer.productsTitle}</h4>
             <ul className="space-y-3">
-              {t.productsPage.categories.map((cat) => (
-                <li key={cat.title}>
-                  <Link href="/products" className="text-white/70 hover:text-gold text-sm transition-colors">{cat.title}</Link>
-                </li>
-              ))}
+              {t.productsPage.categories.map((cat, i) => {
+                const slugs = [
+                  "/products/flat-bottom-bag",
+                  "/products/doypack-bag",
+                  "/products/recyclable-bags",
+                  "/products/side-gusset-bag",
+                  "/products/tea-filter-bags",
+                ];
+                return (
+                  <li key={cat.title}>
+                    <Link href={slugs[i] ?? "/products"} className="text-white/70 hover:text-gold text-sm transition-colors">{cat.title}</Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
