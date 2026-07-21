@@ -411,6 +411,9 @@ export const sideGussetBagData: ProductData = {
       name: "Silver Glossy Side Gusset",
       subtitle: "PET12+Al-foil7+LDPE80",
       colors: ["Silver"],
+      colorImages: {
+        "Silver": ["/Side Gusset Silver Glossy.webp"],
+      },
       features: ["No zipper", "Silver gloss", "Metallized", "3 sizes"],
       moq: "500 pcs",
       weights: [
