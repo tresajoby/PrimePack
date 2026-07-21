@@ -153,6 +153,7 @@ export const doypbackBagData: ProductData = {
       colors: ["White", "Purple (Very Peri)", "Green (Emerald)", "Red (Viva Magenta)"],
       colorImages: {
         "White": ["/Doy Pack Recyclable White.webp"],
+        "Green (Emerald)": ["/Doy Pack Recyclable emerald.webp"],
       },
       features: ["Regular zipper", "4 colours", "Mono-material"],
       moq: "500 pcs",
@@ -299,6 +300,7 @@ export const recyclableBagsData: ProductData = {
       colors: ["White", "Purple (Very Peri)", "Green (Emerald)", "Red (Viva Magenta)"],
       colorImages: {
         "White": ["/Doy Pack Recyclable White.webp"],
+        "Green (Emerald)": ["/Doy Pack Recyclable emerald.webp"],
       },
       features: ["Regular zipper", "4 colours", "Mono-material"],
       moq: "500 pcs",
