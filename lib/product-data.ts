@@ -394,6 +394,9 @@ export const sideGussetBagData: ProductData = {
       name: "Kraft Paper Side Gusset",
       subtitle: "KraftPaper50+VMPET12+LDPE40",
       colors: ["Kraft Paper"],
+      colorImages: {
+        "Kraft Paper": ["/Side Gusset Kraft.webp"],
+      },
       features: ["No zipper", "Kraft paper", "Metallized", "4 sizes"],
       moq: "500 pcs",
       weights: [
