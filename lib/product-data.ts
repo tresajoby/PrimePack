@@ -211,6 +211,9 @@ export const doypbackBagData: ProductData = {
       name: "Silver Glossy Doypack",
       subtitle: "PET12+Al-foil7+LDPE80",
       colors: ["Silver"],
+      colorImages: {
+        "Silver": ["/Doy Pack Silver Glossy.webp"],
+      },
       features: ["Regular zipper", "Silver gloss", "Metallized", "4 sizes"],
       moq: "500 pcs",
       weights: [
