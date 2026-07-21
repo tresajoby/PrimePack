@@ -358,6 +358,7 @@ export const sideGussetBagData: ProductData = {
       colors: ["White", "Black", "Pine", "Blue", "Orange"],
       colorImages: {
         "Black": ["/Side Gusset Soft Touch Black.webp"],
+        "Blue": ["/Side Gusset Soft Touch Blue.webp"],
       },
       features: ["No zipper", "5 colours", "No foil"],
       moq: "500 pcs",
