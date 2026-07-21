@@ -176,6 +176,7 @@ export const doypbackBagData: ProductData = {
         "Olive Green": ["/Doy Pack Soft Touch Olive.webp"],
         "Orange": ["/Doy Pack Soft Touch Orange.webp"],
         "Pine": ["/Doy Pack Soft Touch Pine.webp"],
+        "Illuminating Yellow": ["/Doy Pack Soft Touch Yellow.webp"],
       },
       features: ["Regular zipper", "8 colours", "No foil"],
       moq: "500 pcs",
