@@ -524,7 +524,7 @@ export default function CatalogClient({ slug }: { slug: string }) {
       })()}
 
       {/* Variant grid */}
-      <section className="py-12 bg-gray-50 min-h-screen">
+      <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-sm text-[#6B7280] mb-8">
             {activeVariants.length} {activeVariants.length !== 1 ? c.variantPlural : c.variantSingular}
