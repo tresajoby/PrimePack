@@ -151,6 +151,9 @@ export const doypbackBagData: ProductData = {
       name: "Recyclable Doypack",
       subtitle: "Mono-material LDPE",
       colors: ["White", "Purple (Very Peri)", "Green (Emerald)", "Red (Viva Magenta)"],
+      colorImages: {
+        "White": ["/Doy Pack Recyclable White.webp"],
+      },
       features: ["Regular zipper", "4 colours", "Mono-material"],
       moq: "500 pcs",
       weights: [
@@ -294,6 +297,9 @@ export const recyclableBagsData: ProductData = {
       name: "Recyclable Doypack",
       subtitle: "Mono-material LDPE",
       colors: ["White", "Purple (Very Peri)", "Green (Emerald)", "Red (Viva Magenta)"],
+      colorImages: {
+        "White": ["/Doy Pack Recyclable White.webp"],
+      },
       features: ["Regular zipper", "4 colours", "Mono-material"],
       moq: "500 pcs",
       weights: [
