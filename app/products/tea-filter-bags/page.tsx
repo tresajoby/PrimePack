@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useT } from "@/lib/i18n";
@@ -14,185 +13,17 @@ const featureIcons = [
   "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4",
 ];
 
-const sizes = [
-  {
-    id: "size-m",
-    label: "Size M",
-    subtitle: "For a Cup",
-    dimensions: "65×80×50 mm",
-    image: "/tea-filter-bags.png",
-    price1_10: 95,
-    priceOver10: 85.5,
-  },
-  {
-    id: "size-l",
-    label: "Size L",
-    subtitle: "For a Teapot",
-    dimensions: "85×135×50 mm",
-    image: "/tea-filter-bags.png",
-    price1_10: 150,
-    priceOver10: 135,
-  },
+const teaSizes = [
+  { id: "size-m", label: "Size M", subtitle: "For a Cup", dimensions: "65×80×50 mm", image: "/tea-filter-bags.png" },
+  { id: "size-l", label: "Size L", subtitle: "For a Teapot", dimensions: "85×135×50 mm", image: "/tea-filter-bags.png" },
 ];
 
 const ACCENT_CLASSES = ["ring-amber-400", "ring-emerald-400"];
-
-function SizeSelector({ selectedSize, onSelect }: { selectedSize: number; onSelect: (i: number) => void }) {
-  return (
-    <section className="py-16 bg-white border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <span className="text-gold text-sm font-semibold uppercase tracking-widest">Sizes</span>
-          <h2 className="font-heading text-3xl font-bold text-navy mt-3">Choose Your Size</h2>
-          <p className="text-[#6B7280] mt-2 text-sm">Select a size to see pricing and configure your order</p>
-        </div>
-
-        <div className="flex flex-wrap justify-center gap-8">
-          {sizes.map((s, i) => (
-            <button
-              key={s.id}
-              onClick={() => {
-                onSelect(i);
-                document.getElementById("tea-pricing")?.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="group flex flex-col items-center w-[140px] sm:w-[160px]"
-            >
-              <div
-                className={`relative w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] rounded-full overflow-hidden border-4 transition-all duration-300 shadow-sm group-hover:shadow-xl ring-2 ring-transparent ${
-                  selectedSize === i
-                    ? `border-gold ${ACCENT_CLASSES[i]} shadow-lg`
-                    : "border-gray-100 group-hover:border-gold"
-                }`}
-              >
-                <Image
-                  src={s.image}
-                  alt={s.label}
-                  fill
-                  className="object-contain p-4 transition-all duration-300 group-hover:scale-110"
-                  sizes="160px"
-                />
-              </div>
-              <div className="mt-3 text-center">
-                <p className={`text-sm font-bold transition-colors leading-tight ${selectedSize === i ? "text-gold" : "text-navy group-hover:text-gold"}`}>
-                  {s.label}
-                </p>
-                <p className="text-[11px] text-[#6B7280] mt-0.5">{s.subtitle}</p>
-                <p className="text-[10px] text-[#9CA3AF] mt-0.5">{s.dimensions}</p>
-              </div>
-            </button>
-          ))}
-        </div>
-
-        <div className="text-center mt-10">
-          <button
-            onClick={() => document.getElementById("tea-pricing")?.scrollIntoView({ behavior: "smooth" })}
-            className="inline-flex items-center gap-2 bg-navy text-white text-sm font-semibold px-6 py-3 rounded-xl hover:bg-navy/90 transition-colors"
-          >
-            View Sizes &amp; Pricing
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function TeaPriceCalc({ selectedSize, onSelect }: { selectedSize: number; onSelect: (i: number) => void }) {
-  const [boxes, setBoxes] = useState("");
-
-  const size = sizes[selectedSize];
-  const boxCount = parseInt(boxes) || 0;
-  const pricePerBox = boxCount > 10 ? size.priceOver10 : size.price1_10;
-  const total = boxCount > 0 ? (pricePerBox * boxCount).toFixed(2) : null;
-  const totalPcs = boxCount > 0 ? (boxCount * 10000).toLocaleString() : null;
-
-  return (
-    <section id="tea-pricing" className="py-20 bg-gray-50 border-t border-gray-100">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <span className="text-gold text-sm font-semibold uppercase tracking-widest">Pricing</span>
-          <h2 className="font-heading text-3xl font-bold text-navy mt-3">Tea Filter Bag Sizes &amp; Pricing</h2>
-          <p className="text-[#6B7280] mt-3 text-sm">Material: Filter paper 18 · 1 box = 10,000 pcs</p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-          {sizes.map((s, i) => (
-            <button
-              key={s.id}
-              onClick={() => { onSelect(i); setBoxes(""); }}
-              className={`text-left p-6 rounded-2xl border-2 transition-all ${
-                selectedSize === i
-                  ? "border-gold bg-gold/5 shadow-md"
-                  : "border-gray-200 bg-white hover:border-gold/50"
-              }`}
-            >
-              <h3 className="font-heading font-bold text-navy mb-1">{s.label} — {s.subtitle}</h3>
-              <p className="text-xs text-[#6B7280] mb-4">{s.dimensions}</p>
-              <div className="space-y-1.5">
-                <div className="flex justify-between text-sm">
-                  <span className="text-[#6B7280]">1–10 boxes</span>
-                  <span className="font-bold text-navy">€{s.price1_10} <span className="font-normal text-[#6B7280] text-xs">/ box</span></span>
-                </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-[#6B7280]">&gt;10 boxes</span>
-                  <span className="font-bold text-gold">€{s.priceOver10} <span className="font-normal text-[#6B7280] text-xs">/ box</span></span>
-                </div>
-              </div>
-            </button>
-          ))}
-        </div>
-
-        <div className="bg-navy rounded-3xl p-8 grid grid-cols-1 sm:grid-cols-2 gap-8 items-center">
-          <div>
-            <h4 className="text-gold text-sm font-bold uppercase tracking-widest mb-4">Estimate Your Order</h4>
-            <p className="text-white/70 text-sm mb-4">Selected: <span className="text-white font-medium">{size.label} — {size.subtitle}</span></p>
-            <label className="text-white/50 text-xs block mb-1.5">Number of boxes</label>
-            <input
-              type="number"
-              min="1"
-              value={boxes}
-              onChange={(e) => setBoxes(e.target.value)}
-              placeholder="e.g. 5"
-              className="w-full bg-white/10 border border-white/20 rounded-xl px-3 py-2.5 text-white text-sm placeholder:text-white/20 focus:outline-none focus:border-gold"
-            />
-            {boxCount > 0 && (
-              <p className="text-white/50 text-xs mt-2">
-                = {totalPcs} pcs · €{pricePerBox}/box
-              </p>
-            )}
-          </div>
-
-          <div className="text-center">
-            {total ? (
-              <>
-                <p className="text-white/50 text-xs mb-1">Estimated total</p>
-                <p className="text-gold font-bold text-4xl mb-1">€{total}</p>
-                <p className="text-white/40 text-xs">{totalPcs} pieces</p>
-              </>
-            ) : (
-              <p className="text-white/30 text-sm">Enter number of boxes to see total</p>
-            )}
-            <Link
-              href="/contact"
-              className="mt-6 block w-full sm:w-auto sm:inline-block text-center bg-gold text-navy font-bold text-sm px-8 py-3 rounded-xl hover:bg-gold/90 transition-colors"
-            >
-              Request a Quote
-            </Link>
-          </div>
-        </div>
-        <p className="text-[#6B7280] text-xs mt-4 text-center">* All prices in EUR. Branding (screen printing / foil stamping) priced separately on request.</p>
-      </div>
-    </section>
-  );
-}
 
 export default function TeaFilterBagsPage() {
   const { t } = useT();
   const pp = t.productPages;
   const p = pp.teaFilterBags;
-  const [selectedSize, setSelectedSize] = useState(0);
 
   return (
     <>
@@ -213,10 +44,52 @@ export default function TeaFilterBagsPage() {
       </section>
 
       {/* Size selector */}
-      <SizeSelector selectedSize={selectedSize} onSelect={setSelectedSize} />
+      <section className="py-16 bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <span className="text-gold text-sm font-semibold uppercase tracking-widest">Sizes</span>
+            <h2 className="font-heading text-3xl font-bold text-navy mt-3">Choose Your Size</h2>
+            <p className="text-[#6B7280] mt-2 text-sm">Select a size to browse pricing and configure your order</p>
+          </div>
 
-      {/* Pricing */}
-      <TeaPriceCalc selectedSize={selectedSize} onSelect={setSelectedSize} />
+          <div className="flex flex-wrap justify-center gap-8">
+            {teaSizes.map((s, i) => (
+              <Link
+                key={s.id}
+                href={`/products/tea-filter-bags/catalog#${s.id}`}
+                className="group flex flex-col items-center w-[140px] sm:w-[160px]"
+              >
+                <div className={`relative w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] rounded-full overflow-hidden border-4 border-gray-100 group-hover:border-gold transition-all duration-300 shadow-sm group-hover:shadow-xl bg-white ring-2 ring-transparent group-hover:${ACCENT_CLASSES[i]}`}>
+                  <Image
+                    src={s.image}
+                    alt={s.label}
+                    fill
+                    className="object-contain p-4 transition-all duration-300 group-hover:scale-110"
+                    sizes="160px"
+                  />
+                </div>
+                <div className="mt-3 text-center">
+                  <p className="text-sm font-bold text-navy group-hover:text-gold transition-colors leading-tight">{s.label}</p>
+                  <p className="text-[11px] text-[#6B7280] mt-0.5">{s.subtitle}</p>
+                  <p className="text-[10px] text-[#9CA3AF] mt-0.5">{s.dimensions}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <Link
+              href="/products/tea-filter-bags/catalog"
+              className="inline-flex items-center gap-2 bg-navy text-white text-sm font-semibold px-6 py-3 rounded-xl hover:bg-navy/90 transition-colors"
+            >
+              View Sizes &amp; Pricing
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* Overview */}
       <section className="py-20 bg-white">
