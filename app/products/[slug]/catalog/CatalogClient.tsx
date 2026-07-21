@@ -154,7 +154,7 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
         {variant.subtitle && <p className="text-[#6B7280] text-xs mb-2">{vn[variant.id]?.subtitle ?? variant.subtitle}</p>}
 
         {/* Color dot preview */}
-        {variant.colors && variant.colors.length > 0 && (
+        {variant.colors && variant.colors.length > 1 && (
           <div className="flex flex-wrap gap-1.5 mb-3">
             {variant.colors.slice(0, 10).map(col => (
               <div
@@ -186,7 +186,7 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
           </p>
           <p className="text-[10px] text-[#6B7280] mt-0.5">
             {variant.weights.length} {variant.weights.length !== 1 ? c.sizePlural : c.sizeSingular}
-            {variant.colors ? ` · ${variant.colors.length} ${variant.colors.length !== 1 ? c.colourPlural : c.colourSingular}` : ""}
+            {variant.colors && variant.colors.length > 1 ? ` · ${variant.colors.length} ${c.colourPlural}` : ""}
           </p>
         </div>
 
@@ -302,7 +302,7 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
             )}
 
             {/* Colour selection */}
-            {variant.colors && variant.colors.length > 0 && (
+            {variant.colors && variant.colors.length > 1 && (
               <div>
                 <p className="text-[11px] font-bold text-navy uppercase tracking-widest mb-2">
                   {c.colourLabel}
