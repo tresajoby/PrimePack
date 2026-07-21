@@ -262,6 +262,9 @@ export const doypbackBagData: ProductData = {
       name: "Doypack with Window – Pine",
       subtitle: "WhitePaper45+PET12+LDPE40 · No valve",
       colors: ["Pine Paper"],
+      colorImages: {
+        "Pine Paper": ["/Doy Pack Pine + window.webp"],
+      },
       features: ["Regular zipper", "Window", "No foil", "No valve"],
       moq: "500 pcs",
       weights: [
