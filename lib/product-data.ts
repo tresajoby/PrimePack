@@ -168,6 +168,9 @@ export const doypbackBagData: ProductData = {
       name: "Soft Touch Doypack",
       subtitle: "PET12+tact-lac/LDPE110white",
       colors: ["White", "Black", "Pine", "Blue", "Orange", "Illuminating Yellow", "Olive Green", "Ultimate Gray"],
+      colorImages: {
+        "White": ["/Doy Pack Soft Touch White.webp"],
+      },
       features: ["Regular zipper", "8 colours", "No foil"],
       moq: "500 pcs",
       weights: [
