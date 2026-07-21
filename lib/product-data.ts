@@ -357,6 +357,7 @@ export const sideGussetBagData: ProductData = {
       subtitle: "PET12+tact-lac/LDPE110white",
       colors: ["White", "Black", "Pine", "Blue", "Orange"],
       colorImages: {
+        "White": ["/Side Gusset Soft Touch White.webp"],
         "Black": ["/Side Gusset Soft Touch Black.webp"],
         "Blue": ["/Side Gusset Soft Touch Blue.webp"],
       },
