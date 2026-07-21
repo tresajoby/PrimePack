@@ -36,7 +36,7 @@ export default function AboutPage() {
             </div>
             <div className="relative rounded-3xl overflow-hidden aspect-[4/3] shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=900&q=80"
+                src="/about-img.png"
                 alt="PrimePack warehouse facility"
                 fill
                 className="object-cover"
