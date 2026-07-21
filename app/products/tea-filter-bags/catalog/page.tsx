@@ -11,7 +11,7 @@ const sizes = [
     id: "size-m",
     name: "Size M — For a Cup",
     subtitle: "65×80×50 mm · Filter paper 18",
-    image: "/tea-filter-bags.png",
+    image: "/Tea bag size M.webp",
     dimensions: "65×80×50 mm",
     price1_10: 95,
     priceOver10: 85.5,
