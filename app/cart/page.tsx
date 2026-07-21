@@ -80,7 +80,7 @@ export default function CartPage() {
                               : { backgroundColor: COLOR_MAP[item.color] ?? "#999" }
                           }
                         />
-                        {item.color}
+                        {c.colorNames[item.color] ?? item.color}
                       </p>
                     )}
                   </div>

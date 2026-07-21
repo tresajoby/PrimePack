@@ -390,6 +390,7 @@ const translations = {
       exclNote: "Excl. branding & shipping. Final price on invoice.",
       proceedCheckout: "Proceed to Checkout →",
       confirmEmail: "We will confirm your order by email",
+      colorNames: {} as Record<string, string>,
     },
     checkout: {
       title: "Checkout",
@@ -905,6 +906,16 @@ const translations = {
       exclNote: "Bez zīmolvedības un piegādes. Galīgā cena rēķinā.",
       proceedCheckout: "Turpināt uz norēķinu →",
       confirmEmail: "Mēs apstiprināsim jūsu pasūtījumu pa e-pastu",
+      colorNames: {
+        "White": "Balts", "Black": "Melns", "Brown": "Brūns", "Gold": "Zeltains",
+        "Red": "Sarkans", "Kraft Paper": "Kraftpapīrs", "Silver": "Sudrabs",
+        "Pine": "Priedes zaļš", "Blue": "Zils", "Orange": "Oranžs",
+        "Illuminating Yellow": "Dzeltens", "Olive Green": "Olīvzaļš",
+        "Ultimate Gray": "Pelēks", "Purple (Very Peri)": "Violets",
+        "Green (Emerald)": "Zaļš (smaragds)", "Red (Viva Magenta)": "Sarkans (magenta)",
+        "Transparent": "Caurspīdīgs", "Pine Paper": "Priedes papīrs",
+        "Silver Glossy": "Sudraba spīdums", "White Paper": "Baltais papīrs",
+      },
     },
     checkout: {
       title: "Norēķins",
@@ -1420,6 +1431,16 @@ const translations = {
       exclNote: "Без брендинга и доставки. Окончательная цена в счёте.",
       proceedCheckout: "Перейти к оформлению →",
       confirmEmail: "Мы подтвердим ваш заказ по электронной почте",
+      colorNames: {
+        "White": "Белый", "Black": "Чёрный", "Brown": "Коричневый", "Gold": "Золотой",
+        "Red": "Красный", "Kraft Paper": "Крафт", "Silver": "Серебристый",
+        "Pine": "Хвойный", "Blue": "Синий", "Orange": "Оранжевый",
+        "Illuminating Yellow": "Ярко-жёлтый", "Olive Green": "Оливковый",
+        "Ultimate Gray": "Серый", "Purple (Very Peri)": "Фиолетовый",
+        "Green (Emerald)": "Зелёный (изумруд)", "Red (Viva Magenta)": "Красный (маджента)",
+        "Transparent": "Прозрачный", "Pine Paper": "Хвойная бумага",
+        "Silver Glossy": "Серебристый глянец", "White Paper": "Белая бумага",
+      },
     },
     checkout: {
       title: "Оформление заказа",
