@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useCart } from "@/lib/cart";
 
 const sizes = [
   {
@@ -10,6 +12,7 @@ const sizes = [
     name: "Size M — For a Cup",
     subtitle: "65×80×50 mm · Filter paper 18",
     image: "/tea-filter-bags.png",
+    dimensions: "65×80×50 mm",
     price1_10: 95,
     priceOver10: 85.5,
   },
@@ -18,6 +21,7 @@ const sizes = [
     name: "Size L — For a Teapot",
     subtitle: "85×135×50 mm · Filter paper 18",
     image: "/tea-filter-bags.png",
+    dimensions: "85×135×50 mm",
     price1_10: 150,
     priceOver10: 135,
   },
@@ -28,7 +32,11 @@ function TeaSizeCard({ size, open, onToggle }: {
   open: boolean;
   onToggle: () => void;
 }) {
+  const { addItem } = useCart();
+  const router = useRouter();
   const [boxes, setBoxes] = useState("");
+  const [added, setAdded] = useState(false);
+
   const boxCount = parseInt(boxes) || 0;
   const pricePerBox = boxCount > 10 ? size.priceOver10 : size.price1_10;
   const total = boxCount > 0 ? (pricePerBox * boxCount).toFixed(2) : null;
@@ -72,7 +80,7 @@ function TeaSizeCard({ size, open, onToggle }: {
               : "bg-navy/5 text-navy hover:bg-gold hover:text-navy border border-navy/10 hover:border-gold"
           }`}
         >
-          {open ? "Hide Pricing" : "Configure & Price →"}
+          {open ? "Hide Configurator" : "Configure & Price →"}
         </button>
 
         {/* Configurator */}
@@ -93,16 +101,18 @@ function TeaSizeCard({ size, open, onToggle }: {
               </div>
             </div>
 
-            {/* Order estimator */}
+            {/* Order estimator + add to cart */}
             <div className="bg-navy rounded-2xl p-4">
-              <p className="text-white/60 text-[11px] uppercase tracking-widest mb-3">Estimate Your Order</p>
-              <label className="text-white/50 text-xs block mb-1.5">Number of boxes</label>
+              <div className="flex justify-between items-center mb-3">
+                <span className="text-white/60 text-xs">Price per box</span>
+                <span className="text-gold font-bold text-xl">€{boxCount > 0 ? pricePerBox.toFixed(2) : size.price1_10}</span>
+              </div>
               <input
                 type="number"
                 min="1"
                 value={boxes}
-                onChange={(e) => setBoxes(e.target.value)}
-                placeholder="e.g. 5"
+                onChange={(e) => { setBoxes(e.target.value); setAdded(false); }}
+                placeholder="Number of boxes"
                 className="w-full bg-white/10 border border-white/20 rounded-xl px-3 py-2 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-gold mb-2"
               />
               {boxCount > 0 && (
@@ -114,12 +124,36 @@ function TeaSizeCard({ size, open, onToggle }: {
                   <p className="text-gold font-bold text-lg">€{total}</p>
                 </div>
               )}
-              <Link
-                href="/contact"
-                className="block w-full text-center font-bold text-sm py-2.5 rounded-xl bg-gold text-navy hover:bg-gold/90 transition-colors"
+              <button
+                disabled={!boxCount || boxCount <= 0}
+                onClick={() => {
+                  addItem({
+                    productSlug: "tea-filter-bags",
+                    variantId: size.id,
+                    variantName: size.name,
+                    weight: size.name,
+                    dimensions: size.dimensions,
+                    valve: false,
+                    color: null,
+                    qty: boxCount,
+                    pricePerPc: pricePerBox,
+                    productImage: size.image,
+                  });
+                  setAdded(true);
+                  setTimeout(() => setAdded(false), 2000);
+                }}
+                className="block w-full text-center font-bold text-sm py-2.5 rounded-xl transition-colors disabled:opacity-40 disabled:cursor-not-allowed bg-gold text-navy hover:bg-gold/90"
               >
-                Request a Quote
-              </Link>
+                {added ? "Added to Cart ✓" : "Add to Cart"}
+              </button>
+              {added && (
+                <button
+                  onClick={() => router.push("/cart")}
+                  className="block w-full text-center text-white/70 text-xs mt-2 hover:text-gold transition-colors"
+                >
+                  View Cart →
+                </button>
+              )}
             </div>
             <p className="text-[10px] text-[#6B7280]">* All prices in EUR. Branding priced separately on request.</p>
           </div>
