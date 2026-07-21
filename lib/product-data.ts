@@ -228,6 +228,9 @@ export const doypbackBagData: ProductData = {
       name: "Kraft Paper Doypack",
       subtitle: "KraftPaper50+VMPET12+LDPE40",
       colors: ["Kraft Paper"],
+      colorImages: {
+        "Kraft Paper": ["/Doy Pack Kraft.webp"],
+      },
       features: ["Regular zipper", "Kraft paper", "Metallized", "5 sizes"],
       moq: "500 pcs",
       weights: [
