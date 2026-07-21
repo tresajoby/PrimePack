@@ -189,6 +189,9 @@ export const doypbackBagData: ProductData = {
       name: "Metallized Doypack",
       subtitle: "MatteOPP20+Al-foil7+LDPE80",
       colors: ["White", "Black", "Brown", "Gold", "Red"],
+      colorImages: {
+        "White": ["/Doy Pack White.webp"],
+      },
       features: ["Regular zipper", "5 colours", "Metallized", "5 sizes"],
       moq: "500 pcs",
       weights: [
