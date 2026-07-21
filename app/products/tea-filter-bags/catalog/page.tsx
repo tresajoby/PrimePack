@@ -1,9 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useT } from "@/lib/i18n";
 
 const sizes = [
   {
@@ -131,23 +130,7 @@ function TeaSizeCard({ size, open, onToggle }: {
 }
 
 export default function TeaCatalogPage() {
-  const { t } = useT();
-  const c = t.catalog;
-  const [activeId, setActiveId] = useState("all");
   const [openIdx, setOpenIdx] = useState<number | null>(null);
-
-  useEffect(() => {
-    const readHash = () => {
-      const hash = decodeURIComponent(window.location.hash.slice(1));
-      setActiveId(hash || "all");
-      setOpenIdx(null);
-    };
-    readHash();
-    window.addEventListener("hashchange", readHash);
-    return () => window.removeEventListener("hashchange", readHash);
-  }, []);
-
-  const activeList = activeId === "all" ? sizes : sizes.filter(s => s.id === activeId);
 
   return (
     <>
@@ -163,47 +146,17 @@ export default function TeaCatalogPage() {
             </svg>
             Back to Tea Filter Bags
           </Link>
-          <span className="text-gold text-sm font-semibold uppercase tracking-widest block mb-3">{c.fullCatalog}</span>
+          <span className="text-gold text-sm font-semibold uppercase tracking-widest block mb-3">Full Catalog</span>
           <h1 className="font-heading text-4xl md:text-5xl font-bold text-white mb-3">Tea Filter Bags</h1>
-          <p className="text-white/60 text-base">{c.subtitle}</p>
+          <p className="text-white/60 text-base">All sizes · select quantity and configure your order</p>
         </div>
       </section>
-
-      {/* Filter tabs */}
-      <div className="bg-white border-b border-gray-200 sticky top-0 z-30 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex gap-1 overflow-x-auto py-3 scrollbar-hide">
-            <button
-              onClick={() => { setActiveId("all"); setOpenIdx(null); history.replaceState(null, "", window.location.pathname); }}
-              className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-semibold transition-all whitespace-nowrap ${
-                activeId === "all" ? "bg-navy text-white" : "text-[#6B7280] hover:text-navy hover:bg-gray-100"
-              }`}
-            >
-              {c.allTab} ({sizes.length})
-            </button>
-            {sizes.map(s => (
-              <button
-                key={s.id}
-                onClick={() => { setActiveId(s.id); setOpenIdx(null); history.replaceState(null, "", `#${s.id}`); }}
-                className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-semibold transition-all whitespace-nowrap ${
-                  activeId === s.id ? "bg-gold text-navy" : "text-[#6B7280] hover:text-navy hover:bg-gray-100"
-                }`}
-              >
-                {s.name.split(" — ")[0]} (1 {c.sizeSingular})
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
 
       {/* Grid */}
       <section className="py-12 bg-gray-50 min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-sm text-[#6B7280] mb-8">
-            {activeList.length} {activeList.length !== 1 ? c.variantPlural : c.variantSingular} across {activeList.length} {activeList.length !== 1 ? c.sizePlural : c.sizeSingular}
-          </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-            {activeList.map((s, idx) => (
+            {sizes.map((s, idx) => (
               <TeaSizeCard
                 key={s.id}
                 size={s}
