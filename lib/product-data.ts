@@ -246,6 +246,9 @@ export const doypbackBagData: ProductData = {
       name: "Doypack with Window – Kraft",
       subtitle: "KraftPaper50+PET12+LDPE55 · No valve",
       colors: ["Kraft Paper"],
+      colorImages: {
+        "Kraft Paper": ["/Doy Pack Kraft + window.webp"],
+      },
       features: ["Regular zipper", "Window", "No foil", "No valve"],
       moq: "500 pcs",
       weights: [
