@@ -194,6 +194,7 @@ export const doypbackBagData: ProductData = {
         "Black": ["/Doy Pack Black.webp"],
         "Brown": ["/Doy Pack Brown.webp"],
         "Gold": ["/Doy Pack Gold.webp"],
+        "Red": ["/Doy Pack Red.webp"],
       },
       features: ["Regular zipper", "5 colours", "Metallized", "5 sizes"],
       moq: "500 pcs",
