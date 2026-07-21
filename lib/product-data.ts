@@ -365,9 +365,9 @@ export const sideGussetBagData: ProductData = {
     {
       id: "metallized-side-gusset-standard",
       name: "Metallized Side Gusset",
-      subtitle: "MatteOPP20+Al-foil7+LDPE80",
-      colors: ["White", "Black", "Brown", "Gold", "Red"],
-      features: ["No zipper", "5 colours", "Metallized", "3 sizes"],
+      subtitle: "7 colours · MatteOPP20+Al-foil7+LDPE80 · No zipper",
+      colors: ["White", "Black", "Brown", "Gold", "Red", "Silver", "Kraft Paper"],
+      features: ["No zipper", "7 colours", "Metallized", "3 sizes"],
       moq: "500 pcs",
       weights: [
         { label: "250 g", dimensions: "80×250×64 mm", hasValve: true, without: [0.120, 0.114, 0.108, 0.102], withValve: [0.210, 0.204, 0.198, 0.192] },
