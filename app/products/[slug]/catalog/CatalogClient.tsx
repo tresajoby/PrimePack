@@ -34,6 +34,7 @@ const COLOR_MAP: Record<string, string> = {
   "Pink": "#FFB6C1",
   "Pistachio": "#93C572",
   "Pine Paper": "#8FAF7E",
+  "White Paper": "#F5F0E8",
 };
 
 function tierFromQty(qty: number): number {
