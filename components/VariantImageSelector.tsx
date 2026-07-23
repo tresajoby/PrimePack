@@ -60,7 +60,7 @@ export default function VariantImageSelector({ variants, productSlug, productIma
             return (
               <Link
                 key={v.id}
-                href={`/products/${productSlug}/catalog#${v.id}`}
+                href={`/products/${productSlug}/catalog#${encodeURIComponent(v.filterGroup ?? v.id)}`}
                 className="group flex flex-col items-center w-[140px] sm:w-[160px]"
               >
                 {/* Image circle */}

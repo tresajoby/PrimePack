@@ -417,15 +417,19 @@ export default function CatalogClient({ slug }: { slug: string }) {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   useEffect(() => {
+    const validIds = new Set<string>([
+      ...product.variants.map(v => v.id),
+      ...product.variants.map(v => v.filterGroup).filter((g): g is string => !!g),
+    ]);
     const readHash = () => {
       const hash = decodeURIComponent(window.location.hash.slice(1));
-      setActiveId(hash || "all");
+      setActiveId(hash && validIds.has(hash) ? hash : "all");
       setOpenIdx(null);
     };
     readHash();
     window.addEventListener("hashchange", readHash);
     return () => window.removeEventListener("hashchange", readHash);
-  }, []);
+  }, [product]);
 
   if (!product) {
     return (
