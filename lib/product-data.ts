@@ -79,7 +79,7 @@ export const flatBottomBagData: ProductData = {
     {
       id: "metallized-flat-bottom",
       name: "Metallized Flat Bottom",
-      subtitle: "White & Black — PET12+VMPET12+LDPE",
+      subtitle: "White & Black — PET12/VMPET12/LDPE100",
       colors: ["White", "Black"],
       colorImages: {
         "Black": ["/metallized-flat-bottom-black.webp"],
