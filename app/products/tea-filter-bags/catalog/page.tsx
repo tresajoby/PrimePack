@@ -38,7 +38,8 @@ function TeaSizeCard({ size, open, onToggle }: {
   const [added, setAdded] = useState(false);
 
   const boxCount = parseInt(boxes) || 0;
-  const pricePerBox = boxCount > 10 ? size.priceOver10 : size.price1_10;
+  const activeTier = boxCount > 10 ? 1 : 0;
+  const pricePerBox = activeTier === 1 ? size.priceOver10 : size.price1_10;
   const total = boxCount > 0 ? (pricePerBox * boxCount).toFixed(2) : null;
   const totalPcs = boxCount > 0 ? (boxCount * 10000).toLocaleString() : null;
 
@@ -90,14 +91,24 @@ function TeaSizeCard({ size, open, onToggle }: {
             <div>
               <p className="text-[11px] font-bold text-navy uppercase tracking-widest mb-2">Box Quantity</p>
               <div className="space-y-1.5">
-                <div className="flex justify-between items-center bg-gray-50 rounded-xl px-3 py-2 text-xs">
-                  <span className="text-[#6B7280]">1 – 10 boxes</span>
-                  <span className="font-bold text-navy">€{size.price1_10} / box</span>
-                </div>
-                <div className="flex justify-between items-center bg-gold/5 border border-gold/20 rounded-xl px-3 py-2 text-xs">
-                  <span className="text-[#6B7280]">&gt; 10 boxes</span>
-                  <span className="font-bold text-gold">€{size.priceOver10} / box</span>
-                </div>
+                {[
+                  { label: "1 – 10 boxes", price: size.price1_10, tier: 0 },
+                  { label: "> 10 boxes",   price: size.priceOver10, tier: 1 },
+                ].map(({ label, price, tier }) => (
+                  <div
+                    key={tier}
+                    className={`flex justify-between items-center rounded-xl px-3 py-2 text-xs transition-all ${
+                      activeTier === tier
+                        ? "bg-gold/10 border border-gold/40"
+                        : "bg-gray-50 border border-transparent"
+                    }`}
+                  >
+                    <span className="text-[#6B7280]">{label}</span>
+                    <span className={`font-bold ${activeTier === tier ? "text-gold" : "text-navy"}`}>
+                      €{price} / box
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
 
