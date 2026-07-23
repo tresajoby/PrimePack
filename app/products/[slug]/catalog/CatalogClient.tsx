@@ -517,29 +517,6 @@ export default function CatalogClient({ slug }: { slug: string }) {
         </div>
       </div>
 
-      {/* Active variant info strip */}
-      {activeId !== "all" && (() => {
-        const v = product.variants.find(x => x.id === activeId);
-        if (!v) return null;
-        return (
-          <div className="bg-gold/5 border-b border-gold/20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-wrap items-center gap-4">
-              <div>
-                <h2 className="font-heading font-bold text-navy">{vn[v.id]?.name ?? v.name}</h2>
-                {v.material && <p className="text-xs text-[#6B7280]"><span className="font-medium">Material — </span>{v.material}</p>}
-                {v.subtitle && <p className="text-xs text-[#6B7280]">{vn[v.id]?.subtitle ?? v.subtitle}</p>}
-              </div>
-              {v.colors && (
-                <div className="flex flex-wrap gap-1.5">
-                  {v.colors.map(col => (
-                    <span key={col} className="text-[11px] px-2 py-0.5 bg-white border border-gray-200 rounded-full text-[#6B7280]">{col}</span>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-        );
-      })()}
 
       {/* Variant grid */}
       <section className="py-12 bg-gray-50">
