@@ -37,6 +37,7 @@ export default function VariantImageSelector({ variants, productSlug, productIma
   const vs = t.variantSelector;
   const vn = t.variantNames as Record<string, { name: string; subtitle?: string }>;
   const [hoveredColor, setHoveredColor] = useState<Record<string, string>>({});
+  const [selectedColor, setSelectedColor] = useState<Record<string, string>>({});
 
   return (
     <section className="py-16 bg-white border-b border-gray-100">
@@ -50,7 +51,7 @@ export default function VariantImageSelector({ variants, productSlug, productIma
         {/* Variant image cards */}
         <div className="flex flex-wrap justify-center gap-5 sm:gap-8">
           {variants.map((v, i) => {
-            const activeColor = hoveredColor[v.id];
+            const activeColor = hoveredColor[v.id] ?? selectedColor[v.id];
             const defaultColor = v.colors?.[0];
             const displayColor = activeColor ?? defaultColor;
             const gallery = displayColor ? v.colorImages?.[displayColor] : undefined;
@@ -92,8 +93,9 @@ export default function VariantImageSelector({ variants, productSlug, productIma
                           title={c}
                           onMouseEnter={() => setHoveredColor(h => ({ ...h, [v.id]: c }))}
                           onMouseLeave={() => setHoveredColor(h => { const n = { ...h }; delete n[v.id]; return n; })}
+                          onClick={(e) => { e.preventDefault(); e.stopPropagation(); setSelectedColor(s => ({ ...s, [v.id]: c })); }}
                           className={`w-3 h-3 rounded-full border flex-shrink-0 cursor-pointer transition-transform hover:scale-125 ${
-                            activeColor === c ? "border-gold ring-1 ring-gold" : "border-gray-300"
+                            selectedColor[v.id] === c ? "border-gold ring-1 ring-gold scale-125" : "border-gray-300"
                           }`}
                           style={
                             COLOR_MAP[c] === "transparent"
