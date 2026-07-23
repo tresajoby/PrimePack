@@ -153,7 +153,15 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
       {/* Card info */}
       <div className="p-5 flex flex-col">
         <p className="text-navy font-bold text-[15px] leading-snug mb-1">{vn[variant.id]?.name ?? variant.name}</p>
-        {variant.subtitle && <p className="text-[#6B7280] text-xs mb-2"><span className="font-medium text-navy/50">Material — </span>{vn[variant.id]?.subtitle ?? variant.subtitle}</p>}
+        <div className="text-[#6B7280] text-xs mb-2 space-y-0.5">
+          {variant.colors && variant.colors.length > 0 && (
+            <p>{variant.colors.length} {variant.colors.length === 1 ? c.colourSingular : c.colourPlural}</p>
+          )}
+          {variant.material && (
+            <p><span className="font-medium text-navy/50">Material — </span>{variant.material}</p>
+          )}
+          {variant.subtitle && <p>{vn[variant.id]?.subtitle ?? variant.subtitle}</p>}
+        </div>
 
         {/* Color dot preview */}
         {variant.colors && variant.colors.length > 1 && (
@@ -516,7 +524,8 @@ export default function CatalogClient({ slug }: { slug: string }) {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-wrap items-center gap-4">
               <div>
                 <h2 className="font-heading font-bold text-navy">{vn[v.id]?.name ?? v.name}</h2>
-                {v.subtitle && <p className="text-xs text-[#6B7280]"><span className="font-medium">Material — </span>{vn[v.id]?.subtitle ?? v.subtitle}</p>}
+                {v.material && <p className="text-xs text-[#6B7280]"><span className="font-medium">Material — </span>{v.material}</p>}
+                {v.subtitle && <p className="text-xs text-[#6B7280]">{vn[v.id]?.subtitle ?? v.subtitle}</p>}
               </div>
               {v.colors && (
                 <div className="flex flex-wrap gap-1.5">

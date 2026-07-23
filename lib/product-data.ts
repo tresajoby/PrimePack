@@ -9,6 +9,7 @@ export interface WeightOption {
 export interface ProductVariant {
   id: string;
   name: string;
+  material?: string;
   subtitle?: string;
   colors?: string[];
   colorImages?: Record<string, string[]>;
@@ -37,7 +38,8 @@ export const flatBottomBagData: ProductData = {
     {
       id: "recyclable-flat-bottom",
       name: "Recyclable Flat Bottom",
-      subtitle: "9 colours · Regular zipper · Mono-material LDPE · 3 sizes",
+      material: "Mono-material LDPE",
+      subtitle: "Regular zipper",
       colors: ["Black", "White", "Latte", "Lavender", "Peach", "Pink", "Transparent", "Blue", "Pistachio"],
       filterGroup: "Recyclable Flat Bottom",
       colorImages: {
@@ -62,7 +64,8 @@ export const flatBottomBagData: ProductData = {
     {
       id: "recyclable-flat-bottom-bw",
       name: "Recyclable Flat Bottom – B&W",
-      subtitle: "Black & White · Pocket zipper · Mono-material LDPE · 2 sizes",
+      material: "Mono-material LDPE",
+      subtitle: "Pocket zipper",
       colors: ["Black", "White"],
       filterGroup: "Recyclable Flat Bottom",
       colorImages: {
@@ -79,7 +82,7 @@ export const flatBottomBagData: ProductData = {
     {
       id: "metallized-flat-bottom",
       name: "Metallized Flat Bottom",
-      subtitle: "PET12/VMPET12/LDPE100",
+      material: "PET12/VMPET12/LDPE100",
       colors: ["White", "Black"],
       colorImages: {
         "Black": ["/metallized-flat-bottom-black.webp"],
@@ -97,7 +100,7 @@ export const flatBottomBagData: ProductData = {
     {
       id: "kraft-paper-flat-bottom",
       name: "Kraft Paper Flat Bottom",
-      subtitle: "KraftPaper50+VMPET12+LDPE60",
+      material: "KraftPaper50+VMPET12+LDPE60",
       colors: ["Kraft Paper"],
       colorImages: {
         "Kraft Paper": ["/Flat Bottom Kraft.webp"],
@@ -114,7 +117,8 @@ export const flatBottomBagData: ProductData = {
     {
       id: "paper-look-flat-bottom",
       name: "Paper-Look Flat Bottom",
-      subtitle: "WhitePaper45/PET12/LDPE80white",
+      material: "WhitePaper45/PET12/LDPE80white",
+      subtitle: "No metallization · Window option available",
       colors: ["White Paper", "Illuminating Yellow", "Olive Green", "Ultimate Gray"],
       colorImages: {
         "White Paper": ["/Flat Bottom white paper.webp"],
@@ -149,7 +153,7 @@ export const doypbackBagData: ProductData = {
     {
       id: "recyclable-doypack",
       name: "Recyclable Doypack",
-      subtitle: "Mono-material LDPE",
+      material: "Mono-material LDPE",
       colors: ["Green (Emerald)", "Purple (Very Peri)", "White", "Red (Viva Magenta)"],
       colorImages: {
         "White": ["/Doy Pack Recyclable White.webp"],
@@ -166,7 +170,7 @@ export const doypbackBagData: ProductData = {
     {
       id: "soft-touch-doypack",
       name: "Soft Touch Doypack",
-      subtitle: "PET12+tact-lac/LDPE110white",
+      material: "PET12+tact-lac/LDPE110white",
       colors: ["Black", "White", "Pine", "Blue", "Orange", "Illuminating Yellow", "Olive Green", "Ultimate Gray"],
       colorImages: {
         "White": ["/Doy Pack Soft Touch White.webp"],
@@ -187,7 +191,7 @@ export const doypbackBagData: ProductData = {
     {
       id: "metallized-doypack",
       name: "Metallized Doypack",
-      subtitle: "MatteOPP20+Al-foil7+LDPE80",
+      material: "MatteOPP20+Al-foil7+LDPE80",
       colors: ["Gold", "White", "Black", "Brown", "Red"],
       colorImages: {
         "White": ["/Doy Pack White.webp"],
@@ -209,7 +213,7 @@ export const doypbackBagData: ProductData = {
     {
       id: "silver-glossy-doypack",
       name: "Silver Glossy Doypack",
-      subtitle: "PET12+Al-foil7+LDPE80",
+      material: "PET12+Al-foil7+LDPE80",
       colors: ["Silver"],
       colorImages: {
         "Silver": ["/Doy Pack Silver Glossy.webp"],
@@ -226,7 +230,7 @@ export const doypbackBagData: ProductData = {
     {
       id: "kraft-paper-doypack",
       name: "Kraft Paper Doypack",
-      subtitle: "KraftPaper50+VMPET12+LDPE40",
+      material: "KraftPaper50+VMPET12+LDPE40",
       colors: ["Kraft Paper"],
       colorImages: {
         "Kraft Paper": ["/Doy Pack Kraft.webp"],
@@ -244,7 +248,8 @@ export const doypbackBagData: ProductData = {
     {
       id: "window-doypack-kraft",
       name: "Doypack with Window – Kraft",
-      subtitle: "KraftPaper50+PET12+LDPE55 · No valve",
+      material: "KraftPaper50+PET12+LDPE55",
+      subtitle: "No valve",
       colors: ["Kraft Paper"],
       colorImages: {
         "Kraft Paper": ["/Doy Pack Kraft + window.webp"],
@@ -260,7 +265,8 @@ export const doypbackBagData: ProductData = {
     {
       id: "window-doypack-pine",
       name: "Doypack with Window – Pine",
-      subtitle: "WhitePaper45+PET12+LDPE40 · No valve",
+      material: "WhitePaper45+PET12+LDPE40",
+      subtitle: "No valve",
       colors: ["Pine Paper"],
       colorImages: {
         "Pine Paper": ["/Doy Pack Pine + window.webp"],
@@ -285,7 +291,8 @@ export const recyclableBagsData: ProductData = {
     {
       id: "recyclable-flat-bottom",
       name: "Recyclable Flat Bottom",
-      subtitle: "9 colours · Regular zipper · Mono-material LDPE · 3 sizes",
+      material: "Mono-material LDPE",
+      subtitle: "Regular zipper",
       colors: ["Black", "White", "Latte", "Lavender", "Peach", "Pink", "Transparent", "Blue", "Pistachio"],
       filterGroup: "Recyclable Flat Bottom",
       colorImages: {
@@ -310,7 +317,8 @@ export const recyclableBagsData: ProductData = {
     {
       id: "recyclable-flat-bottom-bw",
       name: "Recyclable Flat Bottom – B&W",
-      subtitle: "Black & White · Pocket zipper · Mono-material LDPE · 2 sizes",
+      material: "Mono-material LDPE",
+      subtitle: "Pocket zipper",
       colors: ["Black", "White"],
       filterGroup: "Recyclable Flat Bottom",
       colorImages: {
@@ -327,7 +335,7 @@ export const recyclableBagsData: ProductData = {
     {
       id: "recyclable-doypack",
       name: "Recyclable Doypack",
-      subtitle: "Mono-material LDPE",
+      material: "Mono-material LDPE",
       colors: ["Green (Emerald)", "Purple (Very Peri)", "White", "Red (Viva Magenta)"],
       colorImages: {
         "White": ["/Doy Pack Recyclable White.webp"],
@@ -354,7 +362,8 @@ export const sideGussetBagData: ProductData = {
     {
       id: "soft-touch-side-gusset",
       name: "Soft Touch Side Gusset",
-      subtitle: "PET12+tact-lac/LDPE110white",
+      material: "PET12+tact-lac/LDPE110white",
+      subtitle: "No zipper",
       colors: ["White", "Black", "Pine", "Blue", "Orange", "Ultimate Gray", "Olive Green", "Illuminating Yellow"],
       colorImages: {
         "White": ["/Side Gusset Soft Touch White.webp"],
@@ -375,7 +384,8 @@ export const sideGussetBagData: ProductData = {
     {
       id: "metallized-side-gusset-standard",
       name: "Metallized Side Gusset",
-      subtitle: "5 colours · MatteOPP20+Al-foil7+LDPE80 · No zipper",
+      material: "MatteOPP20+Al-foil7+LDPE80",
+      subtitle: "No zipper",
       colors: ["Gold", "White", "Black", "Brown", "Red"],
       colorImages: {
         "White": ["/Side Gusset White.webp"],
@@ -395,7 +405,8 @@ export const sideGussetBagData: ProductData = {
     {
       id: "kraft-side-gusset",
       name: "Kraft Paper Side Gusset",
-      subtitle: "KraftPaper50+VMPET12+LDPE40",
+      material: "KraftPaper50+VMPET12+LDPE40",
+      subtitle: "No zipper",
       colors: ["Kraft Paper"],
       colorImages: {
         "Kraft Paper": ["/Side Gusset Kraft.webp"],
@@ -412,7 +423,8 @@ export const sideGussetBagData: ProductData = {
     {
       id: "silver-glossy-side-gusset",
       name: "Silver Glossy Side Gusset",
-      subtitle: "PET12+Al-foil7+LDPE80",
+      material: "PET12+Al-foil7+LDPE80",
+      subtitle: "No zipper",
       colors: ["Silver"],
       colorImages: {
         "Silver": ["/Side Gusset Silver Glossy.webp"],
