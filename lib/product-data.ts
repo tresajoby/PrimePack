@@ -355,7 +355,7 @@ export const sideGussetBagData: ProductData = {
       id: "soft-touch-side-gusset",
       name: "Soft Touch Side Gusset",
       subtitle: "PET12+tact-lac/LDPE110white",
-      colors: ["White", "Black", "Pine", "Blue", "Orange"],
+      colors: ["White", "Black", "Pine", "Blue", "Orange", "Ultimate Gray", "Olive Green", "Illuminating Yellow"],
       colorImages: {
         "White": ["/Side Gusset Soft Touch White.webp"],
         "Black": ["/Side Gusset Soft Touch Black.webp"],
@@ -363,7 +363,7 @@ export const sideGussetBagData: ProductData = {
         "Blue": ["/Side Gusset Soft Touch Blue.webp"],
         "Orange": ["/Side Gusset Soft Touch Orange.webp"],
       },
-      features: ["No zipper", "5 colours", "No foil"],
+      features: ["No zipper", "8 colours", "No foil"],
       moq: "500 pcs",
       weights: [
         { label: "1000 g", dimensions: "135×360×70 mm", hasValve: true, without: [0.287, 0.273, 0.258, 0.244], withValve: [0.377, 0.363, 0.348, 0.334] },
