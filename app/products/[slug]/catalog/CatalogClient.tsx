@@ -18,7 +18,7 @@ const COLOR_MAP: Record<string, string> = {
   "Red": "#DC2626",
   "Kraft Paper": "#C4A46B",
   "Silver": "#C0C0C0",
-  "Pine": "#2D5016",
+  "Pine": "#2D7070",
   "Blue": "#1D4ED8",
   "Orange": "#EA580C",
   "Illuminating Yellow": "#F5E642",

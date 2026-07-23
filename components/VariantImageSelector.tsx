@@ -18,7 +18,7 @@ const ACCENT_CLASSES = [
 
 const COLOR_MAP: Record<string, string> = {
   "White": "#F0F0F0", "Black": "#1A1A1A", "Brown": "#7C4A1E", "Gold": "#C9A15A",
-  "Red": "#DC2626", "Kraft Paper": "#C4A46B", "Silver": "#C0C0C0", "Pine": "#2D5016",
+  "Red": "#DC2626", "Kraft Paper": "#C4A46B", "Silver": "#C0C0C0", "Pine": "#2D7070",
   "Blue": "#1D4ED8", "Orange": "#EA580C", "Illuminating Yellow": "#F5E642",
   "Olive Green": "#6B7C3E", "Ultimate Gray": "#939597", "Purple (Very Peri)": "#6667AB",
   "Green (Emerald)": "#50C878", "Red (Viva Magenta)": "#BB2649", "Transparent": "transparent",
