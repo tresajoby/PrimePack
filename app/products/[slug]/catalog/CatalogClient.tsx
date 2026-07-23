@@ -90,12 +90,11 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
   const [ti, setTi] = useState(0);
   const [valve, setValve] = useState(false);
   const [selectedColor, setSelectedColor] = useState<string | null>(variant.colors?.[0] ?? null);
-  const [hoveredColor, setHoveredColor] = useState<string | null>(null);
   const [selectedImageIdx, setSelectedImageIdx] = useState(0);
   const [qty, setQty] = useState("");
   const [added, setAdded] = useState(false);
 
-  const displayColor = hoveredColor ?? selectedColor;
+  const displayColor = selectedColor;
   const currentGallery = (displayColor ? variant.colorImages?.[displayColor] : undefined) ?? variant.gallery ?? [];
 
   function selectColor(col: string) {
@@ -171,8 +170,6 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
                 key={col}
                 title={col}
                 onClick={() => selectColor(col)}
-                onMouseEnter={() => setHoveredColor(col)}
-                onMouseLeave={() => setHoveredColor(null)}
                 className={`w-3.5 h-3.5 rounded-full border flex-shrink-0 cursor-pointer transition-transform hover:scale-125 ${
                   selectedColor === col ? "border-gold ring-1 ring-gold scale-110" : "border-gray-300"
                 }`}
