@@ -116,7 +116,7 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
   const showRange = minPrice !== maxPrice;
 
   return (
-    <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden flex flex-col group hover:shadow-lg transition-shadow duration-200">
+    <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden flex flex-col group hover:shadow-lg transition-shadow duration-200 h-full">
       {/* Main image */}
       <div className="relative aspect-square bg-gray-50 overflow-hidden">
         <Image
@@ -533,7 +533,7 @@ export default function CatalogClient({ slug }: { slug: string }) {
               : ` ${c.across} ${product.variants.length} ${c.options}`}
           </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 items-start">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 items-stretch">
             {activeVariants.map((variant, idx) => (
               <SkuCard
                 key={variant.id}
