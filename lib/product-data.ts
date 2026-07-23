@@ -150,7 +150,7 @@ export const doypbackBagData: ProductData = {
       id: "recyclable-doypack",
       name: "Recyclable Doypack",
       subtitle: "Mono-material LDPE",
-      colors: ["White", "Purple (Very Peri)", "Green (Emerald)", "Red (Viva Magenta)"],
+      colors: ["Green (Emerald)", "Purple (Very Peri)", "White", "Red (Viva Magenta)"],
       colorImages: {
         "White": ["/Doy Pack Recyclable White.webp"],
         "Green (Emerald)": ["/Doy Pack Recyclable emerald.webp"],
@@ -167,7 +167,7 @@ export const doypbackBagData: ProductData = {
       id: "soft-touch-doypack",
       name: "Soft Touch Doypack",
       subtitle: "PET12+tact-lac/LDPE110white",
-      colors: ["White", "Black", "Pine", "Blue", "Orange", "Illuminating Yellow", "Olive Green", "Ultimate Gray"],
+      colors: ["Black", "White", "Pine", "Blue", "Orange", "Illuminating Yellow", "Olive Green", "Ultimate Gray"],
       colorImages: {
         "White": ["/Doy Pack Soft Touch White.webp"],
         "Black": ["/Doy Pack Soft Touch Black.webp"],
@@ -188,7 +188,7 @@ export const doypbackBagData: ProductData = {
       id: "metallized-doypack",
       name: "Metallized Doypack",
       subtitle: "MatteOPP20+Al-foil7+LDPE80",
-      colors: ["White", "Black", "Brown", "Gold", "Red"],
+      colors: ["Gold", "White", "Black", "Brown", "Red"],
       colorImages: {
         "White": ["/Doy Pack White.webp"],
         "Black": ["/Doy Pack Black.webp"],
@@ -328,7 +328,7 @@ export const recyclableBagsData: ProductData = {
       id: "recyclable-doypack",
       name: "Recyclable Doypack",
       subtitle: "Mono-material LDPE",
-      colors: ["White", "Purple (Very Peri)", "Green (Emerald)", "Red (Viva Magenta)"],
+      colors: ["Green (Emerald)", "Purple (Very Peri)", "White", "Red (Viva Magenta)"],
       colorImages: {
         "White": ["/Doy Pack Recyclable White.webp"],
         "Green (Emerald)": ["/Doy Pack Recyclable emerald.webp"],
@@ -373,7 +373,7 @@ export const sideGussetBagData: ProductData = {
       id: "metallized-side-gusset-standard",
       name: "Metallized Side Gusset",
       subtitle: "5 colours · MatteOPP20+Al-foil7+LDPE80 · No zipper",
-      colors: ["White", "Black", "Brown", "Gold", "Red"],
+      colors: ["Gold", "White", "Black", "Brown", "Red"],
       colorImages: {
         "White": ["/Side Gusset White.webp"],
         "Black": ["/Side Gusset Black.webp"],
