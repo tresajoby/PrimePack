@@ -159,7 +159,7 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
             <p>{variant.colors.length} {variant.colors.length === 1 ? c.colourSingular : c.colourPlural}</p>
           )}
           {variant.material && (
-            <p><span className="font-medium text-navy/50">Material — </span>{variant.material}</p>
+            <p><span className="font-medium text-navy/50">{c.materialLabel} — </span>{variant.material}</p>
           )}
           {variant.subtitle && <p>{vn[variant.id]?.subtitle ?? variant.subtitle}</p>}
         </div>
@@ -374,7 +374,7 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
                   addItem({
                     productSlug,
                     variantId: variant.id,
-                    variantName: variant.name,
+                    variantName: vn[variant.id]?.name ?? variant.name,
                     weight: activeGroup.base,
                     dimensions: weight.dimensions,
                     zipperMode: activeGroup.isZipperGroup ? zipperMode : undefined,
@@ -462,6 +462,13 @@ export default function CatalogClient({ slug }: { slug: string }) {
     ? product.variants
     : product.variants.filter(v => v.id === activeId || v.filterGroup === activeId);
 
+  const activeEntry = tabEntries.find(e => e.id === activeId);
+  const activeName = activeEntry
+    ? (activeEntry.isGroup
+        ? (vn[activeEntry.variants[0].id]?.name ?? activeEntry.id)
+        : (vn[activeEntry.id]?.name ?? activeEntry.variants[0].name))
+    : activeId;
+
   return (
     <>
       {/* Hero */}
@@ -496,7 +503,7 @@ export default function CatalogClient({ slug }: { slug: string }) {
             </button>
             {tabEntries.map(entry => {
               const label = entry.isGroup
-                ? entry.id
+                ? (vn[entry.variants[0].id]?.name ?? entry.id)
                 : (vn[entry.id]?.name ?? entry.variants[0].name);
               const countNum = entry.isGroup
                 ? entry.variants.length
@@ -527,7 +534,7 @@ export default function CatalogClient({ slug }: { slug: string }) {
           <p className="text-sm text-[#6B7280] mb-8">
             {activeVariants.length} {activeVariants.length !== 1 ? c.variantPlural : c.variantSingular}
             {activeId !== "all"
-              ? ` · ${vn[activeId]?.name ?? product.variants.find(v => v.id === activeId)?.name ?? activeId}`
+              ? ` · ${activeName}`
               : ` ${c.across} ${product.variants.length} ${c.options}`}
           </p>
 

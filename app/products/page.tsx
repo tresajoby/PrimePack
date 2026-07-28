@@ -85,7 +85,7 @@ export default function ProductsPage() {
                       </ul>
                     </div>
                     <div className="mt-6 flex items-center gap-1 text-gold text-sm font-semibold">
-                      View Details <span className="group-hover:translate-x-1 transition-transform inline-block">→</span>
+                      {p.viewDetails} <span className="group-hover:translate-x-1 transition-transform inline-block">→</span>
                     </div>
                   </div>
                 </div>

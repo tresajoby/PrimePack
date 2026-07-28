@@ -64,13 +64,14 @@ export default function CheckoutPage() {
     if (!canSubmit) return;
     setStatus("sending");
 
-    const orderLines = items.map(item =>
-      `• ${item.variantName} | ${item.weight} (${item.dimensions})` +
-      (item.zipperMode ? ` | Zipper: ${item.zipperMode === "with" ? "With" : "No"} Zipper` : "") +
-      ` | Valve: ${item.valve ? "With Valve" : "Without Valve"}` +
-      (item.color ? ` | Colour: ${item.color}` : "") +
-      ` | Qty: ${item.qty.toLocaleString()} pcs | €${item.pricePerPc.toFixed(3)}/pc | Total: €${(item.qty * item.pricePerPc).toFixed(2)}`
-    ).join("\n");
+    const orderLines = items.map(item => {
+      const isTeaBag = item.productSlug === "tea-filter-bags";
+      return `• ${item.variantName} | ${item.weight} (${item.dimensions})` +
+        (item.zipperMode ? ` | Zipper: ${item.zipperMode === "with" ? "With" : "No"} Zipper` : "") +
+        ` | Valve: ${item.valve ? "With Valve" : "Without Valve"}` +
+        (item.color ? ` | Colour: ${item.color}` : "") +
+        ` | Qty: ${item.qty.toLocaleString()} ${isTeaBag ? "boxes" : "pcs"} | €${item.pricePerPc.toFixed(isTeaBag ? 2 : 3)}/${isTeaBag ? "box" : "pc"} | Total: €${(item.qty * item.pricePerPc).toFixed(2)}`;
+    }).join("\n");
 
     const shippingBlock = shipDiff
       ? `\n--- SHIPPING ADDRESS ---\nName: ${ship.firstName} ${ship.lastName}\nCompany: ${ship.companyName || "—"}\nAddress: ${ship.addressLine1}${ship.addressLine2 ? ", " + ship.addressLine2 : ""}\nCity: ${ship.city}, ${ship.postcode}\nCountry: ${ship.country}`
@@ -304,7 +305,7 @@ ${orderNotes ? "--- ORDER NOTES ---\n" + orderNotes : ""}`;
                       <div className="flex-1 min-w-0">
                         <p className="font-semibold text-navy text-xs leading-snug">{item.variantName}</p>
                         <p className="text-[10px] text-[#6B7280] mt-0.5">
-                          {item.weight} · {item.qty.toLocaleString()} {c.pcs}
+                          {item.weight} · {item.qty.toLocaleString()} {item.productSlug === "tea-filter-bags" ? t.productPages.teaFilterBags.boxUnit : c.pcs}
                           {item.valve ? ` · ${c.valveLabel}` : ` · ${c.noValve}`}
                         </p>
                         {item.color && <p className="text-[10px] text-[#6B7280]">{item.color}</p>}

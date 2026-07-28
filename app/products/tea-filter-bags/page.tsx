@@ -14,8 +14,8 @@ const featureIcons = [
 ];
 
 const teaSizes = [
-  { id: "size-m", label: "Size M", subtitle: "For a Cup", dimensions: "65×80×50 mm", image: "/Tea bag size M.webp" },
-  { id: "size-l", label: "Size L", subtitle: "For a Teapot", dimensions: "85×135×50 mm", image: "/Tea bag size L.webp" },
+  { id: "size-m", dimensions: "65×80×50 mm", image: "/Tea bag size M.webp" },
+  { id: "size-l", dimensions: "85×135×50 mm", image: "/Tea bag size L.webp" },
 ];
 
 const ACCENT_CLASSES = ["ring-amber-400", "ring-emerald-400"];
@@ -47,9 +47,9 @@ export default function TeaFilterBagsPage() {
       <section className="py-16 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <span className="text-gold text-sm font-semibold uppercase tracking-widest">Sizes</span>
-            <h2 className="font-heading text-3xl font-bold text-navy mt-3">Choose Your Size</h2>
-            <p className="text-[#6B7280] mt-2 text-sm">Select a size to browse pricing and configure your order</p>
+            <span className="text-gold text-sm font-semibold uppercase tracking-widest">{p.sizesLabel}</span>
+            <h2 className="font-heading text-3xl font-bold text-navy mt-3">{p.chooseSizeH2}</h2>
+            <p className="text-[#6B7280] mt-2 text-sm">{p.chooseSizeP}</p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-8">
@@ -62,15 +62,15 @@ export default function TeaFilterBagsPage() {
                 <div className={`relative w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] rounded-full overflow-hidden border-4 border-gray-100 group-hover:border-gold transition-all duration-300 shadow-sm group-hover:shadow-xl bg-white ring-2 ring-transparent group-hover:${ACCENT_CLASSES[i]}`}>
                   <Image
                     src={s.image}
-                    alt={s.label}
+                    alt={p.sizes[s.id].name}
                     fill
                     className="object-contain p-4 transition-all duration-300 group-hover:scale-110"
                     sizes="160px"
                   />
                 </div>
                 <div className="mt-3 text-center">
-                  <p className="text-sm font-bold text-navy group-hover:text-gold transition-colors leading-tight">{s.label}</p>
-                  <p className="text-[11px] text-[#6B7280] mt-0.5">{s.subtitle}</p>
+                  <p className="text-sm font-bold text-navy group-hover:text-gold transition-colors leading-tight">{p.sizes[s.id].name}</p>
+                  <p className="text-[11px] text-[#6B7280] mt-0.5">{p.sizes[s.id].for}</p>
                   <p className="text-[10px] text-[#9CA3AF] mt-0.5">{s.dimensions}</p>
                 </div>
               </Link>
@@ -82,7 +82,7 @@ export default function TeaFilterBagsPage() {
               href="/products/tea-filter-bags/catalog"
               className="inline-flex items-center gap-2 bg-navy text-white text-sm font-semibold px-6 py-3 rounded-xl hover:bg-navy/90 transition-colors"
             >
-              View Sizes &amp; Pricing
+              {p.viewSizesPricing}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>

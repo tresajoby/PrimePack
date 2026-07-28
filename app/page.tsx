@@ -12,6 +12,14 @@ const productImgs = [
   "/tea-filter-bags.png",
 ];
 
+const productHrefs = [
+  "/products/flat-bottom-bag",
+  "/products/doypack-bag",
+  "/products/recyclable-bags",
+  "/products/side-gusset-bag",
+  "/products/tea-filter-bags",
+];
+
 const trustIcons = [
   <svg key="q" className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
   <svg key="c" className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" /></svg>,
@@ -146,7 +154,7 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-5">
             {t.products.items.map((cat, i) => (
-              <Link key={cat.title} href="/products" className={`group relative overflow-hidden rounded-2xl bg-gray-100 ${i < 3 ? "lg:col-span-2" : i === 3 ? "lg:col-span-2 lg:col-start-2" : "lg:col-span-2 lg:col-start-4"}`}>
+              <Link key={cat.title} href={productHrefs[i]} className={`group relative overflow-hidden rounded-2xl bg-gray-100 ${i < 3 ? "lg:col-span-2" : i === 3 ? "lg:col-span-2 lg:col-start-2" : "lg:col-span-2 lg:col-start-4"}`}>
                 <div className={`relative aspect-[3/4] overflow-hidden ${productImgs[i].startsWith("/") ? "bg-white p-6" : ""}`}>
                   <Image src={productImgs[i]} alt={cat.title} fill className={`${productImgs[i].startsWith("/") ? "object-contain" : "object-cover group-hover:scale-105 transition-transform duration-700"}`} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent" />

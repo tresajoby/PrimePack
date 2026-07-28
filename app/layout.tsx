@@ -52,6 +52,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "PrimePack — Packaging Supplier Latvia",
     description: "High-quality packaging materials for businesses in Latvia and Europe.",
+    images: [{ url: "/og-image.png" }],
   },
   robots: {
     index: true,
@@ -104,7 +105,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="lv">
+    <html lang="en">
       <head>
         <script
           type="application/ld+json"
