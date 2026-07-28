@@ -9,6 +9,7 @@ import { useCart } from "@/lib/cart";
 import { useT } from "@/lib/i18n";
 
 const TIERS = ["500–1,500 pcs", "1,500–3,000 pcs", "3,000–5,000 pcs", ">5,000 pcs"];
+const MIN_QTY = 500;
 
 const COLOR_MAP: Record<string, string> = {
   "White": "#F0F0F0",
@@ -352,6 +353,7 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
               </div>
               <input
                 type="number"
+                min={MIN_QTY}
                 value={qty}
                 onChange={(e) => {
                   const val = e.target.value;
@@ -359,17 +361,20 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
                   const num = parseInt(val) || 0;
                   if (num > 0) setTi(tierFromQty(num));
                 }}
-                placeholder={c.enterQty}
+                placeholder={`Min. ${MIN_QTY.toLocaleString()} pcs`}
                 className="w-full bg-white/10 border border-white/20 rounded-xl px-3 py-2 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-gold mb-2"
               />
-              {total && (
+              {qtyNum > 0 && qtyNum < MIN_QTY && (
+                <p className="text-red-400 text-[10px] mb-1">Minimum order: {MIN_QTY.toLocaleString()} pcs</p>
+              )}
+              {total && qtyNum >= MIN_QTY && (
                 <div className="text-center py-2 mb-2">
                   <span className="text-white/50 text-[10px] block">{c.estimatedTotal}</span>
                   <p className="text-gold font-bold text-lg">€{total}</p>
                 </div>
               )}
               <button
-                disabled={!qtyNum || qtyNum <= 0}
+                disabled={!qtyNum || qtyNum < MIN_QTY}
                 onClick={() => {
                   addItem({
                     productSlug,
