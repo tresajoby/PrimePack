@@ -18,6 +18,7 @@ export default function ContactForm() {
     setStatus("sending");
     try {
       const body = new FormData();
+      body.append("_subject", `New enquiry from ${form.name}${form.company ? ` (${form.company})` : ""}`);
       body.append("name", form.name);
       body.append("company", form.company);
       body.append("email", form.email);

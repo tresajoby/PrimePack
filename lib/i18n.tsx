@@ -601,7 +601,7 @@ const translations = {
       copyright: "Visas tiesības aizsargātas.",
       legalLabels: ["Noteikumi un nosacījumi", "Privātuma politika", "Sīkdatņu politika", "Atgriešanas politika"],
     },
-    ticker: ["Plakana dibena maiss", "Doypack maiss", "Pārstrādājami maisi", "Sānu sānu maiss", "Viedais iepakojums", "Spēcīgāk kopā", "Premium kvalitāte", "Individuāla druka"],
+    ticker: ["Plakana dibena maiss", "Doypack maiss", "Pārstrādājami maisi", "Sānu ieloces maiss", "Viedais iepakojums", "Spēcīgāk kopā", "Premium kvalitāte", "Individuāla druka"],
     about: {
       heroBadge: "Par mums",
       heroH1: "Par PrimePack",
@@ -832,10 +832,10 @@ const translations = {
       },
       sideGussetBag: {
         badge: "Elastīgs iepakojums",
-        h1: "Sānu sānu maiss",
+        h1: "Sānu ieloces maiss",
         heroDesc: "Pazīstams arī kā quad-seal maiss — spilvena tipa maiss ar paplašinošām sānu panelēm, kas piepildīts rada profesionālu bloka dibena izskatu, plaši izmantots kafijas, tējas un mājdzīvnieku barības iepakošanai.",
         overviewH2: "Klasiskais kafijas un sauso preču maiss",
-        overviewP1: "Sānu sānu maiss ir viens no atpazīstamākajiem iepakojuma formātiem speciālās kafijas un premium sauso preču nozarē. Tā platās priekšējās un aizmugurējās paneles kombinācijā ar salocītiem sānu sānu rada gludu, spilvenainu izskatu tukšā stāvoklī — un stabilu, bloka dibena izskatu piepildīts.",
+        overviewP1: "Sānu ieloces maiss ir viens no atpazīstamākajiem iepakojuma formātiem speciālās kafijas un premium sauso preču nozarē. Tā platās priekšējās un aizmugurējās paneles kombinācijā ar salocītiem sānu ielocēm rada gludu, spilvenainu izskatu tukšā stāvoklī — un stabilu, bloka dibena izskatu piepildīts.",
         overviewP2: "Četras platās apzīmogojuma paneles dod zīmolu dizaineriem pietiekami daudz darba vietas, padarot šo formātu ideālu zīmoliem, kas vēlas nodot premium kvalitāti mazumtirdzniecībā. Apvienojiet to ar skārda saiti vai rāvējslēdzēju, un vienas puses atgāzošanas vārstu svaigi grauzdētai kafijai.",
         applications: ["Kafija", "Tēja", "Mājdzīvnieku barība", "Sausas preces", "Milti un graudi", "Garšvielas", "Granola", "Rieksti un sēklas", "Žāvēti augi", "Gatavošanas sastāvdaļas"],
         features: [
@@ -856,7 +856,7 @@ const translations = {
           { label: "MOQ", value: "500 gab" },
         ],
         ctaH2: "Gatavs pasūtīt?",
-        ctaP: "Pastāstiet mums par savu produktu, nepieciešamajiem izmēriem, vēlamo aizvērumu un daudzumu — un mēs sagatavosim individuālu piedāvājumu jūsu sānu sānu maisiņiem.",
+        ctaP: "Pastāstiet mums par savu produktu, nepieciešamajiem izmēriem, vēlamo aizvērumu un daudzumu — un mēs sagatavosim individuālu piedāvājumu jūsu sānu ieloces maisiņiem.",
       },
       teaFilterBags: {
         badge: "Pārtikas iepakojums",
@@ -914,7 +914,9 @@ const translations = {
         "Ultimate Gray": "Pelēks", "Purple (Very Peri)": "Violets",
         "Green (Emerald)": "Zaļš (smaragds)", "Red (Viva Magenta)": "Sarkans (magenta)",
         "Transparent": "Caurspīdīgs", "Pine Paper": "Priedes papīrs",
-        "Silver Glossy": "Sudraba spīdums", "White Paper": "Baltais papīrs",
+        "White Paper": "Baltais papīrs",
+        "Latte": "Latte", "Lavender": "Lavanda", "Peach": "Persiks",
+        "Pink": "Rozā", "Pistachio": "Pistācija",
       },
     },
     checkout: {
@@ -1083,7 +1085,7 @@ const translations = {
       items: [
         { title: "Пакет с плоским дном", desc: "Премиальный стоячий пакет с плоским основанием для максимальной заметности на полке." },
         { title: "Дойпак пакет", desc: "Классический стоячий пакет — универсальный и экономичный для широкого спектра продуктов." },
-        { title: "Перерабатываемые пакеты", desc: "Экологичная монодматериальная упаковка с полными барьерными свойствами." },
+        { title: "Перерабатываемые пакеты", desc: "Экологичная мономатериальная упаковка с полными барьерными свойствами." },
         { title: "Пакет с боковыми складками", desc: "Подушкообразный пакет с расширяющимися боковыми панелями для большего объёма." },
         { title: "Чайные фильтр-пакеты", desc: "Безопасные для пищевых продуктов фильтр-пакеты для листового чая, трав и специй с термосваркой и завязками." },
       ],
@@ -1184,7 +1186,7 @@ const translations = {
       categories: [
         { title: "Пакет с плоским дном", desc: "Премиальная вертикальная упаковка с плоским основанием для максимальной заметности на полке. Идеально для кофе, чая, снеков и premium продуктов.", specs: ["Стоит вертикально на полке", "Многоразовая молния", "Односторонний дегазационный клапан", "Матовое, глянцевое или крафт покрытие", "Доступна печать на заказ", "Ёмкость 100г – 5кг"] },
         { title: "Дойпак пакет", desc: "Классический стоячий пакет с овальной донной складкой. Универсальная и экономичная упаковка для продуктов питания, напитков, жидкостей и средств гигиены.", specs: ["Самостоящая овальная складка", "С молнией или без", "Опция носика / насадки", "Вариант с прозрачным окном", "Различные ламинированные материалы", "Размеры 50мл – 5Л"] },
-        { title: "Перерабатываемые пакеты с плоским дном и дойпаки", desc: "Экологичная упаковка из монодматериала с полной функциональностью стандартных пакетов при соответствии требованиям устойчивого развития.", specs: ["Сертифицированный перерабатываемый монодматериал", "Плёнка на основе PE или PP", "Варианты с PCR содержанием", "Совместим с линиями розлива", "Сниженный углеродный след", "Доступен с молнией"] },
+        { title: "Перерабатываемые пакеты с плоским дном и дойпаки", desc: "Экологичная упаковка из мономатериала с полной функциональностью стандартных пакетов при соответствии требованиям устойчивого развития.", specs: ["Сертифицированный перерабатываемый мономатериал", "Плёнка на основе PE или PP", "Варианты с PCR содержанием", "Совместим с линиями розлива", "Сниженный углеродный след", "Доступен с молнией"] },
         { title: "Пакет с боковыми складками", desc: "Подушкообразный пакет с расширяющимися боковыми панелями для большего объёма. Популярен для кофе, корма для животных и сыпучих товаров.", specs: ["Расширяющиеся боковые складки", "Закрытие на клипсу или молнию", "Односторонний дегазационный клапан", "Крафт, металлик или ламинат на заказ", "Термосварное дно", "Индивидуальные размеры и печать"] },
         { title: "Чайные фильтр-пакеты", desc: "Высококачественные пищевобезопасные фильтр-пакеты для листового чая, трав и специй. Доступны в широком ассортименте размеров, материалов и вариантов закрытия для розницы и общественного питания.", specs: ["Нетканые материалы и сетка", "Термосварка и завязки", "Различные размеры", "Сертифицированы для контакта с пищевыми продуктами", "Оптовые поставки", "Печать на заказ"] },
       ],
@@ -1330,13 +1332,13 @@ const translations = {
       recyclableBags: {
         badge: "Экологичная упаковка",
         h1: "Перерабатываемые пакеты с плоским дном и Дойпаки",
-        heroDesc: "Экологичная монодматериальная упаковка с теми же характеристиками, что и обычные пакеты — полностью перерабатываемая в стандартных потоках пластика для достижения ваших целей устойчивого развития.",
+        heroDesc: "Экологичная мономатериальная упаковка с теми же характеристиками, что и обычные пакеты — полностью перерабатываемая в стандартных потоках пластика для достижения ваших целей устойчивого развития.",
         overviewH2: "Устойчивость без компромиссов",
         overviewP1: "Традиционная гибкая упаковка из нескольких слоёв различных пластиков крайне сложно поддаётся переработке. Наша перерабатываемая линейка решает эту проблему, используя конструкцию из одного полимера — весь пакет входит в стандартные потоки переработки пластика.",
         overviewP2: "Доступные в форматах пакета с плоским дном и Дойпака, эти экологичные пакеты соответствуют руководящим принципам OPRL и европейским стандартам перерабатываемости — снижая воздействие на окружающую среду без изменения производственных линий.",
         applications: ["Кофе", "Чай", "Снеки", "Корм для животных", "Замороженные продукты", "Злаки", "Личная гигиена", "Добавки", "Сухие продукты", "Бытовая химия"],
         features: [
-          { title: "Монодматериальная конструкция", desc: "Изготовлен из одного полимера (PE или PP), чтобы весь пакет мог быть переработан в стандартных потоках пластика." },
+          { title: "Мономатериальная конструкция", desc: "Изготовлен из одного полимера (PE или PP), чтобы весь пакет мог быть переработан в стандартных потоках пластика." },
           { title: "Сертифицированно перерабатываемый", desc: "Соответствует европейским стандартам перерабатываемости и руководящим принципам OPRL." },
           { title: "Варианты с PCR содержимым", desc: "Доступен с содержанием вторичного сырья (30–50%) для сокращения углеродного следа." },
           { title: "Те же характеристики", desc: "Барьерные свойства по кислороду и влаге сопоставимы с многослойными ламинатами — без компромиссов в защите." },
@@ -1439,7 +1441,9 @@ const translations = {
         "Ultimate Gray": "Серый", "Purple (Very Peri)": "Фиолетовый",
         "Green (Emerald)": "Зелёный (изумруд)", "Red (Viva Magenta)": "Красный (маджента)",
         "Transparent": "Прозрачный", "Pine Paper": "Хвойная бумага",
-        "Silver Glossy": "Серебристый глянец", "White Paper": "Белая бумага",
+        "White Paper": "Белая бумага",
+        "Latte": "Латте", "Lavender": "Лаванда", "Peach": "Персик",
+        "Pink": "Розовый", "Pistachio": "Фисташковый",
       },
     },
     checkout: {

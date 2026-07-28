@@ -98,7 +98,7 @@ export default function CartPage() {
                         className="w-6 h-6 flex items-center justify-center text-navy hover:text-gold transition-colors font-bold"
                       >+</button>
                     </div>
-                    <span className="text-xs text-[#6B7280]">× €{item.pricePerPc.toFixed(3)}{c.perPc}</span>
+                    <span className="text-xs text-[#6B7280]">× €{item.pricePerPc.toFixed(item.productSlug === "tea-filter-bags" ? 2 : 3)}{item.productSlug === "tea-filter-bags" ? "/box" : c.perPc}</span>
                     <span className="font-bold text-navy text-sm ml-auto">€{(item.qty * item.pricePerPc).toFixed(2)}</span>
                   </div>
                 </div>

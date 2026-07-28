@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -94,6 +94,7 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
   const [selectedImageIdx, setSelectedImageIdx] = useState(0);
   const [qty, setQty] = useState("");
   const [added, setAdded] = useState(false);
+  const addedTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const displayColor = selectedColor;
   const currentGallery = (displayColor ? variant.colorImages?.[displayColor] : undefined) ?? variant.gallery ?? [];
@@ -384,7 +385,8 @@ function SkuCard({ variant, image, productSlug, open, onToggle }: {
                     productImage: image,
                   });
                   setAdded(true);
-                  setTimeout(() => setAdded(false), 2000);
+                  if (addedTimer.current) clearTimeout(addedTimer.current);
+                  addedTimer.current = setTimeout(() => setAdded(false), 2000);
                 }}
                 className="block w-full text-center font-bold text-sm py-2.5 rounded-xl transition-colors disabled:opacity-40 disabled:cursor-not-allowed bg-gold text-navy hover:bg-gold/90"
               >
@@ -417,6 +419,7 @@ export default function CatalogClient({ slug }: { slug: string }) {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   useEffect(() => {
+    if (!product) return;
     const validIds = new Set<string>([
       ...product.variants.map(v => v.id),
       ...product.variants.map(v => v.filterGroup).filter((g): g is string => !!g),

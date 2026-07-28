@@ -55,8 +55,9 @@ export default function CheckoutPage() {
   const shipChange = (k: keyof typeof ship) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
     setShip(p => ({ ...p, [k]: e.target.value }));
 
+  const shippingValid = !shipDiff || (ship.firstName && ship.lastName && ship.addressLine1 && ship.city && ship.postcode);
   const canSubmit = bill.firstName && bill.lastName && bill.email && bill.mobile &&
-    bill.postcode && bill.city && bill.addressLine1 && agreed && items.length > 0;
+    bill.postcode && bill.city && bill.addressLine1 && agreed && items.length > 0 && shippingValid;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
