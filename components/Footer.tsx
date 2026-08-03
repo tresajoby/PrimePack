@@ -88,12 +88,27 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-white/50 text-sm">© {new Date().getFullYear()} PrimePack. {t.footer.copyright}</p>
-          <div className="flex flex-wrap gap-4">
-            {t.footer.legalLabels.map((label, i) => (
-              <Link key={legalHrefs[i]} href={legalHrefs[i]} className="text-white/50 hover:text-gold text-xs transition-colors">{label}</Link>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <p className="text-white/40 text-[11px] font-semibold uppercase tracking-widest mb-3">{t.footer.legalInfoTitle}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-1.5 mb-6">
+            {[
+              { label: t.footer.companyLabel, value: 'SIA "PrimePack"' },
+              { label: t.footer.vatLabel, value: "LV40203753579" },
+              { label: t.footer.legalAddressLabel, value: "Salaspils iela 6 k-4–61, Rīga, LV-1057" },
+              { label: t.footer.bankLabel, value: "LV96HABA0551065416641 Swedbank AS" },
+            ].map(({ label, value }) => (
+              <p key={label} className="text-white/40 text-xs">
+                <span className="text-white/30">{label}:&nbsp;</span>{value}
+              </p>
             ))}
+          </div>
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-4 border-t border-white/10">
+            <p className="text-white/50 text-sm">© {new Date().getFullYear()} PrimePack. {t.footer.copyright}</p>
+            <div className="flex flex-wrap gap-4">
+              {t.footer.legalLabels.map((label, i) => (
+                <Link key={legalHrefs[i]} href={legalHrefs[i]} className="text-white/50 hover:text-gold text-xs transition-colors">{label}</Link>
+              ))}
+            </div>
           </div>
         </div>
       </div>
