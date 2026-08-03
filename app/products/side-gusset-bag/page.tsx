@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     images: [{ url: "/og-image.png" }],
   },
   alternates: { canonical: "https://www.primepack.lv/products/side-gusset-bag" },
+  keywords: ["side gusset bag Latvia", "sānu ieloces maisi Latvija", "coffee packaging Latvia", "coffee bag supplier Latvia", "tea packaging Latvia", "dry goods bag Latvia", "kraft bag Latvia", "pillow bag Latvia", "tin tie bag Latvia", "packaging bags Latvia", "B2B packaging supplier Latvia"],
 };
 
 const jsonLd = {

@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     images: [{ url: "/og-image.png" }],
   },
   alternates: { canonical: "https://www.primepack.lv/products" },
+  keywords: ["packaging products Latvia", "packing bags Latvia", "packaging bags Latvia", "packaging materials Latvia", "packaging supplier Latvia", "iepakojuma produkti Latvija", "wholesale packaging Latvia", "bulk packaging Latvia", "B2B packaging Latvia", "flexible packaging supplier Latvia", "packaging company Riga"],
 };
 
 const jsonLd = {

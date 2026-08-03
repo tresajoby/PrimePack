@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     images: [{ url: "/og-image.png" }],
   },
   alternates: { canonical: "https://www.primepack.lv/products/tea-filter-bags" },
+  keywords: ["tea filter bags Latvia", "tējas filtru maisiņi Latvija", "tea bags wholesale Latvia", "tea bags supplier Latvia", "filter paper bags Latvia", "heat seal tea bags Latvia", "food safe filter bags Latvia", "loose leaf tea bags Latvia", "herb bags Latvia", "tea packaging Latvia"],
 };
 
 const jsonLd = {

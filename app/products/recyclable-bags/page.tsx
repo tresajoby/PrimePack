@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     images: [{ url: "/og-image.png" }],
   },
   alternates: { canonical: "https://www.primepack.lv/products/recyclable-bags" },
+  keywords: ["recyclable packaging Latvia", "eco-friendly packaging Latvia", "pārstrādājami maisi Latvija", "sustainable packaging Latvia", "mono-material packaging Latvia", "recyclable bags supplier", "green packaging Latvia", "biodegradable bags Latvia", "EU compliant packaging Latvia", "LDPE BOPP bags Latvia"],
 };
 
 const jsonLd = {
