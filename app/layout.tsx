@@ -118,6 +118,14 @@ export const metadata: Metadata = {
   },
 };
 
+const websiteLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "PrimePack",
+  url: "https://www.primepack.lv",
+  description: "B2B packaging supplier in Riga, Latvia. Flat bottom bags, doypack pouches, recyclable bags, side gusset bags, tea filter bags.",
+};
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
@@ -171,10 +179,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
       <body>
         <Providers>
