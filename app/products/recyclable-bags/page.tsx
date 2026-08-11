@@ -22,37 +22,38 @@ export const metadata: Metadata = {
   keywords: ["recyclable packaging Latvia", "eco-friendly packaging Latvia", "pārstrādājami maisi Latvija", "sustainable packaging Latvia", "mono-material packaging Latvia", "recyclable bags supplier", "green packaging Latvia", "biodegradable bags Latvia", "EU compliant packaging Latvia", "LDPE BOPP bags Latvia"],
 };
 
-const jsonLd = {
+const breadcrumbLd = {
   "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://www.primepack.lv" },
-        { "@type": "ListItem", position: 2, name: "Products", item: "https://www.primepack.lv/products" },
-        { "@type": "ListItem", position: 3, name: "Recyclable Bags", item: "https://www.primepack.lv/products/recyclable-bags" },
-      ],
-    },
-    {
-      "@type": "Product",
-      name: "Recyclable Packaging Bags",
-      description: "Sustainable mono-material LDPE & BOPP recyclable bags for eco-conscious brands. Food-safe, EU compliant. Min. 500 pcs.",
-      image: "https://www.primepack.lv/recyclable-bags.png",
-      brand: { "@type": "Brand", name: "PrimePack" },
-      offers: {
-        "@type": "AggregateOffer",
-        priceCurrency: "EUR",
-        availability: "https://schema.org/InStock",
-        seller: { "@type": "Organization", name: "PrimePack" },
-      },
-    },
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.primepack.lv" },
+    { "@type": "ListItem", position: 2, name: "Products", item: "https://www.primepack.lv/products" },
+    { "@type": "ListItem", position: 3, name: "Recyclable Bags", item: "https://www.primepack.lv/products/recyclable-bags" },
   ],
+};
+
+const productLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "Recyclable Packaging Bags",
+  url: "https://www.primepack.lv/products/recyclable-bags",
+  description: "Sustainable mono-material LDPE & BOPP recyclable bags for eco-conscious brands. Food-safe, EU compliant. Min. 500 pcs.",
+  image: "https://www.primepack.lv/recyclable-bags.png",
+  brand: { "@type": "Brand", name: "PrimePack" },
+  offers: {
+    "@type": "AggregateOffer",
+    priceCurrency: "EUR",
+    availability: "https://schema.org/InStock",
+    url: "https://www.primepack.lv/products/recyclable-bags",
+    seller: { "@type": "Organization", name: "PrimePack" },
+  },
 };
 
 export default function RecyclableBagsPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productLd) }} />
       <RecyclableBagsClient />
     </>
   );
