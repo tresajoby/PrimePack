@@ -10,7 +10,15 @@ export const metadata: Metadata = {
     url: "https://www.primepack.lv/products/recyclable-bags",
     images: [{ url: "/og-image.png" }],
   },
-  alternates: { canonical: "https://www.primepack.lv/products/recyclable-bags" },
+  alternates: {
+    canonical: "https://www.primepack.lv/products/recyclable-bags",
+    languages: {
+      "x-default": "https://www.primepack.lv/products/recyclable-bags",
+      "en": "https://www.primepack.lv/products/recyclable-bags",
+      "lv": "https://www.primepack.lv/products/recyclable-bags",
+      "ru": "https://www.primepack.lv/products/recyclable-bags",
+    },
+  },
   keywords: ["recyclable packaging Latvia", "eco-friendly packaging Latvia", "pārstrādājami maisi Latvija", "sustainable packaging Latvia", "mono-material packaging Latvia", "recyclable bags supplier", "green packaging Latvia", "biodegradable bags Latvia", "EU compliant packaging Latvia", "LDPE BOPP bags Latvia"],
 };
 

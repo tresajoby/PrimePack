@@ -10,7 +10,15 @@ export const metadata: Metadata = {
     url: "https://www.primepack.lv/products/doypack-bag",
     images: [{ url: "/og-image.png" }],
   },
-  alternates: { canonical: "https://www.primepack.lv/products/doypack-bag" },
+  alternates: {
+    canonical: "https://www.primepack.lv/products/doypack-bag",
+    languages: {
+      "x-default": "https://www.primepack.lv/products/doypack-bag",
+      "en": "https://www.primepack.lv/products/doypack-bag",
+      "lv": "https://www.primepack.lv/products/doypack-bag",
+      "ru": "https://www.primepack.lv/products/doypack-bag",
+    },
+  },
   keywords: ["doypack bag Latvia", "doypack maisiņi Latvija", "stand-up pouch Latvia", "stand up pouch supplier Latvia", "food pouch Latvia", "дойпак пакеты Латвия", "doypack packaging Latvia", "packing bags Latvia", "flexible packaging Latvia", "B2B packaging Riga"],
 };
 

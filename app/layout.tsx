@@ -79,6 +79,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.primepack.lv",
     languages: {
+      "x-default": "https://www.primepack.lv",
       "en": "https://www.primepack.lv",
       "lv": "https://www.primepack.lv",
       "ru": "https://www.primepack.lv",
@@ -145,6 +146,12 @@ const jsonLd = {
   email: "PrimePack.lv@gmail.com",
   vatID: "LV40203753579",
   legalName: 'SIA "PrimePack"',
+  inLanguage: ["en", "lv", "ru"],
+  availableLanguage: [
+    { "@type": "Language", name: "English" },
+    { "@type": "Language", name: "Latvian" },
+    { "@type": "Language", name: "Russian" },
+  ],
   areaServed: [
     { "@type": "Country", name: "Latvia" },
     { "@type": "Country", name: "Estonia" },
@@ -177,7 +184,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="lv">
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />

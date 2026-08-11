@@ -10,7 +10,15 @@ export const metadata: Metadata = {
     url: "https://www.primepack.lv/products/flat-bottom-bag",
     images: [{ url: "/og-image.png" }],
   },
-  alternates: { canonical: "https://www.primepack.lv/products/flat-bottom-bag" },
+  alternates: {
+    canonical: "https://www.primepack.lv/products/flat-bottom-bag",
+    languages: {
+      "x-default": "https://www.primepack.lv/products/flat-bottom-bag",
+      "en": "https://www.primepack.lv/products/flat-bottom-bag",
+      "lv": "https://www.primepack.lv/products/flat-bottom-bag",
+      "ru": "https://www.primepack.lv/products/flat-bottom-bag",
+    },
+  },
   keywords: ["flat bottom bag Latvia", "flat bottom maisiņi Latvija", "flat bottom pouch supplier", "stand-up bag Latvia", "coffee bag Latvia", "kafijas maisiņi Latvija", "packaging bags Latvia", "custom printed bags Latvia", "zipper bag Latvia", "food packaging Latvia", "B2B packaging Latvia"],
 };
 
