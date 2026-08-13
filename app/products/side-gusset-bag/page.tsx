@@ -43,6 +43,8 @@ const productLd = {
   offers: {
     "@type": "AggregateOffer",
     priceCurrency: "EUR",
+    lowPrice: "143.50",
+    highPrice: "250",
     availability: "https://schema.org/InStock",
     url: "https://www.primepack.lv/products/side-gusset-bag",
     seller: { "@type": "Organization", name: "PrimePack" },

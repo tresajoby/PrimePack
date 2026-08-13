@@ -43,6 +43,8 @@ const productLd = {
   offers: {
     "@type": "AggregateOffer",
     priceCurrency: "EUR",
+    lowPrice: "44.50",
+    highPrice: "288",
     availability: "https://schema.org/InStock",
     url: "https://www.primepack.lv/products/doypack-bag",
     seller: { "@type": "Organization", name: "PrimePack" },

@@ -169,11 +169,11 @@ const jsonLd = {
     "@type": "OfferCatalog",
     name: "Packaging Products",
     itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Product", name: "Flat Bottom Bag", url: "https://www.primepack.lv/products/flat-bottom-bag", description: "Premium flat bottom stand-up bags for coffee, food & retail. Custom print, 24+ colours, zipper & valve options." } },
-      { "@type": "Offer", itemOffered: { "@type": "Product", name: "Doypack Stand-Up Pouch", url: "https://www.primepack.lv/products/doypack-bag", description: "Classic doypack stand-up pouches for food, beverages & personal care. Custom print, zipper & valve options." } },
-      { "@type": "Offer", itemOffered: { "@type": "Product", name: "Recyclable Packaging Bags", url: "https://www.primepack.lv/products/recyclable-bags", description: "Sustainable mono-material LDPE & BOPP recyclable bags. Food-safe, EU compliant." } },
-      { "@type": "Offer", itemOffered: { "@type": "Product", name: "Side Gusset Bag", url: "https://www.primepack.lv/products/side-gusset-bag", description: "Premium side gusset bags for coffee, tea & dry goods. Expanding gussets for maximum capacity." } },
-      { "@type": "Offer", itemOffered: { "@type": "Product", name: "Tea Filter Bags", url: "https://www.primepack.lv/products/tea-filter-bags", description: "Food-safe tea filter bags, Size M and Size L. 10,000 pcs per box." } },
+      { "@type": "Offer", itemOffered: { name: "Flat Bottom Bag", url: "https://www.primepack.lv/products/flat-bottom-bag", description: "Premium flat bottom stand-up bags for coffee, food & retail. Custom print, 24+ colours, zipper & valve options." } },
+      { "@type": "Offer", itemOffered: { name: "Doypack Stand-Up Pouch", url: "https://www.primepack.lv/products/doypack-bag", description: "Classic doypack stand-up pouches for food, beverages & personal care. Custom print, zipper & valve options." } },
+      { "@type": "Offer", itemOffered: { name: "Recyclable Packaging Bags", url: "https://www.primepack.lv/products/recyclable-bags", description: "Sustainable mono-material LDPE & BOPP recyclable bags. Food-safe, EU compliant." } },
+      { "@type": "Offer", itemOffered: { name: "Side Gusset Bag", url: "https://www.primepack.lv/products/side-gusset-bag", description: "Premium side gusset bags for coffee, tea & dry goods. Expanding gussets for maximum capacity." } },
+      { "@type": "Offer", itemOffered: { name: "Tea Filter Bags", url: "https://www.primepack.lv/products/tea-filter-bags", description: "Food-safe tea filter bags, Size M and Size L. 10,000 pcs per box." } },
     ],
   },
 };
