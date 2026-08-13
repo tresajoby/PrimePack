@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import DoypbackBagClient from "./DoypbackBagClient";
 
 export const metadata: Metadata = {
-  title: "Doypack Stand-Up Pouch — Packaging Supplier Latvia | PrimePack",
+  title: "Doypack Stand-Up Pouch — Packaging Supplier Latvia",
   description: "Classic doypack stand-up pouches for food, beverages & personal care. Custom print, zipper & valve options, 100g–5000g. B2B packaging supplier Latvia. Min. 500 pcs.",
   openGraph: {
     title: "Doypack Stand-Up Pouch | PrimePack Latvia",

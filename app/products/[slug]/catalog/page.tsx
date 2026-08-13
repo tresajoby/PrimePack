@@ -4,22 +4,22 @@ import CatalogClient from "./CatalogClient";
 const SLUG_META: Record<string, { title: string; description: string; name: string }> = {
   "flat-bottom-bag": {
     name: "Flat Bottom Bag",
-    title: "Flat Bottom Bag Catalog & Pricing — Configure Your Order | PrimePack",
+    title: "Flat Bottom Bag Catalog & Pricing — Configure Your Order",
     description: "Configure flat bottom bags by weight, colour, zipper & valve. Volume pricing from 500–5,000+ pcs. B2B packaging supplier Latvia. Get a price instantly.",
   },
   "doypack-bag": {
     name: "Doypack Stand-Up Pouch",
-    title: "Doypack Bag Catalog & Pricing — Configure Your Order | PrimePack",
+    title: "Doypack Bag Catalog & Pricing — Configure Your Order",
     description: "Configure doypack stand-up pouches by weight, colour, zipper & valve. Volume pricing from 500–5,000+ pcs. B2B packaging supplier Latvia. Get a price instantly.",
   },
   "recyclable-bags": {
     name: "Recyclable Bags",
-    title: "Recyclable Bags Catalog & Pricing — Configure Your Order | PrimePack",
+    title: "Recyclable Bags Catalog & Pricing — Configure Your Order",
     description: "Configure mono-material recyclable bags by weight, colour & zipper. Volume pricing from 500–5,000+ pcs. Eco-friendly packaging Latvia. Get a price instantly.",
   },
   "side-gusset-bag": {
     name: "Side Gusset Bag",
-    title: "Side Gusset Bag Catalog & Pricing — Configure Your Order | PrimePack",
+    title: "Side Gusset Bag Catalog & Pricing — Configure Your Order",
     description: "Configure side gusset bags by weight, colour, zipper & valve. Volume pricing from 500–5,000+ pcs. B2B packaging supplier Latvia. Get a price instantly.",
   },
 };

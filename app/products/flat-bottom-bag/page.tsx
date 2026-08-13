@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import FlatBottomBagClient from "./FlatBottomBagClient";
 
 export const metadata: Metadata = {
-  title: "Flat Bottom Bag — Stand-Up Packaging Supplier Latvia | PrimePack",
+  title: "Flat Bottom Bag — Stand-Up Packaging Supplier Latvia",
   description: "Premium flat bottom bags for coffee, food & retail. Custom sizes 250g–5000g, 24+ colours, zipper & valve options. B2B packaging supplier in Latvia. Min. 500 pcs.",
   openGraph: {
     title: "Flat Bottom Bag | PrimePack Latvia",

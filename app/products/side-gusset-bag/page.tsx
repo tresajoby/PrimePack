@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import SideGussetBagClient from "./SideGussetBagClient";
 
 export const metadata: Metadata = {
-  title: "Side Gusset Bag — Coffee & Tea Packaging Latvia | PrimePack",
+  title: "Side Gusset Bag — Coffee & Tea Packaging Latvia",
   description: "Premium side gusset bags for coffee, tea & dry goods. Expanding gussets for maximum capacity, custom print, 250g–5000g. B2B packaging supplier Latvia. Min. 500 pcs.",
   openGraph: {
     title: "Side Gusset Bag | PrimePack Latvia",

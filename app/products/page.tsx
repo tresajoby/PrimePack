@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ProductsClient from "./ProductsClient";
 
 export const metadata: Metadata = {
-  title: "Packaging Products — Flat Bottom Bags, Doypacks & More | PrimePack Latvia",
+  title: "Packaging Products — Flat Bottom Bags, Doypacks & More",
   description: "Browse PrimePack's full B2B packaging range: flat bottom bags, doypack stand-up pouches, recyclable bags, side gusset bags & tea filter bags. Ships across Latvia & Europe.",
   openGraph: {
     title: "Packaging Products | PrimePack Latvia",

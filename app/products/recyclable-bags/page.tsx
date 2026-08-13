@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import RecyclableBagsClient from "./RecyclableBagsClient";
 
 export const metadata: Metadata = {
-  title: "Recyclable Packaging Bags — Eco-Friendly Mono-Material | PrimePack Latvia",
+  title: "Recyclable Packaging Bags — Eco-Friendly Mono-Material",
   description: "Sustainable mono-material LDPE & BOPP recyclable bags for eco-conscious brands. Food-safe, EU compliant. Custom print, 24+ colours. B2B packaging supplier Latvia. Min. 500 pcs.",
   openGraph: {
     title: "Recyclable Packaging Bags | PrimePack Latvia",

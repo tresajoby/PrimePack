@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import TeaFilterBagsClient from "./TeaFilterBagsClient";
 
 export const metadata: Metadata = {
-  title: "Tea Filter Bags — Food-Safe Heat-Seal Filter Paper | PrimePack Latvia",
+  title: "Tea Filter Bags — Food-Safe Heat-Seal Filter Paper",
   description: "Food-safe tea filter bags in Size M (65×80mm) & Size L (85×135mm). Filter paper 18, 10,000 pcs/box. B2B supplier Latvia. From €85.50/box.",
   openGraph: {
     title: "Tea Filter Bags | PrimePack Latvia",
