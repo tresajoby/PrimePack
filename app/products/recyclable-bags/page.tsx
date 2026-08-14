@@ -45,6 +45,7 @@ const productLd = {
     priceCurrency: "EUR",
     lowPrice: "137.50",
     highPrice: "269",
+    offerCount: 4,
     availability: "https://schema.org/InStock",
     url: "https://www.primepack.lv/products/recyclable-bags",
     seller: { "@type": "Organization", name: "PrimePack" },

@@ -45,6 +45,7 @@ const productLd = {
     priceCurrency: "EUR",
     lowPrice: "115",
     highPrice: "267",
+    offerCount: 4,
     availability: "https://schema.org/InStock",
     url: "https://www.primepack.lv/products/flat-bottom-bag",
     seller: { "@type": "Organization", name: "PrimePack" },
