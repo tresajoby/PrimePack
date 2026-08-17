@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import SideGussetBagClient from "./SideGussetBagClient";
 
 export const metadata: Metadata = {
-  title: "Side Gusset Bag — Coffee & Tea Packaging Latvia",
-  description: "Premium side gusset bags for coffee, tea & dry goods. Expanding gussets for maximum capacity, custom print, 250g–5000g. B2B packaging supplier Latvia. Min. 500 pcs.",
+  title: "Custom Printed Side Gusset Bag Latvia — Coffee & Tea",
+  description: "Custom printed side gusset bags for coffee, tea & dry goods. Full-colour logo printing, expanding gussets, 250g–5000g. B2B packaging supplier Latvia. Min. 500 pcs.",
   openGraph: {
     title: "Side Gusset Bag | PrimePack Latvia",
     description: "Premium side gusset bags for coffee & tea. Expanding gussets, custom print. B2B packaging supplier Latvia.",
@@ -20,19 +20,20 @@ export const metadata: Metadata = {
     },
   },
   keywords: [
-    // English — simple + long-tail
+    // English — simple + long-tail + custom print
     "side gusset bag latvia", "side gusset latvia", "gusset bag latvia", "side gusset bags latvia",
+    "custom printed side gusset bag latvia", "side gusset bag with logo latvia",
     "side gusset bags riga", "side gusset packaging latvia", "gusset bag supplier latvia",
     "coffee bag latvia", "coffee bags latvia", "coffee packaging latvia",
-    "tea bag latvia", "kraft bag latvia", "dry goods bag latvia",
+    "custom coffee bag latvia", "tea bag latvia", "kraft bag latvia",
     // Latvian
     "sānu ieloces maisi latvijā", "sānu ieloces latvija", "ieloces maisiņi latvijā",
-    "sānu ieloces maisiņi rīgā", "sānu ieloces iepakojums latvijā",
-    "kafijas maisiņi latvijā", "tējas iepakojums latvija",
+    "sānu ieloces ar apdruku latvijā", "kafijas maisiņi ar apdruku latvijā",
+    "sānu ieloces maisiņi rīgā", "kafijas maisiņi latvijā", "tējas iepakojums latvija",
     // Russian
-    "пакеты с боковой складкой латвия", "боковые складки упаковка латвия",
+    "пакеты с боковой складкой латвия", "пакеты с боковой складкой с логотипом латвия",
     "пакеты с боковой складкой рига", "кофейные пакеты латвия",
-    "упаковка для кофе латвия", "упаковка для чая латвия",
+    "кофейные пакеты с печатью латвия", "упаковка для кофе латвия",
   ],
 };
 

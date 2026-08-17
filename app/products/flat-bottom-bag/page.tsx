@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import FlatBottomBagClient from "./FlatBottomBagClient";
 
 export const metadata: Metadata = {
-  title: "Flat Bottom Bag — Stand-Up Packaging Supplier Latvia",
-  description: "Premium flat bottom bags for coffee, food & retail. Custom sizes 250g–5000g, 24+ colours, zipper & valve options. B2B packaging supplier in Latvia. Min. 500 pcs.",
+  title: "Custom Printed Flat Bottom Bag Latvia — Coffee Packaging",
+  description: "Custom printed flat bottom bags with logo & full-colour design. Coffee, food & retail packaging. 250g–5000g, 24+ colours, zipper & valve options. B2B supplier Latvia. Min. 500 pcs.",
   openGraph: {
     title: "Flat Bottom Bag | PrimePack Latvia",
     description: "Premium flat bottom bags for coffee, food & retail. Custom print, zipper & valve options. B2B packaging supplier Latvia.",
@@ -20,19 +20,22 @@ export const metadata: Metadata = {
     },
   },
   keywords: [
-    // English — simple + long-tail
+    // English — simple + long-tail + custom print
     "flat bottom bag latvia", "flat bottom latvia", "flat bottom bags latvia", "flat bottom riga",
+    "custom printed flat bottom bag latvia", "custom print flat bottom latvia",
+    "flat bottom bag with logo latvia", "branded flat bottom bag latvia",
     "flat bottom pouch latvia", "flat bottom packaging latvia", "flat bottom supplier latvia",
-    "flat bottom coffee bag latvia", "flat bottom stand up bag latvia",
-    "coffee bag latvia", "coffee bags latvia", "coffee packaging latvia",
-    "kraft bag latvia", "custom printed bags latvia", "B2B packaging latvia",
+    "flat bottom coffee bag latvia", "coffee bag latvia", "coffee bags latvia",
+    "coffee packaging latvia", "kraft bag latvia", "B2B packaging latvia",
     // Latvian
     "flat bottom latvija", "flat bottom maisiņi latvijā", "flat bottom maisiņi rīgā",
-    "flat bottom maisiņi", "flat bottom iepakojums latvijā",
-    "flat bottom kafijas maisiņi latvijā", "kafijas maisiņi latvijā", "kafijas iepakojums latvija",
+    "flat bottom maisiņi", "flat bottom ar apdruku latvijā", "flat bottom ar logo latvijā",
+    "apdrukāti flat bottom maisiņi", "flat bottom kafijas maisiņi latvijā",
+    "kafijas maisiņi latvijā", "kafijas iepakojums latvija",
     // Russian
     "flat bottom латвия", "flat bottom пакеты латвия", "flat bottom рига",
-    "пакеты с плоским дном латвия", "flat bottom пакеты рига",
+    "flat bottom пакеты с печатью латвия", "пакеты с плоским дном латвия",
+    "пакеты с плоским дном с логотипом латвия",
     "кофейные пакеты латвия", "упаковка для кофе латвия",
   ],
 };
