@@ -60,7 +60,7 @@ const translations = {
       label: "Industries We Serve", heading: "Packaging Solutions Across Every Sector",
       items: [
         { icon: "🍽️", title: "Food & Beverage", desc: "Food-safe certified packaging for production and retail." },
-        { icon: "🛒", title: "Retail", desc: "Branded bags, pouches, and display-ready packaging." },
+        { icon: "🛒", title: "Retail", desc: "Stock bags, pouches, and display-ready packaging for retail." },
         { icon: "📦", title: "E-commerce", desc: "Lightweight, protective shipping materials at scale." },
         { icon: "⚙️", title: "Manufacturing", desc: "Industrial-grade bulk packaging for factory environments." },
         { icon: "🚚", title: "Logistics", desc: "Stretch films, palletizing materials, and transit solutions." },
@@ -90,7 +90,7 @@ const translations = {
       legalAddressLabel: "Legal Address",
       bankLabel: "Bank Account",
     },
-    ticker: ["Flat Bottom Bag", "Doypack Bag", "Recyclable Bags", "Side Gusset Bag", "Smart Packaging", "Stronger Together", "Premium Quality", "Custom Print"],
+    ticker: ["Flat Bottom Bag", "Doypack Bag", "Recyclable Bags", "Side Gusset Bag", "Smart Packaging", "Stronger Together", "Premium Quality"],
     about: {
       heroBadge: "About Us",
       heroH1: "About PrimePack",
@@ -147,11 +147,11 @@ const translations = {
       ctaBtn: "Contact Our Team",
       viewDetails: "View Details",
       categories: [
-        { title: "Flat Bottom Bag", desc: "Premium stand-up packaging with a flat base for maximum shelf presence. Ideal for coffee, tea, snacks, and premium food products.", specs: ["Stands upright on shelf", "Resealable zipper option", "One-way degassing valve", "Matte, gloss or kraft finish", "Custom print available", "100g – 5kg capacity"] },
+        { title: "Flat Bottom Bag", desc: "Premium stand-up packaging with a flat base for maximum shelf presence. Ideal for coffee, tea, snacks, and premium food products.", specs: ["Stands upright on shelf", "Resealable zipper option", "One-way degassing valve", "Matte, gloss or kraft finish", "100g – 5kg capacity"] },
         { title: "Doypack Bag", desc: "Classic stand-up pouch with an oval bottom gusset. Versatile and cost-effective packaging for food, beverages, liquids, and personal care products.", specs: ["Self-standing oval gusset", "With or without zipper", "Spout / nozzle option", "Transparent window option", "Various laminate materials", "50ml – 5L sizes"] },
         { title: "Recyclable Flat Bottom & Doypack Bags", desc: "Eco-friendly mono-material packaging delivering full functionality of standard bags while meeting modern sustainability and recyclability requirements.", specs: ["Certified recyclable mono-material", "PE or PP based film", "PCR content options available", "Compatible with filling lines", "Reduced carbon footprint", "Available with zipper"] },
-        { title: "Side Gusset Bag", desc: "Pillow-style bag with expanding side panels for increased volume. Popular for coffee, pet food, and dry goods with a professional retail appearance.", specs: ["Expanding side gussets", "Tin-tie or zipper closure", "One-way degassing valve", "Kraft, metallic or custom laminates", "Heat-sealed bottom", "Custom sizes & print"] },
-        { title: "Tea Filter Bags", desc: "High-quality food-safe filter bags for loose-leaf tea, herbs, and spices. Available in a wide range of sizes, materials, and closure options for retail and foodservice.", specs: ["Non-woven & mesh materials", "Heat-seal & drawstring styles", "Various sizes available", "Food-contact certified", "Bulk supply available", "Custom print on request"] },
+        { title: "Side Gusset Bag", desc: "Pillow-style bag with expanding side panels for increased volume. Popular for coffee, pet food, and dry goods with a professional retail appearance.", specs: ["Expanding side gussets", "Tin-tie or zipper closure", "One-way degassing valve", "Kraft, metallic or custom laminates", "Heat-sealed bottom", "Custom sizes available"] },
+        { title: "Tea Filter Bags", desc: "High-quality food-safe filter bags for loose-leaf tea, herbs, and spices. Available in a wide range of sizes, materials, and closure options for retail and foodservice.", specs: ["Non-woven & mesh materials", "Heat-seal & drawstring styles", "Various sizes available", "Food-contact certified", "Bulk supply available"] },
       ],
     },
     servicesPage: {
@@ -250,7 +250,7 @@ const translations = {
           { title: "Resealable Zipper", desc: "Optional zipper closure keeps contents fresh and allows consumers to reseal after opening." },
           { title: "Degassing Valve", desc: "One-way valve option releases CO₂ from freshly roasted coffee without letting air in." },
           { title: "Premium Finishes", desc: "Choose from matte, high-gloss, soft-touch, or natural kraft finishes to match your brand." },
-          { title: "Custom Print", desc: "Up to 10-colour rotogravure printing with pantone colour matching and brand consistency." },
+          { title: "Wide Colour Range", desc: "Available in 24+ standard colour combinations across matte, gloss, soft-touch, and natural kraft finishes — ready to order." },
         ],
         specs: [
           { label: "Capacity", value: "250g · 500g · 1000g" },
@@ -278,7 +278,7 @@ const translations = {
           { title: "Spout / Nozzle Option", desc: "Screw-on or welded spout available for liquid and semi-liquid products." },
           { title: "Transparent Window", desc: "Optional clear panel lets consumers see the product inside — builds trust and appeal." },
           { title: "Retort Compatible", desc: "High-barrier variants suitable for pasteurised and sterilised food products." },
-          { title: "Full Custom Print", desc: "Up to 10-colour rotogravure printing with brand colour matching across any material." },
+          { title: "Wide Material Choice", desc: "Available in 6+ laminate variants — recyclable, soft touch, metallised, kraft, window, and silver glossy — to match any product." },
         ],
         specs: [
           { label: "Capacity", value: "70g · 100g · 250g · 500g · 1000g · 3000g" },
@@ -354,14 +354,14 @@ const translations = {
         heroDesc: "Food-safe filter bags for loose-leaf tea, herbs, and spices — available in heat-seal and drawstring styles in a wide range of sizes and materials.",
         overviewH2: "Quality Filter Bags for Tea & Herbs",
         overviewP1: "Our tea filter bags are made from food-safe materials, providing optimal infusion while containing loose-leaf tea or herbs. The wide range of sizes and materials allows them to be tailored for both retail packaging and foodservice operations.",
-        overviewP2: "Available with heat-seal or drawstring closure, with or without a tag, and with the option of custom printing on the tag — ideal for tea manufacturers, packers, and private-label customers.",
+        overviewP2: "Available with heat-seal or drawstring closure, with or without a tag — ideal for tea manufacturers, packers, and private-label customers.",
         applications: ["Tea", "Herbal Infusions", "Spices", "Coffee", "Dried Flowers", "Loose Herbs", "Medicinal Herbs", "Foodservice"],
         features: [
           { title: "Food-Safe Materials", desc: "Made from non-woven polypropylene or mesh nylon — certified food-contact safe for direct tea brewing." },
           { title: "Multiple Styles", desc: "Available in heat-sealable and drawstring closure options to suit different production methods." },
           { title: "Wide Size Range", desc: "From small single-serve sachets to large brewing bags for foodservice and bulk use." },
           { title: "Natural & Synthetic Options", desc: "Choose from unbleached natural fibre, non-woven PP, or fine mesh nylon materials." },
-          { title: "Custom Print", desc: "Print your brand or logo directly on the bag tag or packaging for a retail-ready finish." },
+          { title: "Consistent Quality", desc: "Produced in high-volume runs with consistent material weight and infusion performance across every batch." },
           { title: "Bulk Supply", desc: "Available in high-volume quantities with consistent quality for tea manufacturers and packers." },
         ],
         specs: [
@@ -370,7 +370,6 @@ const translations = {
           { label: "Closure", value: "Heat-Seal · Drawstring (with or without tag)" },
           { label: "Certification", value: "Food-contact certified · EU compliant" },
           { label: "Bleaching", value: "Bleached / Unbleached options" },
-          { label: "Print", value: "Tag printing available on request" },
           { label: "MOQ", value: "Available for low minimum orders — contact for details" },
         ],
         ctaH2: "Ready to Order?",

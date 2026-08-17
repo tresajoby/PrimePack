@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import FlatBottomBagClient from "./FlatBottomBagClient";
 
 export const metadata: Metadata = {
-  title: "Custom Printed Flat Bottom Bag Latvia — Coffee Packaging",
-  description: "Custom printed flat bottom bags with logo & full-colour design. Coffee, food & retail packaging. 250g–5000g, 24+ colours, zipper & valve options. B2B supplier Latvia. Min. 500 pcs.",
+  title: "Flat Bottom Bag Latvia — Coffee & Food Packaging Supplier",
+  description: "Flat bottom bags for coffee, food & retail packaging. 250g–5000g, 24+ colours, zipper & valve options. Multiple materials. B2B packaging supplier Latvia. Min. 500 pcs.",
   openGraph: {
     title: "Flat Bottom Bag | PrimePack Latvia",
-    description: "Premium flat bottom bags for coffee, food & retail. Custom print, zipper & valve options. B2B packaging supplier Latvia.",
+    description: "Premium flat bottom bags for coffee, food & retail. Zipper & valve options, 24+ colours. B2B packaging supplier Latvia.",
     url: "https://www.primepack.lv/products/flat-bottom-bag",
     images: [{ url: "/og-image.png" }],
   },
@@ -20,22 +20,19 @@ export const metadata: Metadata = {
     },
   },
   keywords: [
-    // English — simple + long-tail + custom print
+    // English
     "flat bottom bag latvia", "flat bottom latvia", "flat bottom bags latvia", "flat bottom riga",
-    "custom printed flat bottom bag latvia", "custom print flat bottom latvia",
-    "flat bottom bag with logo latvia", "branded flat bottom bag latvia",
     "flat bottom pouch latvia", "flat bottom packaging latvia", "flat bottom supplier latvia",
-    "flat bottom coffee bag latvia", "coffee bag latvia", "coffee bags latvia",
-    "coffee packaging latvia", "kraft bag latvia", "B2B packaging latvia",
+    "flat bottom coffee bag latvia", "flat bottom stand up bag latvia",
+    "coffee bag latvia", "coffee bags latvia", "coffee packaging latvia",
+    "kraft bag latvia", "B2B packaging latvia",
     // Latvian
     "flat bottom latvija", "flat bottom maisiņi latvijā", "flat bottom maisiņi rīgā",
-    "flat bottom maisiņi", "flat bottom ar apdruku latvijā", "flat bottom ar logo latvijā",
-    "apdrukāti flat bottom maisiņi", "flat bottom kafijas maisiņi latvijā",
-    "kafijas maisiņi latvijā", "kafijas iepakojums latvija",
+    "flat bottom maisiņi", "flat bottom iepakojums latvijā",
+    "flat bottom kafijas maisiņi latvijā", "kafijas maisiņi latvijā", "kafijas iepakojums latvija",
     // Russian
     "flat bottom латвия", "flat bottom пакеты латвия", "flat bottom рига",
-    "flat bottom пакеты с печатью латвия", "пакеты с плоским дном латвия",
-    "пакеты с плоским дном с логотипом латвия",
+    "пакеты с плоским дном латвия", "flat bottom пакеты рига",
     "кофейные пакеты латвия", "упаковка для кофе латвия",
   ],
 };
@@ -55,7 +52,7 @@ const productLd = {
   "@type": "Product",
   name: "Flat Bottom Bag",
   url: "https://www.primepack.lv/products/flat-bottom-bag",
-  description: "Premium flat bottom stand-up bags for coffee, food & retail packaging. Custom print, 24+ colours, zipper & valve options. Min. 500 pcs.",
+  description: "Premium flat bottom stand-up bags for coffee, food & retail packaging. 24+ colours, zipper & valve options. Min. 500 pcs.",
   image: "https://www.primepack.lv/flat-bottom-bag.png",
   brand: { "@type": "Brand", name: "PrimePack" },
   offers: {

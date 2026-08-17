@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import SideGussetBagClient from "./SideGussetBagClient";
 
 export const metadata: Metadata = {
-  title: "Custom Printed Side Gusset Bag Latvia — Coffee & Tea",
-  description: "Custom printed side gusset bags for coffee, tea & dry goods. Full-colour logo printing, expanding gussets, 250g–5000g. B2B packaging supplier Latvia. Min. 500 pcs.",
+  title: "Side Gusset Bag Latvia — Coffee & Tea Packaging Supplier",
+  description: "Side gusset bags for coffee, tea & dry goods. Expanding gussets, 250g–5000g, multiple materials and colours. B2B packaging supplier Latvia. Min. 500 pcs.",
   openGraph: {
     title: "Side Gusset Bag | PrimePack Latvia",
-    description: "Premium side gusset bags for coffee & tea. Expanding gussets, custom print. B2B packaging supplier Latvia.",
+    description: "Premium side gusset bags for coffee & tea. Expanding gussets, multiple materials. B2B packaging supplier Latvia.",
     url: "https://www.primepack.lv/products/side-gusset-bag",
     images: [{ url: "/og-image.png" }],
   },
@@ -20,20 +20,18 @@ export const metadata: Metadata = {
     },
   },
   keywords: [
-    // English — simple + long-tail + custom print
+    // English
     "side gusset bag latvia", "side gusset latvia", "gusset bag latvia", "side gusset bags latvia",
-    "custom printed side gusset bag latvia", "side gusset bag with logo latvia",
     "side gusset bags riga", "side gusset packaging latvia", "gusset bag supplier latvia",
     "coffee bag latvia", "coffee bags latvia", "coffee packaging latvia",
-    "custom coffee bag latvia", "tea bag latvia", "kraft bag latvia",
+    "tea bag latvia", "kraft bag latvia", "dry goods bag latvia",
     // Latvian
     "sānu ieloces maisi latvijā", "sānu ieloces latvija", "ieloces maisiņi latvijā",
-    "sānu ieloces ar apdruku latvijā", "kafijas maisiņi ar apdruku latvijā",
-    "sānu ieloces maisiņi rīgā", "kafijas maisiņi latvijā", "tējas iepakojums latvija",
+    "sānu ieloces maisiņi rīgā", "sānu ieloces iepakojums latvijā",
+    "kafijas maisiņi latvijā", "tējas iepakojums latvija",
     // Russian
-    "пакеты с боковой складкой латвия", "пакеты с боковой складкой с логотипом латвия",
-    "пакеты с боковой складкой рига", "кофейные пакеты латвия",
-    "кофейные пакеты с печатью латвия", "упаковка для кофе латвия",
+    "пакеты с боковой складкой латвия", "пакеты с боковой складкой рига",
+    "кофейные пакеты латвия", "упаковка для кофе латвия",
   ],
 };
 
@@ -52,7 +50,7 @@ const productLd = {
   "@type": "Product",
   name: "Side Gusset Bag",
   url: "https://www.primepack.lv/products/side-gusset-bag",
-  description: "Premium side gusset bags for coffee, tea & dry goods. Expanding gussets for maximum capacity, custom print. Min. 500 pcs.",
+  description: "Premium side gusset bags for coffee, tea & dry goods. Expanding gussets for maximum capacity, multiple materials. Min. 500 pcs.",
   image: "https://www.primepack.lv/side-gusset-bag.png",
   brand: { "@type": "Brand", name: "PrimePack" },
   offers: {

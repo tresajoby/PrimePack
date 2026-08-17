@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import DoypbackBagClient from "./DoypbackBagClient";
 
 export const metadata: Metadata = {
-  title: "Custom Printed Doypack Latvia — B2B Stand-Up Pouches",
-  description: "Custom printed doypack stand-up pouches with your logo & full-colour design. Food, beverages & personal care. Zipper & valve options, 100g–5000g. B2B packaging supplier Latvia. Min. 500 pcs.",
+  title: "Doypack Stand-Up Pouch Latvia — B2B Packaging Supplier",
+  description: "Doypack stand-up pouches for food, beverages & personal care. Zipper & valve options, 100g–5000g. Multiple materials and colours. B2B packaging supplier Latvia. Min. 500 pcs.",
   openGraph: {
     title: "Doypack Stand-Up Pouch | PrimePack Latvia",
-    description: "Classic doypack stand-up pouches with custom print, zipper & valve options. B2B packaging supplier Latvia.",
+    description: "Doypack stand-up pouches with zipper & valve options. Multiple materials. B2B packaging supplier Latvia.",
     url: "https://www.primepack.lv/products/doypack-bag",
     images: [{ url: "/og-image.png" }],
   },
@@ -20,22 +20,18 @@ export const metadata: Metadata = {
     },
   },
   keywords: [
-    // English — simple + long-tail + custom print
+    // English
     "doypack latvia", "doypack bag latvia", "doypack bags latvia", "doypack riga",
-    "custom printed doypack latvia", "custom print doypack latvia",
-    "doypack with logo latvia", "branded doypack latvia",
     "doypack packaging latvia", "doypack supplier latvia", "doypack pouch latvia",
     "stand up pouch latvia", "stand-up pouch latvia", "stand up pouch supplier latvia",
     "food pouch latvia", "doypack Baltic", "flexible packaging latvia", "B2B packaging riga",
     // Latvian
     "doypack latvija", "doypack maisiņi latvijā", "doypack maisiņi rīgā",
-    "doypack maisiņi", "doypack ar apdruku latvijā", "doypack ar logo latvijā",
-    "apdrukāti doypack maisiņi latvija", "doypack iepakojums latvijā",
+    "doypack maisiņi", "doypack iepakojums latvijā", "doypack piegādātājs latvijā",
     "stand-up maisiņi latvija", "pārtikas iepakojums latvija",
     // Russian
     "дойпак латвия", "дойпак пакеты латвия", "дойпак рига",
-    "дойпак с печатью латвия", "дойпак с логотипом латвия",
-    "дойпак с логотипом рига", "дойпак поставщик латвия",
+    "дойпак поставщик латвия", "дойпак упаковка латвия",
     "стоячий пакет латвия", "упаковка дойпак латвия",
   ],
 };
@@ -55,7 +51,7 @@ const productLd = {
   "@type": "Product",
   name: "Doypack Stand-Up Pouch",
   url: "https://www.primepack.lv/products/doypack-bag",
-  description: "Classic doypack stand-up pouches for food, beverages & personal care. Custom print, zipper & valve options. B2B packaging supplier Latvia.",
+  description: "Classic doypack stand-up pouches for food, beverages & personal care. Zipper & valve options, multiple materials. B2B packaging supplier Latvia.",
   image: "https://www.primepack.lv/doypack-bag.png",
   brand: { "@type": "Brand", name: "PrimePack" },
   offers: {
