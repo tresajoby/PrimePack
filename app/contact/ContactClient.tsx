@@ -57,7 +57,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-heading font-bold text-navy text-sm mb-1">{c.address}</h3>
-                    <p className="text-[#6B7280] text-sm leading-relaxed">Salaspils iela 6 K 4 ap.61<br />Riga LV-1057, Latvia</p>
+                    <p className="text-[#6B7280] text-sm leading-relaxed">Salaspils iela 6 K 4<br />Riga LV-1057, Latvia</p>
                   </div>
                 </div>
               </div>

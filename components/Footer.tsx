@@ -23,7 +23,7 @@ export default function Footer() {
             <Image src="/logo.png" alt="PrimePack" width={160} height={50} className="h-12 w-auto object-contain mb-4" />
             <p className="text-white/70 text-sm leading-relaxed mt-3">{t.footer.tagline}</p>
             <p className="text-white/60 text-sm leading-relaxed mt-4">
-              Salaspils iela 6 K 4 ap.61<br />Riga LV-1057, Latvia
+              Salaspils iela 6 K 4<br />Riga LV-1057, Latvia
             </p>
             <div className="mt-4 space-y-2">
               <a href="tel:+37129429945" className="flex items-center gap-2 text-white/70 hover:text-gold text-sm transition-colors">
@@ -94,7 +94,7 @@ export default function Footer() {
             {[
               { label: t.footer.companyLabel, value: 'SIA "PrimePack"' },
               { label: t.footer.vatLabel, value: "LV40203753579" },
-              { label: t.footer.legalAddressLabel, value: "Salaspils iela 6 k-4–61, Rīga, LV-1057" },
+              { label: t.footer.legalAddressLabel, value: "Salaspils iela 6 k-4, Rīga, LV-1057" },
               { label: t.footer.bankLabel, value: "LV96HABA0551065416641 Swedbank AS" },
             ].map(({ label, value }) => (
               <p key={label} className="text-white/40 text-xs">

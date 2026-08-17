@@ -29,7 +29,7 @@ export default function TermsPage() {
               <Section key={sec.t} title={sec.t}>
                 <p className="not-prose">
                   PrimePack<br />
-                  Salaspils iela 6 K 4 ap.61<br />
+                  Salaspils iela 6 K 4<br />
                   Riga LV-1057, Latvia<br />
                   Phone: +371 29 429 945<br />
                   Email: PrimePack.lv@gmail.com

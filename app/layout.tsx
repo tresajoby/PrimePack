@@ -116,7 +116,7 @@ const jsonLd = {
   description: "Packaging supplier in Riga, Latvia. Doypack bags, flat bottom bags, side gusset bags, recyclable packaging, tea filter bags for businesses across Latvia and Europe.",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Salaspils iela 6 K 4 ap.61",
+    streetAddress: "Salaspils iela 6 K 4",
     addressLocality: "Riga",
     postalCode: "LV-1057",
     addressCountry: "LV",

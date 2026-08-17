@@ -34,7 +34,7 @@ const jsonLd = {
         email: "PrimePack.lv@gmail.com",
         address: {
           "@type": "PostalAddress",
-          streetAddress: "Salaspils iela 6 K 4 ap.61",
+          streetAddress: "Salaspils iela 6 K 4",
           addressLocality: "Riga",
           postalCode: "LV-1057",
           addressCountry: "LV",
