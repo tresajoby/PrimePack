@@ -19,7 +19,20 @@ export const metadata: Metadata = {
       "ru": "https://www.primepack.lv/products/recyclable-bags",
     },
   },
-  keywords: ["recyclable packaging Latvia", "eco-friendly packaging Latvia", "pārstrādājami maisi Latvija", "sustainable packaging Latvia", "mono-material packaging Latvia", "recyclable bags supplier", "green packaging Latvia", "biodegradable bags Latvia", "EU compliant packaging Latvia", "LDPE BOPP bags Latvia"],
+  keywords: [
+    // English — simple + long-tail
+    "recyclable bags latvia", "recyclable packaging latvia", "eco bags latvia", "eco packaging latvia",
+    "sustainable packaging latvia", "green packaging latvia", "recyclable bags riga",
+    "recyclable packaging supplier latvia", "eco-friendly bags latvia",
+    "mono-material bags latvia", "LDPE bags latvia", "BOPP bags latvia",
+    // Latvian
+    "pārstrādājami maisi latvijā", "pārstrādājami maisi", "eko iepakojums latvijā",
+    "eko maisiņi latvijā", "zaļais iepakojums latvijā", "ilgtspējīgs iepakojums latvijā",
+    "videi draudzīgs iepakojums latvija", "pārstrādājams iepakojums latvija",
+    // Russian
+    "перерабатываемые пакеты латвия", "экологичная упаковка латвия", "эко упаковка латвия",
+    "перерабатываемая упаковка рига", "эко пакеты латвия", "зеленая упаковка латвия",
+  ],
 };
 
 const breadcrumbLd = {

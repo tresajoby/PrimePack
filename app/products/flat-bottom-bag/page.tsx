@@ -19,7 +19,22 @@ export const metadata: Metadata = {
       "ru": "https://www.primepack.lv/products/flat-bottom-bag",
     },
   },
-  keywords: ["flat bottom bag Latvia", "flat bottom maisiņi Latvija", "flat bottom pouch supplier", "stand-up bag Latvia", "coffee bag Latvia", "kafijas maisiņi Latvija", "packaging bags Latvia", "custom printed bags Latvia", "zipper bag Latvia", "food packaging Latvia", "B2B packaging Latvia"],
+  keywords: [
+    // English — simple + long-tail
+    "flat bottom bag latvia", "flat bottom latvia", "flat bottom bags latvia", "flat bottom riga",
+    "flat bottom pouch latvia", "flat bottom packaging latvia", "flat bottom supplier latvia",
+    "flat bottom coffee bag latvia", "flat bottom stand up bag latvia",
+    "coffee bag latvia", "coffee bags latvia", "coffee packaging latvia",
+    "kraft bag latvia", "custom printed bags latvia", "B2B packaging latvia",
+    // Latvian
+    "flat bottom latvija", "flat bottom maisiņi latvijā", "flat bottom maisiņi rīgā",
+    "flat bottom maisiņi", "flat bottom iepakojums latvijā",
+    "flat bottom kafijas maisiņi latvijā", "kafijas maisiņi latvijā", "kafijas iepakojums latvija",
+    // Russian
+    "flat bottom латвия", "flat bottom пакеты латвия", "flat bottom рига",
+    "пакеты с плоским дном латвия", "flat bottom пакеты рига",
+    "кофейные пакеты латвия", "упаковка для кофе латвия",
+  ],
 };
 
 const breadcrumbLd = {

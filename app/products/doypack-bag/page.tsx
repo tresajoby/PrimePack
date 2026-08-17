@@ -19,7 +19,21 @@ export const metadata: Metadata = {
       "ru": "https://www.primepack.lv/products/doypack-bag",
     },
   },
-  keywords: ["doypack bag Latvia", "doypack maisiņi Latvija", "stand-up pouch Latvia", "stand up pouch supplier Latvia", "food pouch Latvia", "дойпак пакеты Латвия", "doypack packaging Latvia", "packing bags Latvia", "flexible packaging Latvia", "B2B packaging Riga"],
+  keywords: [
+    // English — simple + long-tail
+    "doypack latvia", "doypack bag latvia", "doypack bags latvia", "doypack riga",
+    "doypack packaging latvia", "doypack supplier latvia", "doypack pouch latvia",
+    "stand up pouch latvia", "stand-up pouch latvia", "stand up pouch supplier latvia",
+    "food pouch latvia", "doypack Baltic", "flexible packaging latvia", "B2B packaging riga",
+    // Latvian
+    "doypack latvija", "doypack maisiņi latvijā", "doypack maisiņi rīgā",
+    "doypack maisiņi", "doypack iepakojums latvijā", "doypack piegādātājs latvijā",
+    "stand-up maisiņi latvija", "pārtikas iepakojums latvija",
+    // Russian
+    "дойпак латвия", "дойпак пакеты латвия", "дойпак рига",
+    "дойпак поставщик латвия", "дойпак упаковка латвия",
+    "стоячий пакет латвия", "упаковка дойпак латвия",
+  ],
 };
 
 const breadcrumbLd = {

@@ -19,7 +19,21 @@ export const metadata: Metadata = {
       "ru": "https://www.primepack.lv/products/side-gusset-bag",
     },
   },
-  keywords: ["side gusset bag Latvia", "sānu ieloces maisi Latvija", "coffee packaging Latvia", "coffee bag supplier Latvia", "tea packaging Latvia", "dry goods bag Latvia", "kraft bag Latvia", "pillow bag Latvia", "tin tie bag Latvia", "packaging bags Latvia", "B2B packaging supplier Latvia"],
+  keywords: [
+    // English — simple + long-tail
+    "side gusset bag latvia", "side gusset latvia", "gusset bag latvia", "side gusset bags latvia",
+    "side gusset bags riga", "side gusset packaging latvia", "gusset bag supplier latvia",
+    "coffee bag latvia", "coffee bags latvia", "coffee packaging latvia",
+    "tea bag latvia", "kraft bag latvia", "dry goods bag latvia",
+    // Latvian
+    "sānu ieloces maisi latvijā", "sānu ieloces latvija", "ieloces maisiņi latvijā",
+    "sānu ieloces maisiņi rīgā", "sānu ieloces iepakojums latvijā",
+    "kafijas maisiņi latvijā", "tējas iepakojums latvija",
+    // Russian
+    "пакеты с боковой складкой латвия", "боковые складки упаковка латвия",
+    "пакеты с боковой складкой рига", "кофейные пакеты латвия",
+    "упаковка для кофе латвия", "упаковка для чая латвия",
+  ],
 };
 
 const breadcrumbLd = {

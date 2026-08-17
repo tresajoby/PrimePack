@@ -19,7 +19,20 @@ export const metadata: Metadata = {
       "ru": "https://www.primepack.lv/products/tea-filter-bags",
     },
   },
-  keywords: ["tea filter bags Latvia", "tējas filtru maisiņi Latvija", "tea bags wholesale Latvia", "tea bags supplier Latvia", "filter paper bags Latvia", "heat seal tea bags Latvia", "food safe filter bags Latvia", "loose leaf tea bags Latvia", "herb bags Latvia", "tea packaging Latvia"],
+  keywords: [
+    // English — simple + long-tail
+    "tea filter bags latvia", "tea filter latvia", "tea bags latvia", "tea filter riga",
+    "tea filter supplier latvia", "tea bags wholesale latvia", "tea bags supplier latvia",
+    "tea filter bags riga", "filter paper bags latvia", "heat seal tea bags latvia",
+    "food safe filter bags latvia", "loose leaf tea bags latvia",
+    // Latvian
+    "tējas filtru maisiņi latvijā", "tējas filtri latvijā", "tējas filtri rīgā",
+    "tējas maisiņi latvijā", "filtru maisiņi latvijā", "tējas iepakojums latvijā",
+    "tējas filtru maisiņi rīgā",
+    // Russian
+    "чайные фильтры латвия", "фильтры для чая латвия", "чайные фильтры рига",
+    "чайные пакетики латвия", "фильтр-пакеты для чая латвия", "фильтры для чая рига",
+  ],
 };
 
 const breadcrumbLd = {
